@@ -1,0 +1,100 @@
+# MVP eval config — Qwen2.5-7B-Instruct on MMLU + OpinionQA, greedy decoding.
+# Override anything from the CLI via `--set key.sub=value`.
+
+dataset:
+  enabled: ["mmlu"]
+  mmlu_split: "test"
+  # Override to a single subject for a 100-item pilot:
+  # nlae eval --config examples/mvp.yaml --set dataset.mmlu_subjects='[abstract_algebra]'
+  mmlu_subjects: null
+  mmlu_hf_id: "cais/mmlu"
+  mmlu_limit: null
+
+  opinionqa_source_dir: null
+  opinionqa_canonicalization: "keep_all"
+  opinionqa_subset_path: null
+
+  cache_dir: "${ENV:HF_HOME:./hf_cache}"
+  offline: false
+
+  templates_dir: "./templates"
+  templates_in_use: ["mcq_flat_v1"]
+  chat_enabled: true
+  pinned_chat_template_hash_path: "./templates/pinned_chat_template.sha256"
+
+  letter_token_variants: ["bare", "leading_space"]
+
+model:
+  hf_model_id: "Qwen/Qwen2.5-7B-Instruct"
+  hf_revision: null
+  cache_dir: "${ENV:HF_HOME:./hf_cache}"
+  attn_implementation: "sdpa"
+  device_map: "cuda:0"
+  default_max_new_tokens: 64
+  default_stop_strings: ["\n\n"]
+  pinned_chat_template_hash_path: "./templates/pinned_chat_template.sha256"
+
+  quantization:
+    kind: "fp16"
+    double_quant: true
+    compute_dtype: "fp16"
+    bnb_4bit_quant_storage: "uint8"
+    cpu_offload_layers: 0
+
+  hook_spec:
+    record_layers: null
+    position_policy: "last_prompt_token"
+    storage_dtype: "fp16"
+
+decoding:
+  strategy: "greedy"
+  max_new_tokens: 64
+  stop_strings: ["\n\n"]
+  repetition_penalty: 1.0
+
+extractor:
+  extractor_id: "regex_ladder"
+  allow_majority_vote: false
+
+eval:
+  plan:
+    template_ids: ["mcq_flat_v1"]
+    permutation_mode: "seeded"
+    permutations_per_item: 10
+  decoding:
+    decode_strategy: "greedy"
+    max_new_tokens: 64
+    scoring_math: "full_vocab_softmax"
+  batch_size: 1
+  log_every: 50
+  stdout_eta_every: 10
+  fail_fast: true
+  save_rendered_prompts: true
+  on_existing_dir: "resume"
+  letter_variant: "leading_space"
+  max_free_text_chars: 2048
+
+output:
+  output_dir: "./runs"
+  run_id_prefix: ""
+  derive_parquet_on_finalize: true
+  save_rendered_prompts: true
+  figure_dpi: 144
+  max_free_text_chars: 2048
+
+seeds:
+  root: 0
+  deterministic_algorithms: "warn_only"
+  cudnn_deterministic: true
+  cudnn_benchmark: false
+
+run_identity:
+  run_id: null
+  slug: "mvp"
+  tags: []
+  notes: ""
+
+logging:
+  console_level: "INFO"
+  file_level: "DEBUG"
+  jsonl_destination: "run_dir"

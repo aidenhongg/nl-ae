@@ -1,0 +1,70 @@
+"""C01 — On-disk contract: pydantic v2 models + writer/reader + paths + hashing."""
+
+from .hashing import (
+    hash_file,
+    hash_json_bytes,
+    hash_prompt_text,
+    make_run_id,
+    now_utc_iso,
+)
+from .models import (
+    SCHEMA_VERSION,
+    DatasetFingerprint,
+    EnvFingerprint,
+    ExtractorRecord,
+    IsoUtcStr,
+    ItemIdStr,
+    LetterSoftmaxEntry,
+    LetterStr,
+    LetterTokenEntry,
+    ModelFingerprint,
+    PermutationCoverage,
+    PromptTemplateRecord,
+    QuantizationSpec,
+    ResultRow,
+    ResultRowKey,
+    RunManifest,
+    Sha256Hex,
+)
+from .paths import RunPaths, run_paths
+from .reader import (
+    ResultsReader,
+    detect_status,
+    load_manifest,
+    load_rows,
+)
+from .writer import ResultsWriter, derive_parquet_from_jsonl, write_manifest_atomic
+
+__all__ = [
+    "SCHEMA_VERSION",
+    "DatasetFingerprint",
+    "EnvFingerprint",
+    "ExtractorRecord",
+    "IsoUtcStr",
+    "ItemIdStr",
+    "LetterSoftmaxEntry",
+    "LetterStr",
+    "LetterTokenEntry",
+    "ModelFingerprint",
+    "PermutationCoverage",
+    "PromptTemplateRecord",
+    "QuantizationSpec",
+    "ResultRow",
+    "ResultRowKey",
+    "ResultsReader",
+    "ResultsWriter",
+    "RunManifest",
+    "RunPaths",
+    "Sha256Hex",
+    "derive_parquet_from_jsonl",
+    "detect_status",
+    "hash_file",
+    "hash_json_bytes",
+    "hash_prompt_text",
+    "load_manifest",
+    "load_rows",
+    "make_run_id",
+    "now_utc_iso",
+    "run_paths",
+    "write_manifest_atomic",
+]

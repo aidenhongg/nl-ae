@@ -1,0 +1,5 @@
+Please read the question below carefully and select ONE of the listed options and only give a single letter.
+
+Question: {question}
+
+{choice_block}
