@@ -1,0 +1,433 @@
+{
+  "schema_version": "1.1.0",
+  "run_id": "20260513T082512Z-fa0aaf9-mvp",
+  "git_sha": "fa0aaf9a3183e253068f64a13ec2e16063807107",
+  "git_dirty": false,
+  "started_at": "2026-05-13T08:26:46Z",
+  "ended_at": "2026-05-13T15:52:58Z",
+  "completion_status": "completed",
+  "failure_reason": null,
+  "env": {
+    "os_name": "Linux",
+    "os_version": "#112-Ubuntu SMP Tue Mar 5 16:50:32 UTC 2024",
+    "python_version": "3.11.10",
+    "cuda_version": "13.0",
+    "torch_version": "2.11.0+cu130",
+    "transformers_version": "5.8.1",
+    "bitsandbytes_version": null,
+    "accelerate_version": "1.13.0",
+    "gpu_name": "NVIDIA RTX A5000",
+    "gpu_vram_mb": 24112
+  },
+  "model": {
+    "hf_model_id": "Qwen/Qwen2.5-7B-Instruct",
+    "hf_model_commit": "a09a35458c702b33eeacc393d103063234e8bc28",
+    "hf_tokenizer_id": "Qwen/Qwen2.5-7B-Instruct",
+    "hf_tokenizer_commit": null,
+    "quantization": {
+      "kind": "fp16",
+      "double_quant": true,
+      "compute_dtype": "fp16",
+      "bnb_4bit_quant_storage": "uint8",
+      "cpu_offload_layers": 0
+    }
+  },
+  "datasets": [
+    {
+      "name": "mmlu",
+      "hf_dataset_id": "cais/mmlu",
+      "split": "test",
+      "commit_or_revision": "0.0.0",
+      "item_count": 14042,
+      "item_id_scheme": "mmlu/v1/<subject>/q-<sha256(nfc(question))[:12]>"
+    }
+  ],
+  "prompt_templates": [
+    {
+      "template_id": "mcq_flat_v1",
+      "template_content_hash": "161ef5ea83b1d7f07fa2584bd1306464488a49ef43792bdfcc8b90ed3f9ae4dc",
+      "template_text": "Please read the multiple-choice question below carefully and select ONE of the listed options and only give a single letter.\n\nQuestion: {question}\n\n{choice_block}\n",
+      "role": "user"
+    },
+    {
+      "template_id": "opinionqa_flat_v1",
+      "template_content_hash": "12973bc96b279ce432a9a4181f34a159e14780ef364267bc92e1edf63a79de67",
+      "template_text": "Please read the question below carefully and select ONE of the listed options and only give a single letter.\n\nQuestion: {question}\n\n{choice_block}\n",
+      "role": "user"
+    }
+  ],
+  "letter_token_table": [
+    {
+      "letter": "A",
+      "token_id": 32,
+      "variant": "bare",
+      "token_str": "A"
+    },
+    {
+      "letter": "A",
+      "token_id": 362,
+      "variant": "leading_space",
+      "token_str": " A"
+    },
+    {
+      "letter": "B",
+      "token_id": 33,
+      "variant": "bare",
+      "token_str": "B"
+    },
+    {
+      "letter": "B",
+      "token_id": 425,
+      "variant": "leading_space",
+      "token_str": " B"
+    },
+    {
+      "letter": "C",
+      "token_id": 34,
+      "variant": "bare",
+      "token_str": "C"
+    },
+    {
+      "letter": "C",
+      "token_id": 356,
+      "variant": "leading_space",
+      "token_str": " C"
+    },
+    {
+      "letter": "D",
+      "token_id": 35,
+      "variant": "bare",
+      "token_str": "D"
+    },
+    {
+      "letter": "D",
+      "token_id": 422,
+      "variant": "leading_space",
+      "token_str": " D"
+    },
+    {
+      "letter": "E",
+      "token_id": 36,
+      "variant": "bare",
+      "token_str": "E"
+    },
+    {
+      "letter": "E",
+      "token_id": 468,
+      "variant": "leading_space",
+      "token_str": " E"
+    },
+    {
+      "letter": "F",
+      "token_id": 37,
+      "variant": "bare",
+      "token_str": "F"
+    },
+    {
+      "letter": "F",
+      "token_id": 434,
+      "variant": "leading_space",
+      "token_str": " F"
+    },
+    {
+      "letter": "G",
+      "token_id": 38,
+      "variant": "bare",
+      "token_str": "G"
+    },
+    {
+      "letter": "G",
+      "token_id": 479,
+      "variant": "leading_space",
+      "token_str": " G"
+    },
+    {
+      "letter": "H",
+      "token_id": 39,
+      "variant": "bare",
+      "token_str": "H"
+    },
+    {
+      "letter": "H",
+      "token_id": 472,
+      "variant": "leading_space",
+      "token_str": " H"
+    },
+    {
+      "letter": "I",
+      "token_id": 40,
+      "variant": "bare",
+      "token_str": "I"
+    },
+    {
+      "letter": "I",
+      "token_id": 358,
+      "variant": "leading_space",
+      "token_str": " I"
+    },
+    {
+      "letter": "J",
+      "token_id": 41,
+      "variant": "bare",
+      "token_str": "J"
+    },
+    {
+      "letter": "J",
+      "token_id": 619,
+      "variant": "leading_space",
+      "token_str": " J"
+    },
+    {
+      "letter": "K",
+      "token_id": 42,
+      "variant": "bare",
+      "token_str": "K"
+    },
+    {
+      "letter": "K",
+      "token_id": 730,
+      "variant": "leading_space",
+      "token_str": " K"
+    },
+    {
+      "letter": "L",
+      "token_id": 43,
+      "variant": "bare",
+      "token_str": "L"
+    },
+    {
+      "letter": "L",
+      "token_id": 444,
+      "variant": "leading_space",
+      "token_str": " L"
+    },
+    {
+      "letter": "M",
+      "token_id": 44,
+      "variant": "bare",
+      "token_str": "M"
+    },
+    {
+      "letter": "M",
+      "token_id": 386,
+      "variant": "leading_space",
+      "token_str": " M"
+    },
+    {
+      "letter": "N",
+      "token_id": 45,
+      "variant": "bare",
+      "token_str": "N"
+    },
+    {
+      "letter": "N",
+      "token_id": 451,
+      "variant": "leading_space",
+      "token_str": " N"
+    },
+    {
+      "letter": "O",
+      "token_id": 46,
+      "variant": "bare",
+      "token_str": "O"
+    },
+    {
+      "letter": "O",
+      "token_id": 506,
+      "variant": "leading_space",
+      "token_str": " O"
+    },
+    {
+      "letter": "P",
+      "token_id": 47,
+      "variant": "bare",
+      "token_str": "P"
+    },
+    {
+      "letter": "P",
+      "token_id": 393,
+      "variant": "leading_space",
+      "token_str": " P"
+    },
+    {
+      "letter": "Q",
+      "token_id": 48,
+      "variant": "bare",
+      "token_str": "Q"
+    },
+    {
+      "letter": "Q",
+      "token_id": 1207,
+      "variant": "leading_space",
+      "token_str": " Q"
+    },
+    {
+      "letter": "R",
+      "token_id": 49,
+      "variant": "bare",
+      "token_str": "R"
+    },
+    {
+      "letter": "R",
+      "token_id": 431,
+      "variant": "leading_space",
+      "token_str": " R"
+    },
+    {
+      "letter": "S",
+      "token_id": 50,
+      "variant": "bare",
+      "token_str": "S"
+    },
+    {
+      "letter": "S",
+      "token_id": 328,
+      "variant": "leading_space",
+      "token_str": " S"
+    },
+    {
+      "letter": "T",
+      "token_id": 51,
+      "variant": "bare",
+      "token_str": "T"
+    },
+    {
+      "letter": "T",
+      "token_id": 350,
+      "variant": "leading_space",
+      "token_str": " T"
+    },
+    {
+      "letter": "U",
+      "token_id": 52,
+      "variant": "bare",
+      "token_str": "U"
+    },
+    {
+      "letter": "U",
+      "token_id": 547,
+      "variant": "leading_space",
+      "token_str": " U"
+    },
+    {
+      "letter": "V",
+      "token_id": 53,
+      "variant": "bare",
+      "token_str": "V"
+    },
+    {
+      "letter": "V",
+      "token_id": 647,
+      "variant": "leading_space",
+      "token_str": " V"
+    },
+    {
+      "letter": "W",
+      "token_id": 54,
+      "variant": "bare",
+      "token_str": "W"
+    },
+    {
+      "letter": "W",
+      "token_id": 467,
+      "variant": "leading_space",
+      "token_str": " W"
+    },
+    {
+      "letter": "X",
+      "token_id": 55,
+      "variant": "bare",
+      "token_str": "X"
+    },
+    {
+      "letter": "X",
+      "token_id": 1599,
+      "variant": "leading_space",
+      "token_str": " X"
+    },
+    {
+      "letter": "Y",
+      "token_id": 56,
+      "variant": "bare",
+      "token_str": "Y"
+    },
+    {
+      "letter": "Y",
+      "token_id": 809,
+      "variant": "leading_space",
+      "token_str": " Y"
+    },
+    {
+      "letter": "Z",
+      "token_id": 57,
+      "variant": "bare",
+      "token_str": "Z"
+    },
+    {
+      "letter": "Z",
+      "token_id": 1863,
+      "variant": "leading_space",
+      "token_str": " Z"
+    }
+  ],
+  "seeds": {
+    "root": 0,
+    "numpy": 358258440,
+    "torch": 3237552926,
+    "python": 2397974644,
+    "cuda": 1146942075,
+    "free_gen": 1497284572,
+    "pythonhashseed": 4168172378
+  },
+  "rows_written": 140420,
+  "rows_expected": 140420,
+  "cli_args": {
+    "config_path": "examples/mvp.yaml",
+    "overrides": null,
+    "run_id_override": null
+  },
+  "notes": null,
+  "chat_template_hash": "cd8e9439f0570856fd70470bf8889ebd8b5d1107207f67a5efb46e342330527f",
+  "extractor": {
+    "extractor_id": "regex_ladder",
+    "extractor_version": "1.0.0",
+    "rules_content_hash": "61461ccd538710602c01aeac69c2f4d6427f428f6026273a6395ffb091719b90",
+    "rules_in_order": [
+      "header_marker",
+      "my_answer_is",
+      "the_answer_is",
+      "boxed",
+      "letter_only",
+      "trailing_letter",
+      "leading_letter"
+    ]
+  },
+  "kv_shared": false,
+  "permutation_coverage": [
+    {
+      "template_id": "mcq_flat_v1",
+      "items_visited": 13957,
+      "permutations_per_item_mode": 10,
+      "distinct_permutation_ids": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    }
+  ],
+  "applied_seeds_notes": [
+    "PYTHONHASHSEED set in-process only; for cross-process repro set it via the env before Python launches."
+  ],
+  "deterministic_algorithms_actual": "warn_only",
+  "config_digest": "08dd37ba922fc611e81110be06a0b3639c550b6515759703c6f46678e5a26170",
+  "config_yaml_text": "# MVP eval config — Qwen2.5-7B-Instruct on MMLU + OpinionQA, greedy decoding.\n# Override anything from the CLI via `--set key.sub=value`.\n\ndataset:\n  enabled: [\"mmlu\"]\n  mmlu_split: \"test\"\n  # Override to a single subject for a 100-item pilot:\n  # nlae eval --config examples/mvp.yaml --set dataset.mmlu_subjects='[abstract_algebra]'\n  mmlu_subjects: null\n  mmlu_hf_id: \"cais/mmlu\"\n  mmlu_limit: null\n\n  opinionqa_source_dir: null\n  opinionqa_canonicalization: \"keep_all\"\n  opinionqa_subset_path: null\n\n  cache_dir: \"${ENV:HF_HOME:./hf_cache}\"\n  offline: false\n\n  templates_dir: \"./templates\"\n  templates_in_use: [\"mcq_flat_v1\"]\n  chat_enabled: true\n  pinned_chat_template_hash_path: \"./templates/pinned_chat_template.sha256\"\n\n  letter_token_variants: [\"bare\", \"leading_space\"]\n\nmodel:\n  hf_model_id: \"Qwen/Qwen2.5-7B-Instruct\"\n  hf_revision: null\n  cache_dir: \"${ENV:HF_HOME:./hf_cache}\"\n  attn_implementation: \"sdpa\"\n  device_map: \"cuda:0\"\n  default_max_new_tokens: 64\n  default_stop_strings: [\"\\n\\n\"]\n  pinned_chat_template_hash_path: \"./templates/pinned_chat_template.sha256\"\n\n  quantization:\n    kind: \"fp16\"\n    double_quant: true\n    compute_dtype: \"fp16\"\n    bnb_4bit_quant_storage: \"uint8\"\n    cpu_offload_layers: 0\n\n  hook_spec:\n    record_layers: null\n    position_policy: \"last_prompt_token\"\n    storage_dtype: \"fp16\"\n\ndecoding:\n  strategy: \"greedy\"\n  max_new_tokens: 64\n  stop_strings: [\"\\n\\n\"]\n  repetition_penalty: 1.0\n\nextractor:\n  extractor_id: \"regex_ladder\"\n  allow_majority_vote: false\n\neval:\n  plan:\n    template_ids: [\"mcq_flat_v1\"]\n    permutation_mode: \"seeded\"\n    permutations_per_item: 10\n  decoding:\n    decode_strategy: \"greedy\"\n    max_new_tokens: 64\n    scoring_math: \"full_vocab_softmax\"\n  batch_size: 1\n  log_every: 50\n  stdout_eta_every: 10\n  fail_fast: true\n  save_rendered_prompts: true\n  on_existing_dir: \"resume\"\n  letter_variant: \"leading_space\"\n  max_free_text_chars: 2048\n\noutput:\n  output_dir: \"./runs\"\n  run_id_prefix: \"\"\n  derive_parquet_on_finalize: true\n  save_rendered_prompts: true\n  figure_dpi: 144\n  max_free_text_chars: 2048\n\nseeds:\n  root: 0\n  deterministic_algorithms: \"warn_only\"\n  cudnn_deterministic: true\n  cudnn_benchmark: false\n\nrun_identity:\n  run_id: null\n  slug: \"mvp\"\n  tags: []\n  notes: \"\"\n\nlogging:\n  console_level: \"INFO\"\n  file_level: \"DEBUG\"\n  jsonl_destination: \"run_dir\"\n",
+  "resumed_from_partial": false,
+  "activation_manifest_ref": null
+}

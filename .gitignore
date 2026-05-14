@@ -13,7 +13,6 @@ venv/
 .ruff_cache/
 .coverage
 htmlcov/
-runs/
 *.parquet.tmp
 *.partial
 *.jsonl.partial
@@ -23,3 +22,18 @@ Thumbs.db
 .idea/
 .vscode/
 *.swp
+
+# --- runs/ tracking policy ---
+# Track lightweight artifacts (manifests, rows.parquet, aggregates, figures,
+# logs, pilot_manifest, preregistration, probe outputs).
+#
+# rows.jsonl is tracked via Git LFS (see .gitattributes); the 159 MB raw file
+# would otherwise blow past GitHub's 100 MB per-file hard cap.
+#
+# These exclusions cover everything heavy / transient / re-derivable:
+runs/*/prompts/
+runs/**/activations/
+runs/**/run.lock
+runs/**/.run.lock
+# Optional NLA reconstruction vectors (~1 GB on full holdout) live on RunPod.
+runs/**/reconstructions_vectors.parquet

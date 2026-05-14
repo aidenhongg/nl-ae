@@ -1,0 +1,4 @@
+# Git LFS — rows.jsonl per Phase 1 finalize exceeds GitHub's 100 MB per-file cap.
+# The .parquet sibling (~21 MB) is plain git; the JSONL is the schema-canonical
+# form. See README.md §"Repository layout" and .gitignore for the tracking policy.
+runs/**/rows.jsonl filter=lfs diff=lfs merge=lfs -text
