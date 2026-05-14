@@ -8,7 +8,14 @@ from __future__ import annotations
 
 import click
 
-from .commands import aggregate_cmd, eval_cmd, info_cmd, version_cmd
+from .commands import (
+    aggregate_cmd,
+    eval_cmd,
+    info_cmd,
+    pilot_init_cmd,
+    preregistration_lock_cmd,
+    version_cmd,
+)
 
 
 @click.group(help="nl-ae — minimal recreation of Wang et al. 2024.")
@@ -21,6 +28,8 @@ cli.add_command(eval_cmd.eval_cmd)
 cli.add_command(aggregate_cmd.aggregate_cmd)
 cli.add_command(info_cmd.info_cmd)
 cli.add_command(version_cmd.version_cmd)
+cli.add_command(pilot_init_cmd.pilot_init_cmd)
+cli.add_command(preregistration_lock_cmd.preregistration_lock_cmd)
 
 
 def main() -> None:

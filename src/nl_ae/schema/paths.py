@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from pathlib import Path
+from typing import Literal
 
 
 @dataclass(frozen=True)
@@ -21,6 +22,20 @@ class RunPaths:
     aggregates_dir: Path
     figures_dir: Path
     summary_md: Path
+    # Phase 2/3 additions (C09).
+    pilot_manifest_json: Path
+    pilot_manifest_sha256: Path
+    preregistration_md: Path
+    pilot_dir: Path
+    holdout_dir: Path
+
+    def fold_dir(self, fold: Literal["pilot", "holdout"]) -> Path:
+        """Return the per-fold root under ``runs/<run_id>/`` (``pilot/`` or ``holdout/``)."""
+        if fold == "pilot":
+            return self.pilot_dir
+        if fold == "holdout":
+            return self.holdout_dir
+        raise ValueError(f"fold must be 'pilot' or 'holdout'; got {fold!r}")
 
 
 def run_paths(root: Path, run_id: str) -> RunPaths:
@@ -39,6 +54,11 @@ def run_paths(root: Path, run_id: str) -> RunPaths:
         aggregates_dir=run_dir / "aggregates",
         figures_dir=run_dir / "figures",
         summary_md=run_dir / "summary.md",
+        pilot_manifest_json=run_dir / "pilot_manifest.json",
+        pilot_manifest_sha256=run_dir / "pilot_manifest.json.sha256",
+        preregistration_md=run_dir / "preregistration.md",
+        pilot_dir=run_dir / "pilot",
+        holdout_dir=run_dir / "holdout",
     )
 
 
