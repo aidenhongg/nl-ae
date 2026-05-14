@@ -13,6 +13,7 @@ from .commands import (
     eval_cmd,
     extract_activations_cmd,
     info_cmd,
+    materialize_prompts_cmd,
     pilot_init_cmd,
     preregistration_lock_cmd,
     version_cmd,
@@ -32,6 +33,7 @@ cli.add_command(version_cmd.version_cmd)
 cli.add_command(pilot_init_cmd.pilot_init_cmd)
 cli.add_command(preregistration_lock_cmd.preregistration_lock_cmd)
 cli.add_command(extract_activations_cmd.extract_activations_cmd)
+cli.add_command(materialize_prompts_cmd.materialize_prompts_cmd)
 
 
 def main() -> None:

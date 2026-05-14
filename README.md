@@ -36,6 +36,19 @@ nlae eval --config examples\mvp.yaml --set dataset.mmlu_subjects='[abstract_alge
 nlae aggregate --run-dir runs\<run_id>
 ```
 
+If a Phase 1 run was rendered with `eval.save_rendered_prompts: false` (or the
+sidecars were lost), `nlae extract-activations` will refuse to start. Rebuild
+the sidecars without re-running the model:
+
+```powershell
+nlae materialize-prompts --run-dir runs\<run_id>
+```
+
+This replays each row's prompt deterministically from `rows.jsonl` + the
+manifest's embedded config, verifies the resulting SHA-256 against the row's
+recorded `prompt_hash`, and writes `prompts/<prompt_hash>.txt`. Only the
+tokenizer is loaded — no GPU, no model weights.
+
 ### Phase 2/3 — pilot first, then preregister, then holdout
 
 ```powershell

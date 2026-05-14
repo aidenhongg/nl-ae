@@ -172,8 +172,9 @@ def _read_prompt_sidecar(*, prompts_dir: Path, prompt_hash: str) -> str:
     sidecar = prompts_dir / f"{prompt_hash}.txt"
     if not sidecar.exists():
         raise PromptSidecarMissingError(
-            f"prompt sidecar not found: {sidecar} — re-run Phase 1 with "
-            "`save_rendered_prompts: true`"
+            f"prompt sidecar not found: {sidecar} — run "
+            "`nlae materialize-prompts --run-dir <run_dir>` to rebuild sidecars "
+            "without re-running the model"
         )
     text = sidecar.read_text(encoding="utf-8")
     normalized = nfc(text)

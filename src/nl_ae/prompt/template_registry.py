@@ -8,13 +8,18 @@ the manifest so cross-run joins can filter by template content.
 from __future__ import annotations
 
 import re
+from collections.abc import Iterable
 from pathlib import Path
 from typing import Annotated, Literal
 
 from pydantic import BaseModel, ConfigDict, StringConstraints
 
 from nl_ae.data.text_norm import nfc, normalize_newlines, sha256_hex_bytes, strip_bom
-from nl_ae.schema.models import Sha256Hex
+from nl_ae.schema.models import PromptTemplateRecord, Sha256Hex
+
+from .errors import TemplateContentHashMismatchError
+
+_MANIFEST_SOURCE = Path("<manifest>")
 
 TemplateIdStr = Annotated[
     str, StringConstraints(min_length=1, max_length=64, pattern=r"^[a-z0-9_\-\.]+$")
@@ -108,6 +113,43 @@ class TemplateRegistry:
     def all_records(self) -> tuple[TemplateRecord, ...]:
         self.load()
         return tuple(self._records[k] for k in sorted(self._records))
+
+    @classmethod
+    def from_records(cls, records: Iterable[PromptTemplateRecord]) -> TemplateRegistry:
+        """Build a hermetic registry from manifest records.
+
+        Each ``template_text`` is re-hashed under the same NFC + UTF-8 policy as
+        the on-disk loader; drift raises :class:`TemplateContentHashMismatchError`.
+        No ``templates_dir`` is touched, so this works on a machine that no
+        longer has the original templates checked out.
+        """
+        inst = cls.__new__(cls)
+        inst._templates_dir = _MANIFEST_SOURCE
+        inst._records = {}
+        inst._loaded = True
+        for rec in records:
+            recomputed = sha256_hex_bytes(nfc(rec.template_text).encode("utf-8"))
+            if recomputed != rec.template_content_hash:
+                raise TemplateContentHashMismatchError(
+                    f"template {rec.template_id!r}: recomputed content hash "
+                    f"{recomputed} != manifest hash {rec.template_content_hash}"
+                )
+            slots = frozenset(_SLOT_RE.findall(rec.template_text))
+            unknown = slots - ALLOWED_SLOTS
+            if unknown:
+                raise ValueError(
+                    f"template {rec.template_id!r} declares unknown slots: "
+                    f"{sorted(unknown)} — allowed: {sorted(ALLOWED_SLOTS)}"
+                )
+            inst._records[rec.template_id] = TemplateRecord(
+                template_id=rec.template_id,
+                template_content_hash=rec.template_content_hash,
+                template_text=rec.template_text,
+                role=rec.role,
+                slots=slots,
+                source_path=_MANIFEST_SOURCE,
+            )
+        return inst
 
 
 __all__ = [

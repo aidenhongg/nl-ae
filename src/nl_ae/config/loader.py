@@ -33,9 +33,43 @@ def load_config(
     if not config_path.is_file():
         raise ConfigParseError(f"config file not found: {config_path}")
     try:
-        raw = yaml.safe_load(config_path.read_text(encoding="utf-8")) or {}
+        text = config_path.read_text(encoding="utf-8")
+    except OSError as exc:
+        raise ConfigParseError(f"could not read config file {config_path}: {exc}") from exc
+    return _load_config_from_text_inner(
+        text, overrides=overrides, cli_named=cli_named, env=env, source=config_path
+    )
+
+
+def load_config_from_text(
+    text: str,
+    *,
+    overrides: Sequence[str] = (),
+    cli_named: Mapping[str, object] | None = None,
+    env: Mapping[str, str] | None = None,
+) -> RunConfig:
+    """Same pipeline as :func:`load_config`, but consumes raw YAML text.
+
+    Used by ``nlae materialize-prompts`` to reparse ``RunManifest.config_yaml_text``
+    without needing the original config file on disk.
+    """
+    return _load_config_from_text_inner(
+        text, overrides=overrides, cli_named=cli_named, env=env, source=Path("<manifest>")
+    )
+
+
+def _load_config_from_text_inner(
+    text: str,
+    *,
+    overrides: Sequence[str],
+    cli_named: Mapping[str, object] | None,
+    env: Mapping[str, str] | None,
+    source: Path,
+) -> RunConfig:
+    try:
+        raw = yaml.safe_load(text) or {}
     except yaml.YAMLError as exc:
-        raise ConfigParseError(f"YAML parse error in {config_path}: {exc}") from exc
+        raise ConfigParseError(f"YAML parse error in {source}: {exc}") from exc
     if not isinstance(raw, dict):
         raise ConfigParseError(f"top-level config must be a mapping; got {type(raw).__name__}")
 
@@ -45,7 +79,7 @@ def load_config(
     try:
         return RunConfig.model_validate(merged)
     except ValidationError as exc:
-        raise ConfigParseError(pretty_validation_error(exc, config_path=config_path)) from exc
+        raise ConfigParseError(pretty_validation_error(exc, config_path=source)) from exc
 
 
 def parse_override(pair: str) -> tuple[tuple[str, ...], Any]:
@@ -155,6 +189,7 @@ __all__ = [
     "apply_overrides",
     "interpolate_env",
     "load_config",
+    "load_config_from_text",
     "parse_override",
     "pretty_validation_error",
 ]

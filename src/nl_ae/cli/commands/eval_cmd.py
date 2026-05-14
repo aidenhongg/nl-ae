@@ -49,11 +49,9 @@ def eval_cmd(
     )
     from nl_ae.inference.extractor import RegexLadderExtractor  # noqa: PLC0415
     from nl_ae.inference.wrapper import Qwen25Wrapper  # noqa: PLC0415
+    from nl_ae.prompt.chat_adapter import make_chat_adapter  # noqa: PLC0415
     from nl_ae.prompt.letter_tokens import build_letter_token_table  # noqa: PLC0415
-    from nl_ae.prompt.renderer import (  # noqa: PLC0415
-        NullChatTemplateAdapter,
-        PromptRenderer,
-    )
+    from nl_ae.prompt.renderer import PromptRenderer  # noqa: PLC0415
     from nl_ae.prompt.template_registry import TemplateRegistry  # noqa: PLC0415
     from nl_ae.runtime.identity import (  # noqa: PLC0415
         gather_environment_fingerprint,
@@ -120,11 +118,9 @@ def eval_cmd(
 
         registry = TemplateRegistry(cfg.dataset.templates_dir.expanduser().resolve())
         registry.load()
-        chat_adapter = _make_chat_adapter(
+        chat_adapter = make_chat_adapter(
             tokenizer, identity_hash=chat_template_hash, enabled=cfg.dataset.chat_enabled
         )
-        if chat_adapter is None:
-            chat_adapter = NullChatTemplateAdapter(identity_hash=chat_template_hash)
         renderer = PromptRenderer(registry, chat_adapter=chat_adapter)
 
         # Dataset loaders.
@@ -221,36 +217,6 @@ def eval_cmd(
             f"rows={outcome.rows_written}/{outcome.rows_expected} "
             f"wall={outcome.wall_seconds:.1f}s started={started_at}"
         )
-
-
-def _make_chat_adapter(tokenizer: object, *, identity_hash: str, enabled: bool):  # noqa: ANN202
-    if not enabled or not hasattr(tokenizer, "apply_chat_template"):
-        return None
-
-    class HFChatAdapter:
-        def __init__(self) -> None:
-            self._tok = tokenizer
-            self._identity = identity_hash
-
-        def apply(
-            self, *, system: str | None, user: str, add_generation_prompt: bool = True
-        ) -> str:
-            messages: list[dict[str, str]] = []
-            if system:
-                messages.append({"role": "system", "content": system})
-            messages.append({"role": "user", "content": user})
-            rendered = self._tok.apply_chat_template(
-                messages,
-                tokenize=False,
-                add_generation_prompt=add_generation_prompt,
-            )
-            return str(rendered)
-
-        @property
-        def identity(self) -> str:
-            return self._identity
-
-    return HFChatAdapter()
 
 
 __all__ = ["eval_cmd"]
