@@ -41,6 +41,10 @@ class RunPaths:
         """``runs/<run_id>/<fold>/activations/`` — C06 cache root."""
         return self.fold_dir(fold) / "activations"
 
+    def fold_probes_dir(self, fold: Literal["pilot", "holdout"]) -> Path:
+        """``runs/<run_id>/<fold>/probes/`` — C07 probe-artifacts root."""
+        return self.fold_dir(fold) / "probes"
+
 
 def run_paths(root: Path, run_id: str) -> RunPaths:
     run_dir = root / run_id

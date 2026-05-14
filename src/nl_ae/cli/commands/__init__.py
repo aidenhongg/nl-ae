@@ -8,6 +8,7 @@ from . import (
     materialize_prompts_cmd,
     pilot_init_cmd,
     preregistration_lock_cmd,
+    probe_train_cmd,
     version_cmd,
 )
 
@@ -19,5 +20,6 @@ __all__ = [
     "materialize_prompts_cmd",
     "pilot_init_cmd",
     "preregistration_lock_cmd",
+    "probe_train_cmd",
     "version_cmd",
 ]

@@ -17,33 +17,9 @@ from pathlib import Path
 
 import click
 
+from ._common import parse_layers_arg as _parse_layers
+
 LOG = logging.getLogger("nl_ae.cli.extract_activations")
-
-
-def _parse_layers(layers_arg: str | None, *, n_layers: int) -> tuple[int, ...]:
-    """Accept ``"0,1,2"``, ``"0-27"``, or comma-separated mixed; default = all layers."""
-    if layers_arg is None or layers_arg.strip() == "":
-        return tuple(range(n_layers))
-    out: set[int] = set()
-    for part in layers_arg.split(","):
-        token = part.strip()
-        if not token:
-            continue
-        if "-" in token:
-            lo_s, hi_s = token.split("-", 1)
-            lo, hi = int(lo_s), int(hi_s)
-            if lo > hi:
-                raise click.UsageError(f"--layers range {token!r} has lo > hi")
-            out.update(range(lo, hi + 1))
-        else:
-            out.add(int(token))
-    if not out:
-        raise click.UsageError("--layers parsed to an empty set")
-    if min(out) < 0 or max(out) >= n_layers:
-        raise click.UsageError(
-            f"--layers contains values out of [0, {n_layers}): {sorted(out)}"
-        )
-    return tuple(sorted(out))
 
 
 @click.command(
