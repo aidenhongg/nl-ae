@@ -3,6 +3,7 @@
 from . import (
     aggregate_cmd,
     eval_cmd,
+    extract_activations_cmd,
     info_cmd,
     pilot_init_cmd,
     preregistration_lock_cmd,
@@ -12,6 +13,7 @@ from . import (
 __all__ = [
     "aggregate_cmd",
     "eval_cmd",
+    "extract_activations_cmd",
     "info_cmd",
     "pilot_init_cmd",
     "preregistration_lock_cmd",

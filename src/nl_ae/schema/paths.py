@@ -37,6 +37,10 @@ class RunPaths:
             return self.holdout_dir
         raise ValueError(f"fold must be 'pilot' or 'holdout'; got {fold!r}")
 
+    def fold_activations_dir(self, fold: Literal["pilot", "holdout"]) -> Path:
+        """``runs/<run_id>/<fold>/activations/`` — C06 cache root."""
+        return self.fold_dir(fold) / "activations"
+
 
 def run_paths(root: Path, run_id: str) -> RunPaths:
     run_dir = root / run_id

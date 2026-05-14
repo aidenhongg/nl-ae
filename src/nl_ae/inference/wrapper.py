@@ -9,7 +9,6 @@ from __future__ import annotations
 import logging
 import time
 from collections.abc import Sequence
-from pathlib import Path
 from types import TracebackType
 from typing import TYPE_CHECKING, Any, Literal
 
@@ -51,9 +50,27 @@ class ChatTemplateMismatch(RuntimeError):
 
 
 def _hash_chat_template(template_text: str) -> Sha256Hex:
-    import hashlib  # noqa: PLC0415
+    import hashlib
 
     return hashlib.sha256(nfc(template_text).encode("utf-8")).hexdigest()
+
+
+def _select_block_outputs(
+    hidden_states: Sequence[Any], layers: Sequence[int], n_layers: int
+) -> dict[int, Any]:
+    """Map block index ``N`` → block-``N`` output residual at the last prompt token.
+
+    HF's ``output_hidden_states=True`` returns a tuple of length
+    ``num_hidden_layers + 1``: ``hidden_states[0]`` is post-embed, and
+    ``hidden_states[i]`` for ``i ≥ 1`` is the output of block ``i - 1``. The
+    interpretability convention (and the hook path below) treats "layer N" as
+    "block N output", so we read ``hidden_states[N + 1]`` for ``N ∈ [0, n_layers)``.
+    """
+    out: dict[int, Any] = {}
+    for layer_idx in layers:
+        if 0 <= layer_idx < n_layers and (layer_idx + 1) < len(hidden_states):
+            out[layer_idx] = hidden_states[layer_idx + 1][0, -1, :].detach()
+    return out
 
 
 def _build_bnb_config(spec: QuantizationSpec) -> Any:
@@ -61,8 +78,8 @@ def _build_bnb_config(spec: QuantizationSpec) -> Any:
     if not spec.kind.startswith("int"):
         return None
     try:
-        from transformers import BitsAndBytesConfig  # noqa: PLC0415
-        import torch  # noqa: PLC0415
+        import torch
+        from transformers import BitsAndBytesConfig
     except ImportError as exc:  # pragma: no cover
         raise InferenceError(
             f"quantization kind={spec.kind!r} requires bitsandbytes + transformers"
@@ -98,8 +115,8 @@ class Qwen25Wrapper:
         pinned_chat_template_hash: Sha256Hex | None = None,
     ) -> None:
         try:
-            import torch  # noqa: PLC0415
-            from transformers import AutoModelForCausalLM, AutoTokenizer  # noqa: PLC0415
+            import torch
+            from transformers import AutoModelForCausalLM, AutoTokenizer
         except ImportError as exc:  # pragma: no cover
             raise InferenceError(
                 "torch + transformers are required to construct Qwen25Wrapper; "
@@ -109,7 +126,7 @@ class Qwen25Wrapper:
         self._config = config
         self._extractor = extractor or RegexLadderExtractor()
         self._call_count = 0
-        self._hidden_state_buffer: dict[int, "torch.Tensor"] = {}
+        self._hidden_state_buffer: dict[int, torch.Tensor] = {}
         self._hook_handles: list[Any] = []
 
         bnb_config = _build_bnb_config(config.quantization)
@@ -168,7 +185,7 @@ class Qwen25Wrapper:
         return self._tokenizer
 
     @property
-    def model_device(self) -> "torch.device":
+    def model_device(self) -> torch.device:
         return next(self._model.parameters()).device
 
     @property
@@ -186,6 +203,10 @@ class Qwen25Wrapper:
     @property
     def n_layers(self) -> int:
         return int(self._model.config.num_hidden_layers)
+
+    @property
+    def hidden_size(self) -> int:
+        return int(self._model.config.hidden_size)
 
     def fingerprint(self) -> ModelFingerprint:
         commit = getattr(self._model.config, "_commit_hash", None)
@@ -208,7 +229,7 @@ class Qwen25Wrapper:
                 pass
         self._hook_handles.clear()
         try:
-            import torch  # noqa: PLC0415
+            import torch
 
             del self._model
             if torch.cuda.is_available():
@@ -218,7 +239,7 @@ class Qwen25Wrapper:
 
     def try_clear_cache(self) -> None:
         try:
-            import torch  # noqa: PLC0415
+            import torch
 
             if torch.cuda.is_available():
                 torch.cuda.empty_cache()
@@ -245,7 +266,7 @@ class Qwen25Wrapper:
         capture_hiddens: bool = False,
         record_layers_override: Sequence[int] | None = None,
     ) -> ForwardOutput:
-        import torch  # noqa: PLC0415
+        import torch
 
         layers = (
             tuple(record_layers_override)
@@ -269,11 +290,8 @@ class Qwen25Wrapper:
         logits = outputs.logits[0, -1, :].detach()
         hiddens: dict[int, torch.Tensor] | None = None
         if capture_hiddens and layers:
-            hiddens = {}
             hidden_states = getattr(outputs, "hidden_states", None) or ()
-            for layer_idx in layers:
-                if 0 <= layer_idx < len(hidden_states):
-                    hiddens[layer_idx] = hidden_states[layer_idx][0, -1, :].detach()
+            hiddens = _select_block_outputs(hidden_states, layers, self.n_layers)
         elif capture_hiddens and self._hidden_state_buffer:
             hiddens = dict(self._hidden_state_buffer)
         elapsed_ms = (time.perf_counter() - t0) * 1000.0
@@ -295,7 +313,7 @@ class Qwen25Wrapper:
         letter_token_table: Sequence[LetterTokenEntry],
         scoring_math: FirstTokenScoringMath = "full_vocab_softmax",
     ) -> FirstTokenScore:
-        import torch  # noqa: PLC0415
+        import torch
 
         forward = self.forward(prompt, capture_hiddens=False)
         logits = forward.last_token_logits
@@ -364,7 +382,7 @@ class Qwen25Wrapper:
         *,
         decoding: DecodingConfig,
     ) -> GenerateOutput:
-        import torch  # noqa: PLC0415
+        import torch
 
         if decoding.strategy == "sampled":
             assert decoding.seed is not None

@@ -11,6 +11,7 @@ import click
 from .commands import (
     aggregate_cmd,
     eval_cmd,
+    extract_activations_cmd,
     info_cmd,
     pilot_init_cmd,
     preregistration_lock_cmd,
@@ -30,6 +31,7 @@ cli.add_command(info_cmd.info_cmd)
 cli.add_command(version_cmd.version_cmd)
 cli.add_command(pilot_init_cmd.pilot_init_cmd)
 cli.add_command(preregistration_lock_cmd.preregistration_lock_cmd)
+cli.add_command(extract_activations_cmd.extract_activations_cmd)
 
 
 def main() -> None:
