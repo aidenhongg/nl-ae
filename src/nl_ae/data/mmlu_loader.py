@@ -100,6 +100,14 @@ class MmluLoader:
             subjects = ("all",)
         items: list[CanonicalItem] = []
         revisions: set[str] = set()
+        # MMLU contains rows whose question text repeats (sometimes with
+        # different choices/answer). ``item_id`` hashes the question only, so
+        # those collide; the activation cache enforces a hard
+        # ``(item_id, perm, template)`` uniqueness invariant. Dedup keep-first
+        # (deterministic given the pinned dataset revision) so rows.jsonl is
+        # clean and the question is not double-weighted in aggregates.
+        seen_ids: set[str] = set()
+        dropped_dupes = 0
         for subject in subjects:
             LOG.info("loading MMLU subject=%s split=%s", subject, self._split)
             ds = load_dataset(
@@ -122,6 +130,16 @@ class MmluLoader:
                 row_subject = str(row.get("subject") or subject)
                 prefix = f"mmlu/v1/{safe_id_component(row_subject)}"
                 item_id = derive_item_id(prefix=prefix, payload=question)
+                if item_id in seen_ids:
+                    dropped_dupes += 1
+                    LOG.debug(
+                        "skipping duplicate-question MMLU row item_id=%s subject=%s: %s",
+                        item_id,
+                        row_subject,
+                        question[:60],
+                    )
+                    continue
+                seen_ids.add(item_id)
                 items.append(
                     CanonicalItem(
                         item_id=item_id,
@@ -139,6 +157,13 @@ class MmluLoader:
             if self._limit is not None and len(items) >= self._limit:
                 break
 
+        if dropped_dupes:
+            LOG.warning(
+                "MMLU: dropped %d duplicate-question row(s) (keep-first dedup); "
+                "%d unique items",
+                dropped_dupes,
+                len(items),
+            )
         self._items_cached = items
         self._resolved_revision = (
             self._configured_revision
