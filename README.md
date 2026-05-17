@@ -14,13 +14,21 @@ confirmatory discipline; no hypothesis is encoded into the plan.
 ```powershell
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
-pip install -e ".[model,report,probes,dev]"
+
+# Full install on a CUDA 12.4 GPU box (RTX A5000 etc.) — the --extra-index-url
+# pulls the cu124 torch 2.6.x wheel; everything else resolves from PyPI:
+pip install -e ".[model,report,probes,dev]" --extra-index-url https://download.pytorch.org/whl/cu124
+
+# CLI / schema only (no GPU, fast test suite) — omit the model extra + index:
+pip install -e ".[report,probes,dev]"
 ```
 
 The default `nl-ae` install pulls only the CLI / schema dependencies so that
 `nlae --help`, `nlae aggregate`, and the test suite stay fast and GPU-free.
-The `[model]` extra adds `torch`, `transformers`, `accelerate`, `datasets`,
-`huggingface_hub`, `safetensors`; `[report]` adds `pandas` + `matplotlib`;
+The `[model]` extra adds `torch` (pinned to 2.6.x for the CUDA 12.4 / cu124
+build — install it from `https://download.pytorch.org/whl/cu124` as shown
+above), `transformers`, `accelerate`, `datasets`, `huggingface_hub`,
+`safetensors`; `[report]` adds `pandas` + `matplotlib`;
 `[probes]` adds `scikit-learn` (Phase 2); `[quant]` adds `bitsandbytes` (only
 needed for `int*` quantization; MVP runs fp16).
 
