@@ -1,0 +1,27 @@
+{
+  "accuracy_test": null,
+  "accuracy_train": 1.0,
+  "accuracy_val": null,
+  "balanced_accuracy_test": null,
+  "classes": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "converged": true,
+  "fit_wall_seconds": 101.62368411000352,
+  "intercept": [
+    0.0011482501868158579,
+    0.0048505524173378944,
+    -0.006372482515871525,
+    0.0003736799699254334
+  ],
+  "macro_f1_test": null,
+  "n_classes_observed_test": 0,
+  "n_iter": 348,
+  "out_of_classes_test_count": 0,
+  "per_class_f1_test": {},
+  "standardize_mean": null,
+  "standardize_std": null
+}

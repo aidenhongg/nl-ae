@@ -1,0 +1,3262 @@
+{
+  "schema_version": "1.0.0",
+  "run_id": "20260515T023617Z-7830851-mvp",
+  "fold": "pilot",
+  "labels": [
+    "disagreement_flag",
+    "extractor_match_rule",
+    "first_token_correct",
+    "first_token_letter",
+    "free_text_correct",
+    "free_text_letter"
+  ],
+  "layers": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27
+  ],
+  "split_seed": 0,
+  "split_frac": [
+    0.7,
+    0.15,
+    0.15
+  ],
+  "sklearn_kwargs": {
+    "penalty": "l2",
+    "C": 1.0,
+    "solver": "lbfgs",
+    "max_iter": 1000,
+    "fit_intercept": true,
+    "class_weight": "none",
+    "standardize": false
+  },
+  "sklearn_kwargs_digest": "3089faca34262746fd31cecd57ced87e57dd49e80efb4bb7872b826f4ca094ef",
+  "source_run_id": "20260515T023617Z-7830851-mvp",
+  "source_cache_key_digest": "37245351b31f282584472a14809a6afeba592624710fe4eaf718065df2a85ce6",
+  "source_pilot_manifest_digest": "bd59b859f2630d4afd57c4c2d33c41e73a92013c178a02547228ab5ce6445999",
+  "source_preregistration_digest": null,
+  "cells": [
+    {
+      "label": "disagreement_flag",
+      "layer": 0,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "0",
+        "1"
+      ],
+      "fit_wall_seconds": 7.958761735004373,
+      "metrics_sha256": "c76908fbbf3006b3bb09e2178e0dd3897a87b8e5033a7a515883dba569303d20",
+      "coef_sha256": "1a520980ea739dad90e7f318d38f70e49da1aa40ee7ae92307f89e85ce001ccb",
+      "failure_reason": null,
+      "started_at": "2026-05-15T03:06:00Z",
+      "ended_at": "2026-05-15T03:06:08Z"
+    },
+    {
+      "label": "disagreement_flag",
+      "layer": 1,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "0",
+        "1"
+      ],
+      "fit_wall_seconds": 2.8365589340100996,
+      "metrics_sha256": "01e97a035925e6f445afc689e50f772580cd07e4bcf7bbe66dd181d4f4326a4d",
+      "coef_sha256": "72a1f3fa7d09cf8e74705690b841ffbe89cc1ccbd12a0aa04727c9a4ca925d3f",
+      "failure_reason": null,
+      "started_at": "2026-05-15T03:07:48Z",
+      "ended_at": "2026-05-15T03:07:51Z"
+    },
+    {
+      "label": "disagreement_flag",
+      "layer": 2,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "0",
+        "1"
+      ],
+      "fit_wall_seconds": 2.6289905159937916,
+      "metrics_sha256": "12e3fde05261010e11d80334e17898f2c529b0c4ade711d9c1e7fd5535cdf09d",
+      "coef_sha256": "7441efa8652b4cd81c946299e521584166a489b3db6ad441e945cc5b4f971939",
+      "failure_reason": null,
+      "started_at": "2026-05-15T03:09:57Z",
+      "ended_at": "2026-05-15T03:10:00Z"
+    },
+    {
+      "label": "disagreement_flag",
+      "layer": 3,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "0",
+        "1"
+      ],
+      "fit_wall_seconds": 3.7450372879975475,
+      "metrics_sha256": "9421d31546f26dfd335856693c4181b50d32550e411047ad26b378a60f56e952",
+      "coef_sha256": "ee097212f95a659d195122a04c454e010f81e9edf119b35eb9594c32459e412d",
+      "failure_reason": null,
+      "started_at": "2026-05-15T03:12:43Z",
+      "ended_at": "2026-05-15T03:12:47Z"
+    },
+    {
+      "label": "disagreement_flag",
+      "layer": 4,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "0",
+        "1"
+      ],
+      "fit_wall_seconds": 4.081123725991347,
+      "metrics_sha256": "d9f27861c741015b5edc7d920df6159f76f4ae1719e3b554632312ded74e6052",
+      "coef_sha256": "c69ed04d196ba4ca44726572c82c1cd2b8f57c7698d29f49d19ca9f3155ee83a",
+      "failure_reason": null,
+      "started_at": "2026-05-15T03:16:22Z",
+      "ended_at": "2026-05-15T03:16:27Z"
+    },
+    {
+      "label": "disagreement_flag",
+      "layer": 5,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "0",
+        "1"
+      ],
+      "fit_wall_seconds": 5.528975970009924,
+      "metrics_sha256": "edbd2277f3447b1aff817251831e3e78e6a465c0662f44659b45e093d6ab6242",
+      "coef_sha256": "95d7e3f75d80492772ffb1b51b90485f2ec83510ee261dbd17df56bca239cb2f",
+      "failure_reason": null,
+      "started_at": "2026-05-15T03:20:58Z",
+      "ended_at": "2026-05-15T03:21:04Z"
+    },
+    {
+      "label": "disagreement_flag",
+      "layer": 6,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "0",
+        "1"
+      ],
+      "fit_wall_seconds": 4.2126861389988335,
+      "metrics_sha256": "a330a3d2c7112a4f7b5f7fe6c535f0a7ea430a2ad67a3e0cbf137493287cd795",
+      "coef_sha256": "e9e6df9f00abbfdddb0daf99836de4f3e03ab62e7b71cb39c0a409833f0d16d0",
+      "failure_reason": null,
+      "started_at": "2026-05-15T03:25:58Z",
+      "ended_at": "2026-05-15T03:26:02Z"
+    },
+    {
+      "label": "disagreement_flag",
+      "layer": 7,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "0",
+        "1"
+      ],
+      "fit_wall_seconds": 6.16251797399309,
+      "metrics_sha256": "fec2d203e428f4f6e5ec44313e85736749e87be5ebba8f79abdfe58a917257ee",
+      "coef_sha256": "d1c63fdcbe42880075a464b66dfbee79f0e8d389e7e4cb11420ecba980dd8773",
+      "failure_reason": null,
+      "started_at": "2026-05-15T03:31:02Z",
+      "ended_at": "2026-05-15T03:31:08Z"
+    },
+    {
+      "label": "disagreement_flag",
+      "layer": 8,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "0",
+        "1"
+      ],
+      "fit_wall_seconds": 6.785213668990764,
+      "metrics_sha256": "7a51b662f5789b8332dccbef7f8febddabb98ebe997d52640866f45f1f411a20",
+      "coef_sha256": "10fb30123eee638284316b72a44ec1b9ed8865bc6446b9eec373ea0dfc2e32ac",
+      "failure_reason": null,
+      "started_at": "2026-05-15T03:36:06Z",
+      "ended_at": "2026-05-15T03:36:13Z"
+    },
+    {
+      "label": "disagreement_flag",
+      "layer": 9,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "0",
+        "1"
+      ],
+      "fit_wall_seconds": 5.975279571997817,
+      "metrics_sha256": "e7243b73150e35bc99a106aaa731e301aeec097f81660af294dade2cdd303d54",
+      "coef_sha256": "7df8fcff84f8f9b3ae86cd112d99192086fdb68fd0b04316d96aa6ae500e63b7",
+      "failure_reason": null,
+      "started_at": "2026-05-15T03:41:23Z",
+      "ended_at": "2026-05-15T03:41:29Z"
+    },
+    {
+      "label": "disagreement_flag",
+      "layer": 10,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "0",
+        "1"
+      ],
+      "fit_wall_seconds": 7.729723678989103,
+      "metrics_sha256": "2d0bdf7619d1c506806387d77361cba657c77535ab8268da845c29dd731a0ba1",
+      "coef_sha256": "80a642d2a609458c048f3b96822cd53d5416533a09031e58cb1e129f0ffd3f1f",
+      "failure_reason": null,
+      "started_at": "2026-05-15T03:46:40Z",
+      "ended_at": "2026-05-15T03:46:48Z"
+    },
+    {
+      "label": "disagreement_flag",
+      "layer": 11,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "0",
+        "1"
+      ],
+      "fit_wall_seconds": 8.419810428007622,
+      "metrics_sha256": "87120a14faa21060339a568076189162b5f54f45f4b88d2a1df93c7e6f6f5bc6",
+      "coef_sha256": "632b0fac8dc3e8634d1ce2db7840580c3995bf12c5bf7f0f7f478fc2f9deef79",
+      "failure_reason": null,
+      "started_at": "2026-05-15T03:51:47Z",
+      "ended_at": "2026-05-15T03:51:56Z"
+    },
+    {
+      "label": "disagreement_flag",
+      "layer": 12,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "0",
+        "1"
+      ],
+      "fit_wall_seconds": 15.131820513997809,
+      "metrics_sha256": "4fb33454305bd3cf5633e7eace14b01328399623afb794b6d19603ec73cc0898",
+      "coef_sha256": "cf9f4627bed01ccb48a432e455de2647029e2ac2e6badd1fa988f8f5833aa6e4",
+      "failure_reason": null,
+      "started_at": "2026-05-15T03:57:03Z",
+      "ended_at": "2026-05-15T03:57:18Z"
+    },
+    {
+      "label": "disagreement_flag",
+      "layer": 13,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "0",
+        "1"
+      ],
+      "fit_wall_seconds": 15.00759788499272,
+      "metrics_sha256": "badb741ffa5d2619518510c6117c7cf18dc1d3f4cb74acf777271b79608cb577",
+      "coef_sha256": "0407f7d23133db3c281d64c76928f5ddf913bee5ac0ccf264388070daee7fea3",
+      "failure_reason": null,
+      "started_at": "2026-05-15T04:02:30Z",
+      "ended_at": "2026-05-15T04:02:46Z"
+    },
+    {
+      "label": "disagreement_flag",
+      "layer": 14,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "0",
+        "1"
+      ],
+      "fit_wall_seconds": 11.218658268000581,
+      "metrics_sha256": "e4b19cf7ded0b7c8011138d2da086cb00da9b3ad818eb845b4bde8f9db90709e",
+      "coef_sha256": "253e555dfe4b4761198995423ee4ac366c4f7721323d5cf80d778d5fa93c7221",
+      "failure_reason": null,
+      "started_at": "2026-05-15T04:08:30Z",
+      "ended_at": "2026-05-15T04:08:41Z"
+    },
+    {
+      "label": "disagreement_flag",
+      "layer": 15,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "0",
+        "1"
+      ],
+      "fit_wall_seconds": 18.571183894993737,
+      "metrics_sha256": "4d61ad2ba286aeda4a4c25df4e443178798e31ca31587492c3cd5f9e62845434",
+      "coef_sha256": "cb3a02edde00c55ba76d04a41c3be378aa27828eb5e54851638377b760cf6789",
+      "failure_reason": null,
+      "started_at": "2026-05-15T04:13:50Z",
+      "ended_at": "2026-05-15T04:14:09Z"
+    },
+    {
+      "label": "disagreement_flag",
+      "layer": 16,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "0",
+        "1"
+      ],
+      "fit_wall_seconds": 18.751763625012245,
+      "metrics_sha256": "ffcbddf6c9a00b32ea6bc03cb9f1581e1dcc6dfdecb321387edcf093ea2e5ff6",
+      "coef_sha256": "0bef618c88f088acd4778a381f0c759a3ef8422b9a987e20f54f3644304b89dd",
+      "failure_reason": null,
+      "started_at": "2026-05-15T04:19:14Z",
+      "ended_at": "2026-05-15T04:19:33Z"
+    },
+    {
+      "label": "disagreement_flag",
+      "layer": 17,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "0",
+        "1"
+      ],
+      "fit_wall_seconds": 14.341117781004868,
+      "metrics_sha256": "f56d5b42c783665991346ce7950d7c29ade134edacd20ca25965c19804ff3e87",
+      "coef_sha256": "3c59f1623b587249a52d090521e017f575d5aae0fd22ae8fa9fde1481ada868f",
+      "failure_reason": null,
+      "started_at": "2026-05-15T04:24:38Z",
+      "ended_at": "2026-05-15T04:24:53Z"
+    },
+    {
+      "label": "disagreement_flag",
+      "layer": 18,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "0",
+        "1"
+      ],
+      "fit_wall_seconds": 9.393306705009309,
+      "metrics_sha256": "cdd2e3ec6db2a84138e4b42b3188dc3640ee455c0f9ea804d1949398ceec5425",
+      "coef_sha256": "e6b2226aa8d10058062c06cd3586fbcbcfde3ffc122209e65edf84a4ae62486b",
+      "failure_reason": null,
+      "started_at": "2026-05-15T04:30:06Z",
+      "ended_at": "2026-05-15T04:30:15Z"
+    },
+    {
+      "label": "disagreement_flag",
+      "layer": 19,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "0",
+        "1"
+      ],
+      "fit_wall_seconds": 4.048308209996321,
+      "metrics_sha256": "3b4a18eef92bf832bc9bf1abcc584e2fa6f0ab4541076674a0dbe63e67380eb3",
+      "coef_sha256": "198f3930aec02ef507e7afb568078483e24919ddceb6d1989640469b88d6546a",
+      "failure_reason": null,
+      "started_at": "2026-05-15T04:35:30Z",
+      "ended_at": "2026-05-15T04:35:35Z"
+    },
+    {
+      "label": "disagreement_flag",
+      "layer": 20,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "0",
+        "1"
+      ],
+      "fit_wall_seconds": 1.8349534099979792,
+      "metrics_sha256": "9849e3ff16189f8ab4d06e8f6d0d9ffb022207840780d63024c44d6eb21a5a98",
+      "coef_sha256": "0c2b4afac80b754bf337b07d2df5af99f3f7bb14b49de6b86e7eb34674d6de8c",
+      "failure_reason": null,
+      "started_at": "2026-05-15T04:38:37Z",
+      "ended_at": "2026-05-15T04:38:39Z"
+    },
+    {
+      "label": "disagreement_flag",
+      "layer": 21,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "0",
+        "1"
+      ],
+      "fit_wall_seconds": 3.5432657769997604,
+      "metrics_sha256": "0ce7450768131a1f5cb354e1fb3f8b832fd5a9956e08db9d1a10b36d6247292d",
+      "coef_sha256": "3f19e88fb10d48c430eac1d086c94a727b419b037047bb65560ff9029cf35ef7",
+      "failure_reason": null,
+      "started_at": "2026-05-15T04:40:44Z",
+      "ended_at": "2026-05-15T04:40:48Z"
+    },
+    {
+      "label": "disagreement_flag",
+      "layer": 22,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "0",
+        "1"
+      ],
+      "fit_wall_seconds": 2.5141866649937583,
+      "metrics_sha256": "bf978a2cce53fbebbc4e883e310b89ff5eac925a2bc1af551fc2e3af73073345",
+      "coef_sha256": "47c82fdd438fd5e7199489b7bd8e2015f55e984c14bf48266ac73f77e6c86a2e",
+      "failure_reason": null,
+      "started_at": "2026-05-15T04:43:00Z",
+      "ended_at": "2026-05-15T04:43:03Z"
+    },
+    {
+      "label": "disagreement_flag",
+      "layer": 23,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "0",
+        "1"
+      ],
+      "fit_wall_seconds": 3.351920571993105,
+      "metrics_sha256": "6d60985751fb643116d5d1c9ac594ddd316b32f198773e99e5afb7a30e01b3c2",
+      "coef_sha256": "53281cd8b838f8994cdfc90cd17cc82724cc675dbdac2a039672aa909f7bb7db",
+      "failure_reason": null,
+      "started_at": "2026-05-15T04:45:17Z",
+      "ended_at": "2026-05-15T04:45:21Z"
+    },
+    {
+      "label": "disagreement_flag",
+      "layer": 24,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "0",
+        "1"
+      ],
+      "fit_wall_seconds": 1.767939455996384,
+      "metrics_sha256": "ffeb069f449ea5f71aa2e025645ea37d1bea8ba2a939deacc7e7a2026d2f8eab",
+      "coef_sha256": "98ba3043b562b0162af8d50d20cd11600541e65b4fe510c905caee6d3a3d9331",
+      "failure_reason": null,
+      "started_at": "2026-05-15T04:47:43Z",
+      "ended_at": "2026-05-15T04:47:45Z"
+    },
+    {
+      "label": "disagreement_flag",
+      "layer": 25,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "0",
+        "1"
+      ],
+      "fit_wall_seconds": 1.280791290992056,
+      "metrics_sha256": "c8c12e54740e1ade12d9e91b25b3ea9d6eca831cfd4b84e3ec9d41ada940f3e4",
+      "coef_sha256": "7327d3ca4f90532349f1f0044b261b18624d96bc91bf39d954c4500a1ea9d65f",
+      "failure_reason": null,
+      "started_at": "2026-05-15T04:49:07Z",
+      "ended_at": "2026-05-15T04:49:09Z"
+    },
+    {
+      "label": "disagreement_flag",
+      "layer": 26,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "0",
+        "1"
+      ],
+      "fit_wall_seconds": 1.9614395990065532,
+      "metrics_sha256": "3dafe05135b50453cd26774fd75815a5ff7605b116250fd4d1933a29c0970ee8",
+      "coef_sha256": "ab8726de063d56a45c7c7d4e03e786a55e2d28b893e2e5d8d74da909280089d8",
+      "failure_reason": null,
+      "started_at": "2026-05-15T04:50:30Z",
+      "ended_at": "2026-05-15T04:50:32Z"
+    },
+    {
+      "label": "disagreement_flag",
+      "layer": 27,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "0",
+        "1"
+      ],
+      "fit_wall_seconds": 3.1207917620049557,
+      "metrics_sha256": "8da92ceb03cc9bc714d8de90e2948a4bf38b6b72d646e2610a594e20aa402233",
+      "coef_sha256": "d984d103a2a52482ca85fd1d5d9e1a70fe787120a22dfad1154fabe4465aea95",
+      "failure_reason": null,
+      "started_at": "2026-05-15T04:52:18Z",
+      "ended_at": "2026-05-15T04:52:22Z"
+    },
+    {
+      "label": "extractor_match_rule",
+      "layer": 0,
+      "status": "failed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "letter_only"
+      ],
+      "fit_wall_seconds": 1.3189354759961134,
+      "metrics_sha256": "a4248885ad00c64cb5b453073ac75b1b2310a6fc1e72b08d247782c592072a27",
+      "coef_sha256": null,
+      "failure_reason": "InsufficientLabelDataError('train sub-fold has only 1 distinct class(es); need ≥2')",
+      "started_at": "2026-05-15T03:06:08Z",
+      "ended_at": "2026-05-15T03:06:09Z"
+    },
+    {
+      "label": "extractor_match_rule",
+      "layer": 1,
+      "status": "failed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "letter_only"
+      ],
+      "fit_wall_seconds": 0.01791869600128848,
+      "metrics_sha256": "f322da4a4d87824edd5c97f8302bbe885c7f7c750275f605b5fc6a04a0e38556",
+      "coef_sha256": null,
+      "failure_reason": "InsufficientLabelDataError('train sub-fold has only 1 distinct class(es); need ≥2')",
+      "started_at": "2026-05-15T03:07:51Z",
+      "ended_at": "2026-05-15T03:07:51Z"
+    },
+    {
+      "label": "extractor_match_rule",
+      "layer": 2,
+      "status": "failed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "letter_only"
+      ],
+      "fit_wall_seconds": 0.017872247990453616,
+      "metrics_sha256": "e1a56cd8ea1789cbf40e76423888d20bf2ebcab4db26596aec3d0839e53374cf",
+      "coef_sha256": null,
+      "failure_reason": "InsufficientLabelDataError('train sub-fold has only 1 distinct class(es); need ≥2')",
+      "started_at": "2026-05-15T03:10:00Z",
+      "ended_at": "2026-05-15T03:10:00Z"
+    },
+    {
+      "label": "extractor_match_rule",
+      "layer": 3,
+      "status": "failed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "letter_only"
+      ],
+      "fit_wall_seconds": 0.01890008799091447,
+      "metrics_sha256": "8b0f7e1a647c6137510dc496b3a5f152f5d0a84c25df3a1ac8dc751bf436f49f",
+      "coef_sha256": null,
+      "failure_reason": "InsufficientLabelDataError('train sub-fold has only 1 distinct class(es); need ≥2')",
+      "started_at": "2026-05-15T03:12:47Z",
+      "ended_at": "2026-05-15T03:12:47Z"
+    },
+    {
+      "label": "extractor_match_rule",
+      "layer": 4,
+      "status": "failed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "letter_only"
+      ],
+      "fit_wall_seconds": 0.016019334987504408,
+      "metrics_sha256": "c4fc051fe92269e10444915e930004d748650f75cc34d76debd1b5f99f2a1bb7",
+      "coef_sha256": null,
+      "failure_reason": "InsufficientLabelDataError('train sub-fold has only 1 distinct class(es); need ≥2')",
+      "started_at": "2026-05-15T03:16:27Z",
+      "ended_at": "2026-05-15T03:16:27Z"
+    },
+    {
+      "label": "extractor_match_rule",
+      "layer": 5,
+      "status": "failed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "letter_only"
+      ],
+      "fit_wall_seconds": 0.014082547000725754,
+      "metrics_sha256": "396639c7ed60b9b9f0fd33995f90c119f45a9b538cf8a93514944236d832bb6f",
+      "coef_sha256": null,
+      "failure_reason": "InsufficientLabelDataError('train sub-fold has only 1 distinct class(es); need ≥2')",
+      "started_at": "2026-05-15T03:21:04Z",
+      "ended_at": "2026-05-15T03:21:04Z"
+    },
+    {
+      "label": "extractor_match_rule",
+      "layer": 6,
+      "status": "failed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "letter_only"
+      ],
+      "fit_wall_seconds": 0.010221760006970726,
+      "metrics_sha256": "94250897e819f7ba2a2c1b58231230ef73260a4ddc2beffff06bda41934480b3",
+      "coef_sha256": null,
+      "failure_reason": "InsufficientLabelDataError('train sub-fold has only 1 distinct class(es); need ≥2')",
+      "started_at": "2026-05-15T03:26:03Z",
+      "ended_at": "2026-05-15T03:26:03Z"
+    },
+    {
+      "label": "extractor_match_rule",
+      "layer": 7,
+      "status": "failed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "letter_only"
+      ],
+      "fit_wall_seconds": 0.014284570002928376,
+      "metrics_sha256": "53a2d9c7f8a693f47f1e939a1666d09e465695630f15fe3787ce38b9a8d732ce",
+      "coef_sha256": null,
+      "failure_reason": "InsufficientLabelDataError('train sub-fold has only 1 distinct class(es); need ≥2')",
+      "started_at": "2026-05-15T03:31:08Z",
+      "ended_at": "2026-05-15T03:31:08Z"
+    },
+    {
+      "label": "extractor_match_rule",
+      "layer": 8,
+      "status": "failed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "letter_only"
+      ],
+      "fit_wall_seconds": 0.018243989994516596,
+      "metrics_sha256": "39e7e3e6964c82c7fbded7729c9ebd64e7f738fe6317501b77eb52b5214cdd49",
+      "coef_sha256": null,
+      "failure_reason": "InsufficientLabelDataError('train sub-fold has only 1 distinct class(es); need ≥2')",
+      "started_at": "2026-05-15T03:36:13Z",
+      "ended_at": "2026-05-15T03:36:13Z"
+    },
+    {
+      "label": "extractor_match_rule",
+      "layer": 9,
+      "status": "failed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "letter_only"
+      ],
+      "fit_wall_seconds": 0.010580292000668123,
+      "metrics_sha256": "69623b6e3e3014d2b84f7674131736db014cb950641d8468f47b375db414aad6",
+      "coef_sha256": null,
+      "failure_reason": "InsufficientLabelDataError('train sub-fold has only 1 distinct class(es); need ≥2')",
+      "started_at": "2026-05-15T03:41:29Z",
+      "ended_at": "2026-05-15T03:41:29Z"
+    },
+    {
+      "label": "extractor_match_rule",
+      "layer": 10,
+      "status": "failed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "letter_only"
+      ],
+      "fit_wall_seconds": 0.018222833998152055,
+      "metrics_sha256": "18cc65e80756066aba826e2e412f060ef9571f5565dc32f3c71495995de929ef",
+      "coef_sha256": null,
+      "failure_reason": "InsufficientLabelDataError('train sub-fold has only 1 distinct class(es); need ≥2')",
+      "started_at": "2026-05-15T03:46:48Z",
+      "ended_at": "2026-05-15T03:46:48Z"
+    },
+    {
+      "label": "extractor_match_rule",
+      "layer": 11,
+      "status": "failed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "letter_only"
+      ],
+      "fit_wall_seconds": 0.018247574000270106,
+      "metrics_sha256": "9759e87f1f1b4a7f2ef2daf8aaf4e1bc70690e3669996a79b12a1801f8266b6d",
+      "coef_sha256": null,
+      "failure_reason": "InsufficientLabelDataError('train sub-fold has only 1 distinct class(es); need ≥2')",
+      "started_at": "2026-05-15T03:51:56Z",
+      "ended_at": "2026-05-15T03:51:56Z"
+    },
+    {
+      "label": "extractor_match_rule",
+      "layer": 12,
+      "status": "failed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "letter_only"
+      ],
+      "fit_wall_seconds": 0.018321655006729998,
+      "metrics_sha256": "138c6d67d9df228d09104243e1d8a255ecb2903cc9977b8848474a5c49bdcafd",
+      "coef_sha256": null,
+      "failure_reason": "InsufficientLabelDataError('train sub-fold has only 1 distinct class(es); need ≥2')",
+      "started_at": "2026-05-15T03:57:18Z",
+      "ended_at": "2026-05-15T03:57:18Z"
+    },
+    {
+      "label": "extractor_match_rule",
+      "layer": 13,
+      "status": "failed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "letter_only"
+      ],
+      "fit_wall_seconds": 0.01677740999730304,
+      "metrics_sha256": "ad838f00860bb9f9ea51fbfc9f6737d22de0a04408985da9f805c4b74061e959",
+      "coef_sha256": null,
+      "failure_reason": "InsufficientLabelDataError('train sub-fold has only 1 distinct class(es); need ≥2')",
+      "started_at": "2026-05-15T04:02:46Z",
+      "ended_at": "2026-05-15T04:02:46Z"
+    },
+    {
+      "label": "extractor_match_rule",
+      "layer": 14,
+      "status": "failed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "letter_only"
+      ],
+      "fit_wall_seconds": 0.017911799004650675,
+      "metrics_sha256": "89e9cf5feb62282163599b158babcd83f5138a24ab19933cc6735001963af8a5",
+      "coef_sha256": null,
+      "failure_reason": "InsufficientLabelDataError('train sub-fold has only 1 distinct class(es); need ≥2')",
+      "started_at": "2026-05-15T04:08:41Z",
+      "ended_at": "2026-05-15T04:08:41Z"
+    },
+    {
+      "label": "extractor_match_rule",
+      "layer": 15,
+      "status": "failed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "letter_only"
+      ],
+      "fit_wall_seconds": 0.018208126988611184,
+      "metrics_sha256": "63f356e9d6c89f1e54c89a75f454a6bffce103bd98528234674ea62ecc994381",
+      "coef_sha256": null,
+      "failure_reason": "InsufficientLabelDataError('train sub-fold has only 1 distinct class(es); need ≥2')",
+      "started_at": "2026-05-15T04:14:09Z",
+      "ended_at": "2026-05-15T04:14:09Z"
+    },
+    {
+      "label": "extractor_match_rule",
+      "layer": 16,
+      "status": "failed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "letter_only"
+      ],
+      "fit_wall_seconds": 0.017769066005712375,
+      "metrics_sha256": "baaeae8b9a6630c5eab9a9c76fd346969e9f4f489132c9a1b279d29ed6c52fa0",
+      "coef_sha256": null,
+      "failure_reason": "InsufficientLabelDataError('train sub-fold has only 1 distinct class(es); need ≥2')",
+      "started_at": "2026-05-15T04:19:33Z",
+      "ended_at": "2026-05-15T04:19:33Z"
+    },
+    {
+      "label": "extractor_match_rule",
+      "layer": 17,
+      "status": "failed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "letter_only"
+      ],
+      "fit_wall_seconds": 0.011657770999590866,
+      "metrics_sha256": "d8edef5ad862daf319186061ca9372aaac18761a6328d7cd1f0cc3c392ddd337",
+      "coef_sha256": null,
+      "failure_reason": "InsufficientLabelDataError('train sub-fold has only 1 distinct class(es); need ≥2')",
+      "started_at": "2026-05-15T04:24:53Z",
+      "ended_at": "2026-05-15T04:24:53Z"
+    },
+    {
+      "label": "extractor_match_rule",
+      "layer": 18,
+      "status": "failed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "letter_only"
+      ],
+      "fit_wall_seconds": 0.016218303993809968,
+      "metrics_sha256": "287795e1d281254a11b3dc736c1a739368d93041596501d3d90dcfaf182463b6",
+      "coef_sha256": null,
+      "failure_reason": "InsufficientLabelDataError('train sub-fold has only 1 distinct class(es); need ≥2')",
+      "started_at": "2026-05-15T04:30:15Z",
+      "ended_at": "2026-05-15T04:30:15Z"
+    },
+    {
+      "label": "extractor_match_rule",
+      "layer": 19,
+      "status": "failed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "letter_only"
+      ],
+      "fit_wall_seconds": 0.017801209003664553,
+      "metrics_sha256": "a59b024ef256668650e99d785a84bddc453f05f2caf7ee6e1915bc7a1f6e1341",
+      "coef_sha256": null,
+      "failure_reason": "InsufficientLabelDataError('train sub-fold has only 1 distinct class(es); need ≥2')",
+      "started_at": "2026-05-15T04:35:35Z",
+      "ended_at": "2026-05-15T04:35:35Z"
+    },
+    {
+      "label": "extractor_match_rule",
+      "layer": 20,
+      "status": "failed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "letter_only"
+      ],
+      "fit_wall_seconds": 0.010709253998356871,
+      "metrics_sha256": "fedbed138b92b101b0727e79c3713b8e132af5ed86ec0ba4caef25d6cf42c611",
+      "coef_sha256": null,
+      "failure_reason": "InsufficientLabelDataError('train sub-fold has only 1 distinct class(es); need ≥2')",
+      "started_at": "2026-05-15T04:38:39Z",
+      "ended_at": "2026-05-15T04:38:39Z"
+    },
+    {
+      "label": "extractor_match_rule",
+      "layer": 21,
+      "status": "failed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "letter_only"
+      ],
+      "fit_wall_seconds": 0.017869935007183813,
+      "metrics_sha256": "5e7f1aa9868ca9b9185fd196b77f1952c14ca6d55eb83e90832a6f5dec433aa8",
+      "coef_sha256": null,
+      "failure_reason": "InsufficientLabelDataError('train sub-fold has only 1 distinct class(es); need ≥2')",
+      "started_at": "2026-05-15T04:40:48Z",
+      "ended_at": "2026-05-15T04:40:48Z"
+    },
+    {
+      "label": "extractor_match_rule",
+      "layer": 22,
+      "status": "failed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "letter_only"
+      ],
+      "fit_wall_seconds": 0.010907691001193598,
+      "metrics_sha256": "a0217a9ce674783f8907cd542ca7c495e51bf3ce83e5a454dd5ee9bb49d506da",
+      "coef_sha256": null,
+      "failure_reason": "InsufficientLabelDataError('train sub-fold has only 1 distinct class(es); need ≥2')",
+      "started_at": "2026-05-15T04:43:03Z",
+      "ended_at": "2026-05-15T04:43:03Z"
+    },
+    {
+      "label": "extractor_match_rule",
+      "layer": 23,
+      "status": "failed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "letter_only"
+      ],
+      "fit_wall_seconds": 0.009014141993247904,
+      "metrics_sha256": "c8050e8f37ba4fb4c394a5538ca36c76302229b6e3f667bdf31c68f6be3a0e39",
+      "coef_sha256": null,
+      "failure_reason": "InsufficientLabelDataError('train sub-fold has only 1 distinct class(es); need ≥2')",
+      "started_at": "2026-05-15T04:45:21Z",
+      "ended_at": "2026-05-15T04:45:21Z"
+    },
+    {
+      "label": "extractor_match_rule",
+      "layer": 24,
+      "status": "failed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "letter_only"
+      ],
+      "fit_wall_seconds": 0.008819130001938902,
+      "metrics_sha256": "4ba11ac18d0c24fad769b7bf55499b48d8479a597ed11170504692715f09acd4",
+      "coef_sha256": null,
+      "failure_reason": "InsufficientLabelDataError('train sub-fold has only 1 distinct class(es); need ≥2')",
+      "started_at": "2026-05-15T04:47:45Z",
+      "ended_at": "2026-05-15T04:47:45Z"
+    },
+    {
+      "label": "extractor_match_rule",
+      "layer": 25,
+      "status": "failed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "letter_only"
+      ],
+      "fit_wall_seconds": 0.013180423993617296,
+      "metrics_sha256": "09b5fd0099ae42135bf009a340ab2fc9bb87fb437042bc7442e88b5575f70f37",
+      "coef_sha256": null,
+      "failure_reason": "InsufficientLabelDataError('train sub-fold has only 1 distinct class(es); need ≥2')",
+      "started_at": "2026-05-15T04:49:09Z",
+      "ended_at": "2026-05-15T04:49:09Z"
+    },
+    {
+      "label": "extractor_match_rule",
+      "layer": 26,
+      "status": "failed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "letter_only"
+      ],
+      "fit_wall_seconds": 0.012336141997366212,
+      "metrics_sha256": "a45b3de62a9cb910b1df29691f19d073e0a00bbaceba2f298cd389b8ce6c6be6",
+      "coef_sha256": null,
+      "failure_reason": "InsufficientLabelDataError('train sub-fold has only 1 distinct class(es); need ≥2')",
+      "started_at": "2026-05-15T04:50:32Z",
+      "ended_at": "2026-05-15T04:50:32Z"
+    },
+    {
+      "label": "extractor_match_rule",
+      "layer": 27,
+      "status": "failed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "letter_only"
+      ],
+      "fit_wall_seconds": 0.010959430001094006,
+      "metrics_sha256": "2494173fc82f84c9880825d3e969fd029da36e40ef03ab3dc4caaafb8e132776",
+      "coef_sha256": null,
+      "failure_reason": "InsufficientLabelDataError('train sub-fold has only 1 distinct class(es); need ≥2')",
+      "started_at": "2026-05-15T04:52:22Z",
+      "ended_at": "2026-05-15T04:52:22Z"
+    },
+    {
+      "label": "first_token_correct",
+      "layer": 0,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "0",
+        "1"
+      ],
+      "fit_wall_seconds": 5.190011017009965,
+      "metrics_sha256": "90ef921666954adecbfccc48eb557751baeaaa7c29eb0cc7395ad18a89ffe75e",
+      "coef_sha256": "29e6b68dc393380d7cda2f1a3ca6ceb1c905265f52b95af842099805248a474d",
+      "failure_reason": null,
+      "started_at": "2026-05-15T03:06:09Z",
+      "ended_at": "2026-05-15T03:06:15Z"
+    },
+    {
+      "label": "first_token_correct",
+      "layer": 1,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "0",
+        "1"
+      ],
+      "fit_wall_seconds": 2.0321002080017934,
+      "metrics_sha256": "008b6a6e2cc7d62eabfa884a26714c0ab3d99de92a033ea335b6eef04b98eaa0",
+      "coef_sha256": "2624577b92347a0e4d2b54edc49b37ed7ec4d79175ddf0c8b9c8f4cf38be68ff",
+      "failure_reason": null,
+      "started_at": "2026-05-15T03:07:51Z",
+      "ended_at": "2026-05-15T03:07:53Z"
+    },
+    {
+      "label": "first_token_correct",
+      "layer": 2,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "0",
+        "1"
+      ],
+      "fit_wall_seconds": 3.61083694100671,
+      "metrics_sha256": "d9ada1d6a55e3fea022ae904e568827b3da5d44b17af46ab190dc6c2868a2eb4",
+      "coef_sha256": "5ecf7a2fe0c76e10e2135f5676d46c4135c468000c7715cc0f490fac5403d80f",
+      "failure_reason": null,
+      "started_at": "2026-05-15T03:10:00Z",
+      "ended_at": "2026-05-15T03:10:04Z"
+    },
+    {
+      "label": "first_token_correct",
+      "layer": 3,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "0",
+        "1"
+      ],
+      "fit_wall_seconds": 3.3804702240013285,
+      "metrics_sha256": "d8768573a531fddc4eb692e60f5d50b9435b2d9117b6b00729e59f5ec1d4b67a",
+      "coef_sha256": "9d790dd0807268d84b7af1a5a5b6c1cfe2a843bc9f2575b8a427412ad62122f4",
+      "failure_reason": null,
+      "started_at": "2026-05-15T03:12:47Z",
+      "ended_at": "2026-05-15T03:12:51Z"
+    },
+    {
+      "label": "first_token_correct",
+      "layer": 4,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "0",
+        "1"
+      ],
+      "fit_wall_seconds": 4.780665415004478,
+      "metrics_sha256": "eeb7b49e0b79aeefa6737f3efce57f01a654edf67cf9f97fa413c09849b097da",
+      "coef_sha256": "992685b762625820f6eb57d8af67f1db15a4c4681befe5584cc5a8a973419a68",
+      "failure_reason": null,
+      "started_at": "2026-05-15T03:16:27Z",
+      "ended_at": "2026-05-15T03:16:32Z"
+    },
+    {
+      "label": "first_token_correct",
+      "layer": 5,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "0",
+        "1"
+      ],
+      "fit_wall_seconds": 4.883999423997011,
+      "metrics_sha256": "8c0ad72077ddf4252ac2e26229eb4e2cbfa2cabdb79fd83036af09988004d46b",
+      "coef_sha256": "1a977926d122d2eba9e54fc451d5facbddae49197c39ccdc3c3e62f2efceb65d",
+      "failure_reason": null,
+      "started_at": "2026-05-15T03:21:04Z",
+      "ended_at": "2026-05-15T03:21:09Z"
+    },
+    {
+      "label": "first_token_correct",
+      "layer": 6,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "0",
+        "1"
+      ],
+      "fit_wall_seconds": 5.72875817300519,
+      "metrics_sha256": "f53b99614179aa50ba2b8bbed7f67c6ca586cb9ca7d273ec482141e175375614",
+      "coef_sha256": "caca3a465ba367667a6d58778ab1c7c2d4571cfc4b8fb3136f68df22fc3ba588",
+      "failure_reason": null,
+      "started_at": "2026-05-15T03:26:03Z",
+      "ended_at": "2026-05-15T03:26:08Z"
+    },
+    {
+      "label": "first_token_correct",
+      "layer": 7,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "0",
+        "1"
+      ],
+      "fit_wall_seconds": 11.48150208601146,
+      "metrics_sha256": "0dca73cb8522c110fd76e3ac0b4b3b720a4a704cae89ee8d7c9f2742503bc105",
+      "coef_sha256": "1584b7ffc640a185c6799be9c987187f0e98a8e588b074b7e17015836fed1088",
+      "failure_reason": null,
+      "started_at": "2026-05-15T03:31:08Z",
+      "ended_at": "2026-05-15T03:31:20Z"
+    },
+    {
+      "label": "first_token_correct",
+      "layer": 8,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "0",
+        "1"
+      ],
+      "fit_wall_seconds": 6.643034381006146,
+      "metrics_sha256": "a4b4b44e779331249e46fa9ee595b2253770dfc09f888081f1f9008a44936a44",
+      "coef_sha256": "887eabc5a714e80dec156912d5526604ab150173e805ec4a86dd372edd03fd7c",
+      "failure_reason": null,
+      "started_at": "2026-05-15T03:36:13Z",
+      "ended_at": "2026-05-15T03:36:20Z"
+    },
+    {
+      "label": "first_token_correct",
+      "layer": 9,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "0",
+        "1"
+      ],
+      "fit_wall_seconds": 7.079397118999623,
+      "metrics_sha256": "7abf11b4dc94535e02d51c8401f5792457d639d7969ffb72c5df23b3e9de4808",
+      "coef_sha256": "36afe4a445afc4f1efb8ef2a276dae8a570ae7954271af53cc295f18cb548f12",
+      "failure_reason": null,
+      "started_at": "2026-05-15T03:41:29Z",
+      "ended_at": "2026-05-15T03:41:36Z"
+    },
+    {
+      "label": "first_token_correct",
+      "layer": 10,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "0",
+        "1"
+      ],
+      "fit_wall_seconds": 7.1773678969912,
+      "metrics_sha256": "04318f431e6c07875083d5b87d42f3c1059e2bfa750309a3606ae0e26d2c7122",
+      "coef_sha256": "dfe5d1534f599525c897b4f1cc931cdfbdd6f49c3873a4cf2dbb710a34be51d4",
+      "failure_reason": null,
+      "started_at": "2026-05-15T03:46:48Z",
+      "ended_at": "2026-05-15T03:46:55Z"
+    },
+    {
+      "label": "first_token_correct",
+      "layer": 11,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "0",
+        "1"
+      ],
+      "fit_wall_seconds": 9.187299476994667,
+      "metrics_sha256": "fd732506502a85f80ffdbf3be4d1e4c4baa2ab9163af76a60b10c4bd558f0d41",
+      "coef_sha256": "17be9c1dbf4be26bfc83e326db1dfbbba728b94b9c4281ccb7d0f176db6d1dcf",
+      "failure_reason": null,
+      "started_at": "2026-05-15T03:51:56Z",
+      "ended_at": "2026-05-15T03:52:05Z"
+    },
+    {
+      "label": "first_token_correct",
+      "layer": 12,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "0",
+        "1"
+      ],
+      "fit_wall_seconds": 15.599075090998667,
+      "metrics_sha256": "e4b439fc3303db1d6df01a82cd7bf47ff28bcf897f061639bf0fd4873e999bfd",
+      "coef_sha256": "77cbea2f240b382235cf0773c372314ccb0fd59b0537c760be68d017b2666215",
+      "failure_reason": null,
+      "started_at": "2026-05-15T03:57:18Z",
+      "ended_at": "2026-05-15T03:57:34Z"
+    },
+    {
+      "label": "first_token_correct",
+      "layer": 13,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "0",
+        "1"
+      ],
+      "fit_wall_seconds": 16.942189797991887,
+      "metrics_sha256": "389e36c1094a44471e65269c57a329b5fc75feb7990012e69f66824ed99d275e",
+      "coef_sha256": "d0da88facb549b2abab6dcf7e6cfafefcc7cab598f8b0dbfc8959602032a2482",
+      "failure_reason": null,
+      "started_at": "2026-05-15T04:02:46Z",
+      "ended_at": "2026-05-15T04:03:03Z"
+    },
+    {
+      "label": "first_token_correct",
+      "layer": 14,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "0",
+        "1"
+      ],
+      "fit_wall_seconds": 9.004105432992219,
+      "metrics_sha256": "bc4ee2bc3df30073c02fb64da61ea6e48ab1fdcad29270999e8ed605b15671f3",
+      "coef_sha256": "aa3e451d2c7ed6ba1fdf5a49439cbcd98e05b85b517fcf77802fd5203c9fe2e8",
+      "failure_reason": null,
+      "started_at": "2026-05-15T04:08:41Z",
+      "ended_at": "2026-05-15T04:08:50Z"
+    },
+    {
+      "label": "first_token_correct",
+      "layer": 15,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "0",
+        "1"
+      ],
+      "fit_wall_seconds": 10.878653199994005,
+      "metrics_sha256": "f4004de51d6b4a1c46331a111e02519452b67606c9f3b704b52062d0a72f4e91",
+      "coef_sha256": "d1a947bcae7217bcde75bf541f3371bf805744efe56094cb7030c1e4fdf8d228",
+      "failure_reason": null,
+      "started_at": "2026-05-15T04:14:09Z",
+      "ended_at": "2026-05-15T04:14:20Z"
+    },
+    {
+      "label": "first_token_correct",
+      "layer": 16,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "0",
+        "1"
+      ],
+      "fit_wall_seconds": 12.92479612599709,
+      "metrics_sha256": "7b4391487cb26f31c365676cf1bbca095ceb4874ae8584538c2681cbf1655c94",
+      "coef_sha256": "56a97d4227d854cd690df12c6dc786445aff707116d927ac99f11b6360041380",
+      "failure_reason": null,
+      "started_at": "2026-05-15T04:19:33Z",
+      "ended_at": "2026-05-15T04:19:46Z"
+    },
+    {
+      "label": "first_token_correct",
+      "layer": 17,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "0",
+        "1"
+      ],
+      "fit_wall_seconds": 13.50138792800135,
+      "metrics_sha256": "70845696f883135ce318d351e98d569f4ec82c1fca5caae88e84c2d1350fc807",
+      "coef_sha256": "3f8257c875b227d3be7654228aa1dc08243a261f9eb5d6ea68ea84cd81a0eab1",
+      "failure_reason": null,
+      "started_at": "2026-05-15T04:24:53Z",
+      "ended_at": "2026-05-15T04:25:06Z"
+    },
+    {
+      "label": "first_token_correct",
+      "layer": 18,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "0",
+        "1"
+      ],
+      "fit_wall_seconds": 13.399051435990259,
+      "metrics_sha256": "d8f45d9c1f13e4be28d721e903bc2a7d63e71104ea4c7b64e646102e4f2d8d07",
+      "coef_sha256": "9a9ef97faaf8fbd04a9046427a21b21fba1462e2d1260c8fcce16d46a5d3cf98",
+      "failure_reason": null,
+      "started_at": "2026-05-15T04:30:15Z",
+      "ended_at": "2026-05-15T04:30:29Z"
+    },
+    {
+      "label": "first_token_correct",
+      "layer": 19,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "0",
+        "1"
+      ],
+      "fit_wall_seconds": 11.491029214012087,
+      "metrics_sha256": "9e439e75b88d2097daacd476b977983203ba271614d68cc9bfbf47392a8e478e",
+      "coef_sha256": "efd2dd93f7659a8051202537dd6b2f1eabf591b78ca873584adbd6a8f1bde887",
+      "failure_reason": null,
+      "started_at": "2026-05-15T04:35:35Z",
+      "ended_at": "2026-05-15T04:35:46Z"
+    },
+    {
+      "label": "first_token_correct",
+      "layer": 20,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "0",
+        "1"
+      ],
+      "fit_wall_seconds": 12.40604088800319,
+      "metrics_sha256": "fe28e510bef7ca59d06f3c3559203c4817eb3337597c7897273e6981540698ef",
+      "coef_sha256": "7fbaee7bdf87e1a7625981c9d430e3da3e81a167ed6fc4b5ee1e2c11e4b996fa",
+      "failure_reason": null,
+      "started_at": "2026-05-15T04:38:39Z",
+      "ended_at": "2026-05-15T04:38:51Z"
+    },
+    {
+      "label": "first_token_correct",
+      "layer": 21,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "0",
+        "1"
+      ],
+      "fit_wall_seconds": 12.953993530987645,
+      "metrics_sha256": "b00e68d682293da8eb07368b59093c8862cb023ade9ac9fea6d9b4cf8cb7c304",
+      "coef_sha256": "d2e40cbadf5ac486be8cfecd35d31ee2d301e91b1cccdac33add3a88ef7e9afd",
+      "failure_reason": null,
+      "started_at": "2026-05-15T04:40:48Z",
+      "ended_at": "2026-05-15T04:41:01Z"
+    },
+    {
+      "label": "first_token_correct",
+      "layer": 22,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "0",
+        "1"
+      ],
+      "fit_wall_seconds": 15.07917736399395,
+      "metrics_sha256": "275d75cce6ec2ba8c17f24aac4a2233c1067a106d76c31191327176077899f74",
+      "coef_sha256": "88c49374c2b4809f56c2e4726e84e4dc8dabd13d63eba8ce4e96b9052bb7d401",
+      "failure_reason": null,
+      "started_at": "2026-05-15T04:43:03Z",
+      "ended_at": "2026-05-15T04:43:18Z"
+    },
+    {
+      "label": "first_token_correct",
+      "layer": 23,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "0",
+        "1"
+      ],
+      "fit_wall_seconds": 11.925636794010643,
+      "metrics_sha256": "57e30c283a644b57b61ca3c9e8702433e0c2083d779266bd6cc064b33ebb186e",
+      "coef_sha256": "2076d82a38758654e4e2a952e91414525deff02d5cb075dd93b38ba55fe59849",
+      "failure_reason": null,
+      "started_at": "2026-05-15T04:45:21Z",
+      "ended_at": "2026-05-15T04:45:33Z"
+    },
+    {
+      "label": "first_token_correct",
+      "layer": 24,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "0",
+        "1"
+      ],
+      "fit_wall_seconds": 16.323380519999773,
+      "metrics_sha256": "5a2bb895971547d15c9e178e7573b8b06bfe4a880a25987561884c91a69ce61c",
+      "coef_sha256": "9158cf7e75f7f42c7167342b1ea2571025d047fb3c98e630c1ffdb1345edd389",
+      "failure_reason": null,
+      "started_at": "2026-05-15T04:47:45Z",
+      "ended_at": "2026-05-15T04:48:02Z"
+    },
+    {
+      "label": "first_token_correct",
+      "layer": 25,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "0",
+        "1"
+      ],
+      "fit_wall_seconds": 11.619396712005255,
+      "metrics_sha256": "5ce49eb395a86e2ad0eb57ccf2a8367f6c75d8e073fa932b45fcf4141706433a",
+      "coef_sha256": "abd110c1a575d477f9689e22a56accfc3dbf4c65418daf3438179e7871d854fb",
+      "failure_reason": null,
+      "started_at": "2026-05-15T04:49:09Z",
+      "ended_at": "2026-05-15T04:49:21Z"
+    },
+    {
+      "label": "first_token_correct",
+      "layer": 26,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "0",
+        "1"
+      ],
+      "fit_wall_seconds": 21.509097796006245,
+      "metrics_sha256": "d369fa9074c57bb3074a94b3013a8b891d791133bb6050a19f37b4f53a6db057",
+      "coef_sha256": "549c9d16dd0fa93d42d2ea2a4dc4419f2fe128bf2d29f039b2d43d454ddcfbf9",
+      "failure_reason": null,
+      "started_at": "2026-05-15T04:50:32Z",
+      "ended_at": "2026-05-15T04:50:54Z"
+    },
+    {
+      "label": "first_token_correct",
+      "layer": 27,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "0",
+        "1"
+      ],
+      "fit_wall_seconds": 14.215386035997653,
+      "metrics_sha256": "44a225c16ef6dd875df7de6632960b8820ddc6d774576e94fa67c67ec696abd9",
+      "coef_sha256": "920efbe860084e5dec95d316f5282ff320cc8a9caeac45065ceed898bcbd8a6e",
+      "failure_reason": null,
+      "started_at": "2026-05-15T04:52:22Z",
+      "ended_at": "2026-05-15T04:52:36Z"
+    },
+    {
+      "label": "first_token_letter",
+      "layer": 0,
+      "status": "failed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "A"
+      ],
+      "fit_wall_seconds": 0.015321116996346973,
+      "metrics_sha256": "44a5d008de5b07e22d4b2fad687c70cfb5b9c1321d5efb6b49040cb424a88625",
+      "coef_sha256": null,
+      "failure_reason": "InsufficientLabelDataError('train sub-fold has only 1 distinct class(es); need ≥2')",
+      "started_at": "2026-05-15T03:06:15Z",
+      "ended_at": "2026-05-15T03:06:15Z"
+    },
+    {
+      "label": "first_token_letter",
+      "layer": 1,
+      "status": "failed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "A"
+      ],
+      "fit_wall_seconds": 0.0182871389988577,
+      "metrics_sha256": "7a4398413a2aa63fcc66843087fb846b13a3c37e48edac5a38dbbb37a82da312",
+      "coef_sha256": null,
+      "failure_reason": "InsufficientLabelDataError('train sub-fold has only 1 distinct class(es); need ≥2')",
+      "started_at": "2026-05-15T03:07:53Z",
+      "ended_at": "2026-05-15T03:07:53Z"
+    },
+    {
+      "label": "first_token_letter",
+      "layer": 2,
+      "status": "failed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "A"
+      ],
+      "fit_wall_seconds": 0.018196728007751517,
+      "metrics_sha256": "1467f99471c295ffd32a39b07d545a7d97c11fd2fd2d9e197c91fdba65dea651",
+      "coef_sha256": null,
+      "failure_reason": "InsufficientLabelDataError('train sub-fold has only 1 distinct class(es); need ≥2')",
+      "started_at": "2026-05-15T03:10:04Z",
+      "ended_at": "2026-05-15T03:10:04Z"
+    },
+    {
+      "label": "first_token_letter",
+      "layer": 3,
+      "status": "failed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "A"
+      ],
+      "fit_wall_seconds": 0.018190360002336092,
+      "metrics_sha256": "4ac4abdccaa30f406a95cec9868da0386a899d7b3e630e0fafb0775c73b45443",
+      "coef_sha256": null,
+      "failure_reason": "InsufficientLabelDataError('train sub-fold has only 1 distinct class(es); need ≥2')",
+      "started_at": "2026-05-15T03:12:51Z",
+      "ended_at": "2026-05-15T03:12:51Z"
+    },
+    {
+      "label": "first_token_letter",
+      "layer": 4,
+      "status": "failed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "A"
+      ],
+      "fit_wall_seconds": 0.02787513699149713,
+      "metrics_sha256": "3e9c7db8cd39c8c1331879c0e2f360411fb4f3c301280a44c941ae828b7302e1",
+      "coef_sha256": null,
+      "failure_reason": "InsufficientLabelDataError('train sub-fold has only 1 distinct class(es); need ≥2')",
+      "started_at": "2026-05-15T03:16:32Z",
+      "ended_at": "2026-05-15T03:16:32Z"
+    },
+    {
+      "label": "first_token_letter",
+      "layer": 5,
+      "status": "failed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "A"
+      ],
+      "fit_wall_seconds": 0.017053265997674316,
+      "metrics_sha256": "34da2f3a0fd1ad14f4ccf1ed121967712de8b67a9a90e6fb3f42ca1cecb2343b",
+      "coef_sha256": null,
+      "failure_reason": "InsufficientLabelDataError('train sub-fold has only 1 distinct class(es); need ≥2')",
+      "started_at": "2026-05-15T03:21:09Z",
+      "ended_at": "2026-05-15T03:21:09Z"
+    },
+    {
+      "label": "first_token_letter",
+      "layer": 6,
+      "status": "failed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "A"
+      ],
+      "fit_wall_seconds": 0.008656473000883125,
+      "metrics_sha256": "74fa0ad99dface88e0a1d3718e4304d24427cdb47fde389cba4281034606c9ed",
+      "coef_sha256": null,
+      "failure_reason": "InsufficientLabelDataError('train sub-fold has only 1 distinct class(es); need ≥2')",
+      "started_at": "2026-05-15T03:26:08Z",
+      "ended_at": "2026-05-15T03:26:08Z"
+    },
+    {
+      "label": "first_token_letter",
+      "layer": 7,
+      "status": "failed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "A"
+      ],
+      "fit_wall_seconds": 0.01698014400608372,
+      "metrics_sha256": "c8bcdcff6a37f80919251162baca09c3f801988165cd6124fb158e8f7125c38b",
+      "coef_sha256": null,
+      "failure_reason": "InsufficientLabelDataError('train sub-fold has only 1 distinct class(es); need ≥2')",
+      "started_at": "2026-05-15T03:31:20Z",
+      "ended_at": "2026-05-15T03:31:20Z"
+    },
+    {
+      "label": "first_token_letter",
+      "layer": 8,
+      "status": "failed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "A"
+      ],
+      "fit_wall_seconds": 0.017230688987183385,
+      "metrics_sha256": "16691a6c2d347eba2930d734186ef99971f2f276fd8a7ec5f81fd553f97020a1",
+      "coef_sha256": null,
+      "failure_reason": "InsufficientLabelDataError('train sub-fold has only 1 distinct class(es); need ≥2')",
+      "started_at": "2026-05-15T03:36:20Z",
+      "ended_at": "2026-05-15T03:36:20Z"
+    },
+    {
+      "label": "first_token_letter",
+      "layer": 9,
+      "status": "failed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "A"
+      ],
+      "fit_wall_seconds": 0.012084581001545303,
+      "metrics_sha256": "9a2078b6607807eea7d8d8e45647ded6ef33c26259ceb6d9fec15ae8b2c42baa",
+      "coef_sha256": null,
+      "failure_reason": "InsufficientLabelDataError('train sub-fold has only 1 distinct class(es); need ≥2')",
+      "started_at": "2026-05-15T03:41:37Z",
+      "ended_at": "2026-05-15T03:41:37Z"
+    },
+    {
+      "label": "first_token_letter",
+      "layer": 10,
+      "status": "failed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "A"
+      ],
+      "fit_wall_seconds": 0.015291567004169337,
+      "metrics_sha256": "6dc761a38982fe4f29cb24a26a261fe97b63483c42af9643899646def4592439",
+      "coef_sha256": null,
+      "failure_reason": "InsufficientLabelDataError('train sub-fold has only 1 distinct class(es); need ≥2')",
+      "started_at": "2026-05-15T03:46:55Z",
+      "ended_at": "2026-05-15T03:46:55Z"
+    },
+    {
+      "label": "first_token_letter",
+      "layer": 11,
+      "status": "failed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "A"
+      ],
+      "fit_wall_seconds": 0.013391076005063951,
+      "metrics_sha256": "fb37d9c3494086d3cb5fb8e7f74280500c02bf8e0875ad3eee7993cf3fca9d32",
+      "coef_sha256": null,
+      "failure_reason": "InsufficientLabelDataError('train sub-fold has only 1 distinct class(es); need ≥2')",
+      "started_at": "2026-05-15T03:52:05Z",
+      "ended_at": "2026-05-15T03:52:05Z"
+    },
+    {
+      "label": "first_token_letter",
+      "layer": 12,
+      "status": "failed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "A"
+      ],
+      "fit_wall_seconds": 0.01984605700999964,
+      "metrics_sha256": "857194f71bf93b34f2139982eff4797e3df208ba387fb8e74693728df1a2ca9b",
+      "coef_sha256": null,
+      "failure_reason": "InsufficientLabelDataError('train sub-fold has only 1 distinct class(es); need ≥2')",
+      "started_at": "2026-05-15T03:57:34Z",
+      "ended_at": "2026-05-15T03:57:34Z"
+    },
+    {
+      "label": "first_token_letter",
+      "layer": 13,
+      "status": "failed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "A"
+      ],
+      "fit_wall_seconds": 0.014882532006595284,
+      "metrics_sha256": "0263148b189c3d0111c8553e9fe27da5b6681530686500935d68aa36b1614faa",
+      "coef_sha256": null,
+      "failure_reason": "InsufficientLabelDataError('train sub-fold has only 1 distinct class(es); need ≥2')",
+      "started_at": "2026-05-15T04:03:03Z",
+      "ended_at": "2026-05-15T04:03:03Z"
+    },
+    {
+      "label": "first_token_letter",
+      "layer": 14,
+      "status": "failed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "A"
+      ],
+      "fit_wall_seconds": 0.018154082004912198,
+      "metrics_sha256": "07cb46fc852c365716f95bff5a39af75e9ea85f9e9dfffc3c574154ae58cf301",
+      "coef_sha256": null,
+      "failure_reason": "InsufficientLabelDataError('train sub-fold has only 1 distinct class(es); need ≥2')",
+      "started_at": "2026-05-15T04:08:50Z",
+      "ended_at": "2026-05-15T04:08:50Z"
+    },
+    {
+      "label": "first_token_letter",
+      "layer": 15,
+      "status": "failed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "A"
+      ],
+      "fit_wall_seconds": 0.01817336300155148,
+      "metrics_sha256": "5fbd75ee36e227395d7257133b250a63f6c4eed6c5ac29370bd9a4669b65492e",
+      "coef_sha256": null,
+      "failure_reason": "InsufficientLabelDataError('train sub-fold has only 1 distinct class(es); need ≥2')",
+      "started_at": "2026-05-15T04:14:21Z",
+      "ended_at": "2026-05-15T04:14:21Z"
+    },
+    {
+      "label": "first_token_letter",
+      "layer": 16,
+      "status": "failed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "A"
+      ],
+      "fit_wall_seconds": 0.018031151994364336,
+      "metrics_sha256": "3800ea0c1754122247b9abce75853b2c11782e7806c3840814dc47114d0c2675",
+      "coef_sha256": null,
+      "failure_reason": "InsufficientLabelDataError('train sub-fold has only 1 distinct class(es); need ≥2')",
+      "started_at": "2026-05-15T04:19:46Z",
+      "ended_at": "2026-05-15T04:19:46Z"
+    },
+    {
+      "label": "first_token_letter",
+      "layer": 17,
+      "status": "failed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "A"
+      ],
+      "fit_wall_seconds": 0.013853992000804283,
+      "metrics_sha256": "610dfff8317586751f181fbb70c80d7134dc30a4b5af4666f5472585c6fd0beb",
+      "coef_sha256": null,
+      "failure_reason": "InsufficientLabelDataError('train sub-fold has only 1 distinct class(es); need ≥2')",
+      "started_at": "2026-05-15T04:25:06Z",
+      "ended_at": "2026-05-15T04:25:06Z"
+    },
+    {
+      "label": "first_token_letter",
+      "layer": 18,
+      "status": "failed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "A"
+      ],
+      "fit_wall_seconds": 0.009761257999343798,
+      "metrics_sha256": "946074da16452be3d8c9bb997d6bf3a9748e7fe847e34390df026ebe026cea76",
+      "coef_sha256": null,
+      "failure_reason": "InsufficientLabelDataError('train sub-fold has only 1 distinct class(es); need ≥2')",
+      "started_at": "2026-05-15T04:30:29Z",
+      "ended_at": "2026-05-15T04:30:29Z"
+    },
+    {
+      "label": "first_token_letter",
+      "layer": 19,
+      "status": "failed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "A"
+      ],
+      "fit_wall_seconds": 0.018362208997132257,
+      "metrics_sha256": "01878192d10eaf72cdf9115c6faf70c36ef061b30dd459c08f3134e64be2e178",
+      "coef_sha256": null,
+      "failure_reason": "InsufficientLabelDataError('train sub-fold has only 1 distinct class(es); need ≥2')",
+      "started_at": "2026-05-15T04:35:46Z",
+      "ended_at": "2026-05-15T04:35:46Z"
+    },
+    {
+      "label": "first_token_letter",
+      "layer": 20,
+      "status": "failed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "A"
+      ],
+      "fit_wall_seconds": 0.011780209999415092,
+      "metrics_sha256": "c2f2f39e75a19e72656b64f61ec8406f0692db5c5e05679f0648667910285320",
+      "coef_sha256": null,
+      "failure_reason": "InsufficientLabelDataError('train sub-fold has only 1 distinct class(es); need ≥2')",
+      "started_at": "2026-05-15T04:38:51Z",
+      "ended_at": "2026-05-15T04:38:51Z"
+    },
+    {
+      "label": "first_token_letter",
+      "layer": 21,
+      "status": "failed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "A"
+      ],
+      "fit_wall_seconds": 0.01838822900026571,
+      "metrics_sha256": "031b3ae48413cfcb1856bc1af464aa227b23f326752cef4dd81d43dae9fe0266",
+      "coef_sha256": null,
+      "failure_reason": "InsufficientLabelDataError('train sub-fold has only 1 distinct class(es); need ≥2')",
+      "started_at": "2026-05-15T04:41:01Z",
+      "ended_at": "2026-05-15T04:41:01Z"
+    },
+    {
+      "label": "first_token_letter",
+      "layer": 22,
+      "status": "failed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "A"
+      ],
+      "fit_wall_seconds": 0.010109515991644002,
+      "metrics_sha256": "0d8622cf509ce1e6500412c0f5f4f898d21f2261318486bf15cb23f5bfea5dac",
+      "coef_sha256": null,
+      "failure_reason": "InsufficientLabelDataError('train sub-fold has only 1 distinct class(es); need ≥2')",
+      "started_at": "2026-05-15T04:43:18Z",
+      "ended_at": "2026-05-15T04:43:18Z"
+    },
+    {
+      "label": "first_token_letter",
+      "layer": 23,
+      "status": "failed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "A"
+      ],
+      "fit_wall_seconds": 0.008491296001011506,
+      "metrics_sha256": "031afcaf310fa56ec6fbdcda840f1b2457e4910347eccd7c1464511e3fe9f6ed",
+      "coef_sha256": null,
+      "failure_reason": "InsufficientLabelDataError('train sub-fold has only 1 distinct class(es); need ≥2')",
+      "started_at": "2026-05-15T04:45:33Z",
+      "ended_at": "2026-05-15T04:45:33Z"
+    },
+    {
+      "label": "first_token_letter",
+      "layer": 24,
+      "status": "failed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "A"
+      ],
+      "fit_wall_seconds": 0.010101592997671105,
+      "metrics_sha256": "0d407760d8ee523d7ff2535464771b9fe39e538b0a18266c124323773fcdb863",
+      "coef_sha256": null,
+      "failure_reason": "InsufficientLabelDataError('train sub-fold has only 1 distinct class(es); need ≥2')",
+      "started_at": "2026-05-15T04:48:02Z",
+      "ended_at": "2026-05-15T04:48:02Z"
+    },
+    {
+      "label": "first_token_letter",
+      "layer": 25,
+      "status": "failed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "A"
+      ],
+      "fit_wall_seconds": 0.013422928997897543,
+      "metrics_sha256": "2defd4091983542693f38498d16d83e77b15fd913133d580677ccd89fd26d823",
+      "coef_sha256": null,
+      "failure_reason": "InsufficientLabelDataError('train sub-fold has only 1 distinct class(es); need ≥2')",
+      "started_at": "2026-05-15T04:49:21Z",
+      "ended_at": "2026-05-15T04:49:21Z"
+    },
+    {
+      "label": "first_token_letter",
+      "layer": 26,
+      "status": "failed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "A"
+      ],
+      "fit_wall_seconds": 0.01416923500073608,
+      "metrics_sha256": "94f1cb4352b1e58c943aaa2f68911ad3e6ca47d3ef326f4fefc8f5008128ce4d",
+      "coef_sha256": null,
+      "failure_reason": "InsufficientLabelDataError('train sub-fold has only 1 distinct class(es); need ≥2')",
+      "started_at": "2026-05-15T04:50:54Z",
+      "ended_at": "2026-05-15T04:50:54Z"
+    },
+    {
+      "label": "first_token_letter",
+      "layer": 27,
+      "status": "failed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "A"
+      ],
+      "fit_wall_seconds": 0.018349095989833586,
+      "metrics_sha256": "fe62a2b2007415d31634435159c6b2f5c486bcbc9ac17fd613404ad8b27616f5",
+      "coef_sha256": null,
+      "failure_reason": "InsufficientLabelDataError('train sub-fold has only 1 distinct class(es); need ≥2')",
+      "started_at": "2026-05-15T04:52:36Z",
+      "ended_at": "2026-05-15T04:52:36Z"
+    },
+    {
+      "label": "free_text_correct",
+      "layer": 0,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "0",
+        "1"
+      ],
+      "fit_wall_seconds": 6.511272515999735,
+      "metrics_sha256": "b152677fa694dd4e95df8918c952471f40e318fc4dd5f32f7c82a91415239338",
+      "coef_sha256": "8a4b8b42c9ef267c7dd0ec71a137ffcc28d5dc280b9b978750a46b823dc29829",
+      "failure_reason": null,
+      "started_at": "2026-05-15T03:06:15Z",
+      "ended_at": "2026-05-15T03:06:22Z"
+    },
+    {
+      "label": "free_text_correct",
+      "layer": 1,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "0",
+        "1"
+      ],
+      "fit_wall_seconds": 1.3596647550002672,
+      "metrics_sha256": "2227c020ed217023eb150ce722b623dcd9dad166f434a7fd5722c51437c1e558",
+      "coef_sha256": "503e36a6eb106769da05499ffced756fc2c54eee0e018e74dbead9ffac495d13",
+      "failure_reason": null,
+      "started_at": "2026-05-15T03:07:53Z",
+      "ended_at": "2026-05-15T03:07:55Z"
+    },
+    {
+      "label": "free_text_correct",
+      "layer": 2,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "0",
+        "1"
+      ],
+      "fit_wall_seconds": 5.788835310988361,
+      "metrics_sha256": "799462f977edfad039fc5da09fd64c460ca1d91c6887f20c77c0d0398fc4af00",
+      "coef_sha256": "f220728686b03194d6babb1a96c70e289b67427a822d72c7db2ca892885d0696",
+      "failure_reason": null,
+      "started_at": "2026-05-15T03:10:04Z",
+      "ended_at": "2026-05-15T03:10:10Z"
+    },
+    {
+      "label": "free_text_correct",
+      "layer": 3,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "0",
+        "1"
+      ],
+      "fit_wall_seconds": 3.8155283330124803,
+      "metrics_sha256": "f5caa4b1d34354d791977216935c182351103f06ab5bd65cd39e76580a04f68c",
+      "coef_sha256": "91c341c524e6f787ca73eb8f448f7411cf0ad2c5a65e09b70cba6f17fa5ea16c",
+      "failure_reason": null,
+      "started_at": "2026-05-15T03:12:51Z",
+      "ended_at": "2026-05-15T03:12:55Z"
+    },
+    {
+      "label": "free_text_correct",
+      "layer": 4,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "0",
+        "1"
+      ],
+      "fit_wall_seconds": 3.7265051569993375,
+      "metrics_sha256": "ff3ea7e3a48cc9dbee415e348e63c18f5a795fcd81a263ea3c9434669d9e7930",
+      "coef_sha256": "b14f8a5230d18a6341626369bced7b643163dc0d238cd0359a3620bee7ea6345",
+      "failure_reason": null,
+      "started_at": "2026-05-15T03:16:32Z",
+      "ended_at": "2026-05-15T03:16:36Z"
+    },
+    {
+      "label": "free_text_correct",
+      "layer": 5,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "0",
+        "1"
+      ],
+      "fit_wall_seconds": 5.276343999998062,
+      "metrics_sha256": "ca853f908362bef028acc9a1b4b0a7316248ff4486c44c804e36db0e0b87879b",
+      "coef_sha256": "c20de7ae7421de104b1f35f6b5caf25f227018dee1cf2bb4b6e41fcfd4899ced",
+      "failure_reason": null,
+      "started_at": "2026-05-15T03:21:09Z",
+      "ended_at": "2026-05-15T03:21:15Z"
+    },
+    {
+      "label": "free_text_correct",
+      "layer": 6,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "0",
+        "1"
+      ],
+      "fit_wall_seconds": 6.316157391993329,
+      "metrics_sha256": "5322e130a0ade2c277852032b48321f857d57a9d9fc18c78d506884b1d49de94",
+      "coef_sha256": "28471229d757c00cc175674a7c77434416c35542f828e5fcb1640cf7b3a73356",
+      "failure_reason": null,
+      "started_at": "2026-05-15T03:26:08Z",
+      "ended_at": "2026-05-15T03:26:15Z"
+    },
+    {
+      "label": "free_text_correct",
+      "layer": 7,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "0",
+        "1"
+      ],
+      "fit_wall_seconds": 5.590400104003493,
+      "metrics_sha256": "ea05446a2e18ee45d4a3d8f1fb6919be7abb992f69062816f897e444dffe86a4",
+      "coef_sha256": "bd1ce693812e6d673cede3f5fb41d250aac85d566039567f046667fb002057e4",
+      "failure_reason": null,
+      "started_at": "2026-05-15T03:31:20Z",
+      "ended_at": "2026-05-15T03:31:26Z"
+    },
+    {
+      "label": "free_text_correct",
+      "layer": 8,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "0",
+        "1"
+      ],
+      "fit_wall_seconds": 6.487125989995548,
+      "metrics_sha256": "845f90ee4097d0155c7e7072b9956b08c6e25385d409aab6e4ba4f144abd71a2",
+      "coef_sha256": "01739742bf81290cb377e885017e8fd2ad2d7ae125c32d0a9bc9d95a4b287403",
+      "failure_reason": null,
+      "started_at": "2026-05-15T03:36:20Z",
+      "ended_at": "2026-05-15T03:36:27Z"
+    },
+    {
+      "label": "free_text_correct",
+      "layer": 9,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "0",
+        "1"
+      ],
+      "fit_wall_seconds": 7.105081881003571,
+      "metrics_sha256": "ae4c04c7156fb3369d7fb4a103d9ff4b45bdd5fa505bf43eb0057758f1ddbe69",
+      "coef_sha256": "3b8e80d5e2ff014bb2f49139295ae73e8cb021ac5c9c5ab0a56b1b74cd99002a",
+      "failure_reason": null,
+      "started_at": "2026-05-15T03:41:37Z",
+      "ended_at": "2026-05-15T03:41:44Z"
+    },
+    {
+      "label": "free_text_correct",
+      "layer": 10,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "0",
+        "1"
+      ],
+      "fit_wall_seconds": 6.921350759002962,
+      "metrics_sha256": "4aa7e448d2b75444b3beec68b5ec27ae3a8ecdec4f11ea6fd00aa3646ff12db0",
+      "coef_sha256": "be8319a9ef39f84c5396a7adac6dd01afb2d08b9a6ea0b477756b5a95dd4f101",
+      "failure_reason": null,
+      "started_at": "2026-05-15T03:46:55Z",
+      "ended_at": "2026-05-15T03:47:02Z"
+    },
+    {
+      "label": "free_text_correct",
+      "layer": 11,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "0",
+        "1"
+      ],
+      "fit_wall_seconds": 7.393624046002515,
+      "metrics_sha256": "2ed080cc00b7b78780b18137058c9561a314e34bd6f326e6047e747cd9d838d1",
+      "coef_sha256": "ab9f2b5d610bade7bfa712a4aaa5ddfbbc5a1b142e4fe144bfefdb9f3c20a0d1",
+      "failure_reason": null,
+      "started_at": "2026-05-15T03:52:05Z",
+      "ended_at": "2026-05-15T03:52:13Z"
+    },
+    {
+      "label": "free_text_correct",
+      "layer": 12,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "0",
+        "1"
+      ],
+      "fit_wall_seconds": 8.289805446998798,
+      "metrics_sha256": "c0711f06a964b9522a8cbc1ca7b179035917e8965d3ae5099ab3dc1c519be235",
+      "coef_sha256": "7f07eda409c0fda83fcb0d0029ed1e9476f360e82512e52f6f0d3a3b943aaaa7",
+      "failure_reason": null,
+      "started_at": "2026-05-15T03:57:34Z",
+      "ended_at": "2026-05-15T03:57:43Z"
+    },
+    {
+      "label": "free_text_correct",
+      "layer": 13,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "0",
+        "1"
+      ],
+      "fit_wall_seconds": 7.430648427995038,
+      "metrics_sha256": "3b294433cf6e070d3a9ff81ca7b38ffc811b37f39eae09fd427807fe736f1260",
+      "coef_sha256": "e6e7ef5bc8b0098d0cb2bd52f1be351a9aba1c493493a7e1e2b228a826b39b23",
+      "failure_reason": null,
+      "started_at": "2026-05-15T04:03:03Z",
+      "ended_at": "2026-05-15T04:03:10Z"
+    },
+    {
+      "label": "free_text_correct",
+      "layer": 14,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "0",
+        "1"
+      ],
+      "fit_wall_seconds": 10.459835443005431,
+      "metrics_sha256": "1d041b0616c453d0517de8839e55ec4a2e89a0ce143cbad6ed85744d1984b481",
+      "coef_sha256": "c942ee2f6b4afbedef4373ce0a23d213ae2357e2b3a96eb8d114cb4f73c5ff9d",
+      "failure_reason": null,
+      "started_at": "2026-05-15T04:08:51Z",
+      "ended_at": "2026-05-15T04:09:01Z"
+    },
+    {
+      "label": "free_text_correct",
+      "layer": 15,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "0",
+        "1"
+      ],
+      "fit_wall_seconds": 9.731945090999943,
+      "metrics_sha256": "e8053a0d4d2f56be249c46ee1d12cb1d44bcf9afd90ac83baa14bfbff6454d8a",
+      "coef_sha256": "fa97c4c66f36614aecc6165856f2b40233fac8b6f3e86b9947b8d27f6f63456a",
+      "failure_reason": null,
+      "started_at": "2026-05-15T04:14:21Z",
+      "ended_at": "2026-05-15T04:14:31Z"
+    },
+    {
+      "label": "free_text_correct",
+      "layer": 16,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "0",
+        "1"
+      ],
+      "fit_wall_seconds": 10.8259640460019,
+      "metrics_sha256": "5e47b7549bb7a236fdb5cd619bd620457a5329d171500f38f2ae042206dc5ecb",
+      "coef_sha256": "3475a798fa7dd925aa9a2e3d7bd8e8855bbd74a3380092ec9b37447836c1b55a",
+      "failure_reason": null,
+      "started_at": "2026-05-15T04:19:46Z",
+      "ended_at": "2026-05-15T04:19:57Z"
+    },
+    {
+      "label": "free_text_correct",
+      "layer": 17,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "0",
+        "1"
+      ],
+      "fit_wall_seconds": 13.493474267990678,
+      "metrics_sha256": "57972dc6d4eeb25313c43d70ad66d122fd70ef8e625702a08fc40457cd623fa9",
+      "coef_sha256": "f26295aa212d38eceff06d2c49f4fcf48811ca9a1a46bb3050967bbc1cb334dd",
+      "failure_reason": null,
+      "started_at": "2026-05-15T04:25:06Z",
+      "ended_at": "2026-05-15T04:25:20Z"
+    },
+    {
+      "label": "free_text_correct",
+      "layer": 18,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "0",
+        "1"
+      ],
+      "fit_wall_seconds": 12.220147296000505,
+      "metrics_sha256": "b336aa80b56b3e16348fdf60c71316d166ed0f29be0f6987b8ef0c005984868c",
+      "coef_sha256": "5451a2af2bb946d194458b1eef04caa70fc1b8c92d4b93c435262d536364ec3a",
+      "failure_reason": null,
+      "started_at": "2026-05-15T04:30:29Z",
+      "ended_at": "2026-05-15T04:30:41Z"
+    },
+    {
+      "label": "free_text_correct",
+      "layer": 19,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "0",
+        "1"
+      ],
+      "fit_wall_seconds": 11.48548737699457,
+      "metrics_sha256": "d1718fd16a0ac961cee6e26e35dd7a2ac2c5e04ccde8300b902ce99fbac92a46",
+      "coef_sha256": "fb7b9cbdc91696dc79c7f8551d95a13786434333840e71a67125d43b1054b81b",
+      "failure_reason": null,
+      "started_at": "2026-05-15T04:35:46Z",
+      "ended_at": "2026-05-15T04:35:58Z"
+    },
+    {
+      "label": "free_text_correct",
+      "layer": 20,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "0",
+        "1"
+      ],
+      "fit_wall_seconds": 10.596682030998636,
+      "metrics_sha256": "70610b0afae117def686e55f35b8ae5ea97f2d210ca33fd63ee63f67ed1da0c7",
+      "coef_sha256": "c749b78f246ff48263c8d81bf134922883eb49f2e35f81d70d33b70219ee1f5f",
+      "failure_reason": null,
+      "started_at": "2026-05-15T04:38:51Z",
+      "ended_at": "2026-05-15T04:39:02Z"
+    },
+    {
+      "label": "free_text_correct",
+      "layer": 21,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "0",
+        "1"
+      ],
+      "fit_wall_seconds": 11.89478154599783,
+      "metrics_sha256": "7187e0f0260b03760000ee22d12573bc92014012dc39d093362a9da8b433f566",
+      "coef_sha256": "5f186f4600c021005666fc7e3174924288b947e36c70f19b2fcda91854e20ad9",
+      "failure_reason": null,
+      "started_at": "2026-05-15T04:41:01Z",
+      "ended_at": "2026-05-15T04:41:13Z"
+    },
+    {
+      "label": "free_text_correct",
+      "layer": 22,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "0",
+        "1"
+      ],
+      "fit_wall_seconds": 12.944464558997424,
+      "metrics_sha256": "90cc79d2bc08e817210ddfe83d218416a09115dfb29527ed24c63475c7a6436e",
+      "coef_sha256": "c48b3a86a8e1392a66ca73740a3a6781657904f91ef87bfc5f567573b9eac6d1",
+      "failure_reason": null,
+      "started_at": "2026-05-15T04:43:18Z",
+      "ended_at": "2026-05-15T04:43:31Z"
+    },
+    {
+      "label": "free_text_correct",
+      "layer": 23,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "0",
+        "1"
+      ],
+      "fit_wall_seconds": 13.705256207002094,
+      "metrics_sha256": "0d23405c845c22cd08ba3495ed00fecdb7ce13864ea79a48e6727fd34aa6e303",
+      "coef_sha256": "07a3940e28602b223aeab52e552f77c740f84159a914cd1699d811ad1f48b1e1",
+      "failure_reason": null,
+      "started_at": "2026-05-15T04:45:33Z",
+      "ended_at": "2026-05-15T04:45:47Z"
+    },
+    {
+      "label": "free_text_correct",
+      "layer": 24,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "0",
+        "1"
+      ],
+      "fit_wall_seconds": 12.084801995006274,
+      "metrics_sha256": "27abdf306a1a5cc42e471168ef4e6bdab0c13daae88af77cfd64454d13a09030",
+      "coef_sha256": "afbcda33af4b0ba61e5ca99be6dca5b9b756f4bb6a8897810b7c23a30c93f3e9",
+      "failure_reason": null,
+      "started_at": "2026-05-15T04:48:02Z",
+      "ended_at": "2026-05-15T04:48:14Z"
+    },
+    {
+      "label": "free_text_correct",
+      "layer": 25,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "0",
+        "1"
+      ],
+      "fit_wall_seconds": 17.02885000500828,
+      "metrics_sha256": "dcb19ae151eb75b50ac3f2d41b6edacfbddc4a13ccf71eb340857a3c5b2fe0eb",
+      "coef_sha256": "d8b22dc2dd8b0797764efcd4324452957675d2fe3cad0180138d156f3b11ce7d",
+      "failure_reason": null,
+      "started_at": "2026-05-15T04:49:21Z",
+      "ended_at": "2026-05-15T04:49:38Z"
+    },
+    {
+      "label": "free_text_correct",
+      "layer": 26,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "0",
+        "1"
+      ],
+      "fit_wall_seconds": 14.102189138997346,
+      "metrics_sha256": "8ce370e2e8b517ac68d0f3c1905858cd903f6cc4bbb761d92fec5063df444059",
+      "coef_sha256": "7214c924590246b21400d85afd3e944fc3dbd8875ab1ad7fc6ed2d148d1d07ae",
+      "failure_reason": null,
+      "started_at": "2026-05-15T04:50:54Z",
+      "ended_at": "2026-05-15T04:51:08Z"
+    },
+    {
+      "label": "free_text_correct",
+      "layer": 27,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "0",
+        "1"
+      ],
+      "fit_wall_seconds": 22.995640492998064,
+      "metrics_sha256": "5fab7927e76e3baaf4b5fc3e42b2bd3f1f466e5493da6a6c5933e57547e78c67",
+      "coef_sha256": "0e3d6818d0c6aff57656a6733b4e9d1cf4697a1bd7d559f336d70796d835c36e",
+      "failure_reason": null,
+      "started_at": "2026-05-15T04:52:36Z",
+      "ended_at": "2026-05-15T04:52:59Z"
+    },
+    {
+      "label": "free_text_letter",
+      "layer": 0,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "fit_wall_seconds": 85.78899846099375,
+      "metrics_sha256": "5c5788a1213b6a4377c0f1a51568f42c86a22c0c7b5071262fb40d1204774dbe",
+      "coef_sha256": "037ae3f80465678572d406ba72df70659aa5be43c6b49535921e637a257eb388",
+      "failure_reason": null,
+      "started_at": "2026-05-15T03:06:22Z",
+      "ended_at": "2026-05-15T03:07:48Z"
+    },
+    {
+      "label": "free_text_letter",
+      "layer": 1,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "fit_wall_seconds": 121.44423348200507,
+      "metrics_sha256": "6a982bd9d235aadeb6bef47e4fa23c9b78725b61066d71dc10260d0a6bdefe19",
+      "coef_sha256": "5aa7f2383665a95cfeb5523246d9cf75ee21d1b84d40d1b8636ebe7ab3822f7a",
+      "failure_reason": null,
+      "started_at": "2026-05-15T03:07:55Z",
+      "ended_at": "2026-05-15T03:09:57Z"
+    },
+    {
+      "label": "free_text_letter",
+      "layer": 2,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "fit_wall_seconds": 152.19776102500327,
+      "metrics_sha256": "f1f4fc6536a03379aad9b86fccf3adef95b4c5dc360f08747614bd24f63629e3",
+      "coef_sha256": "cb5de786647c270424408f65e1c5e63f4aff55f5bf93a3451f9fd684ddd13a20",
+      "failure_reason": null,
+      "started_at": "2026-05-15T03:10:10Z",
+      "ended_at": "2026-05-15T03:12:43Z"
+    },
+    {
+      "label": "free_text_letter",
+      "layer": 3,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "fit_wall_seconds": 207.16388940499746,
+      "metrics_sha256": "438afeca4b3e90502221ddf1c830e6fdb9a9f6b785fe654dc6183cba6de077d1",
+      "coef_sha256": "7ac5368a5e838ea1406f61a58f2263ef230a56d28bd0e0a37c1c0dba55236270",
+      "failure_reason": null,
+      "started_at": "2026-05-15T03:12:55Z",
+      "ended_at": "2026-05-15T03:16:22Z"
+    },
+    {
+      "label": "free_text_letter",
+      "layer": 4,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "fit_wall_seconds": 261.72422686401114,
+      "metrics_sha256": "eda975d5dd74e308c6d2e9bc607d1b1ffcecf8a567b62c0ab049af1186c8cb9b",
+      "coef_sha256": "cc5a38e8c4ef6fadeb18d5145ea1733efb27cff36f3bb037d8e5176012001aba",
+      "failure_reason": null,
+      "started_at": "2026-05-15T03:16:36Z",
+      "ended_at": "2026-05-15T03:20:58Z"
+    },
+    {
+      "label": "free_text_letter",
+      "layer": 5,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "fit_wall_seconds": 282.90927203001047,
+      "metrics_sha256": "5414e41696d0405ecf94d985734d216c8b6ee2059636d8b05d871370655c67f7",
+      "coef_sha256": "2cb2c3d03957a65c731e1d4e911d4d8f325e380f8caaad66a62d243f28a24091",
+      "failure_reason": null,
+      "started_at": "2026-05-15T03:21:15Z",
+      "ended_at": "2026-05-15T03:25:58Z"
+    },
+    {
+      "label": "free_text_letter",
+      "layer": 6,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "fit_wall_seconds": 286.3302052390063,
+      "metrics_sha256": "756b4ded7f41b500ecda18f6c704748d9cef24487b4cf8dd05a4e340bd89a7d2",
+      "coef_sha256": "fff01e407300f6af7b59f2fb2e7e2739ea6c559cad876ef2ad7cb7f52c0eba67",
+      "failure_reason": null,
+      "started_at": "2026-05-15T03:26:15Z",
+      "ended_at": "2026-05-15T03:31:01Z"
+    },
+    {
+      "label": "free_text_letter",
+      "layer": 7,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "fit_wall_seconds": 279.856973957998,
+      "metrics_sha256": "0a85ac7b4c393c4934ef6978bde36677b97659d2144923f413d9c3dc61b64c6a",
+      "coef_sha256": "e996468e7f3ff66c747131123044bc02a15167e5bf5a68357a62f80cd9744e59",
+      "failure_reason": null,
+      "started_at": "2026-05-15T03:31:26Z",
+      "ended_at": "2026-05-15T03:36:06Z"
+    },
+    {
+      "label": "free_text_letter",
+      "layer": 8,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "fit_wall_seconds": 295.95543952900334,
+      "metrics_sha256": "0d44524b377b4e32ec48505a3109e7adb850d30b797e72313348158adafa1e8b",
+      "coef_sha256": "826c353ee7b4c83e9ff5453ea6606886fe4fc3b01e15c848f01f50711655c941",
+      "failure_reason": null,
+      "started_at": "2026-05-15T03:36:27Z",
+      "ended_at": "2026-05-15T03:41:23Z"
+    },
+    {
+      "label": "free_text_letter",
+      "layer": 9,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "fit_wall_seconds": 295.62851873700856,
+      "metrics_sha256": "8235b1cec847292087e02ff2ca9e85b7bf81c0cf27ae3d612e6819c3790422eb",
+      "coef_sha256": "91fc428831702c7c9b1807cc2123f9d287dc71bf4d453eeab49c4e1a326de5e6",
+      "failure_reason": null,
+      "started_at": "2026-05-15T03:41:44Z",
+      "ended_at": "2026-05-15T03:46:40Z"
+    },
+    {
+      "label": "free_text_letter",
+      "layer": 10,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "fit_wall_seconds": 284.3985225919896,
+      "metrics_sha256": "94bd193f7be645748735997eb428f392282853fce0716ddd27e3b28b0306522a",
+      "coef_sha256": "76039597e16bc053d9350cfb1a969a32de32c55b82aba66992ac947ad966e93e",
+      "failure_reason": null,
+      "started_at": "2026-05-15T03:47:02Z",
+      "ended_at": "2026-05-15T03:51:47Z"
+    },
+    {
+      "label": "free_text_letter",
+      "layer": 11,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "fit_wall_seconds": 289.07281653999235,
+      "metrics_sha256": "799a0fe2e6c5ca5fc0b6df54c6e58ef32492629c5d8c161b7bad551f7dd10189",
+      "coef_sha256": "d97df301787862a287857f5702e4ab84a880222689483a72940e58b9ae7544a6",
+      "failure_reason": null,
+      "started_at": "2026-05-15T03:52:13Z",
+      "ended_at": "2026-05-15T03:57:02Z"
+    },
+    {
+      "label": "free_text_letter",
+      "layer": 12,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "fit_wall_seconds": 287.0681111550075,
+      "metrics_sha256": "5a0479afd4d735d1dfda7149ac4e5fc4234348c72b9fe8c2a507ead71124a697",
+      "coef_sha256": "11155d9781ed1628e692ad847a05ce769ff005951d4229ca90ad9b71cbcebe1b",
+      "failure_reason": null,
+      "started_at": "2026-05-15T03:57:43Z",
+      "ended_at": "2026-05-15T04:02:30Z"
+    },
+    {
+      "label": "free_text_letter",
+      "layer": 13,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "fit_wall_seconds": 318.28399440999783,
+      "metrics_sha256": "a77474ce92c0d91f215c5b803d4e8cf0e5186574e6a536c43c3fd9dcadb6b6a3",
+      "coef_sha256": "e3cfc1b579b4ecf9af194215877b439a04cb78e231f5d6212ab394ca5f5ff73c",
+      "failure_reason": null,
+      "started_at": "2026-05-15T04:03:11Z",
+      "ended_at": "2026-05-15T04:08:29Z"
+    },
+    {
+      "label": "free_text_letter",
+      "layer": 14,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "fit_wall_seconds": 288.17660382800386,
+      "metrics_sha256": "eaf26aaaf1c1d05e6c0e3017e631f46ae3830070408b5277a137cc1945c96f8b",
+      "coef_sha256": "705f750441d9767f9b891782c432dddbb0c6114068dc18fabca8870fa4d7f0b8",
+      "failure_reason": null,
+      "started_at": "2026-05-15T04:09:01Z",
+      "ended_at": "2026-05-15T04:13:50Z"
+    },
+    {
+      "label": "free_text_letter",
+      "layer": 15,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "fit_wall_seconds": 282.4049786999967,
+      "metrics_sha256": "064bb0c75cabda8d4560ef706b46b9a859c7ea22767e435de630e3d425be1b38",
+      "coef_sha256": "931e30c9d23f046ca51be556fca830af534bf9d031a18204dc0651cdb0f60c9c",
+      "failure_reason": null,
+      "started_at": "2026-05-15T04:14:31Z",
+      "ended_at": "2026-05-15T04:19:14Z"
+    },
+    {
+      "label": "free_text_letter",
+      "layer": 16,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "fit_wall_seconds": 279.9836467129935,
+      "metrics_sha256": "6ed57cc889ebb77e336ef91a780fdfd775a969ee6fb2a05047511c43798f8e4e",
+      "coef_sha256": "5499ec5bb16f89b220e3e33c46a64ace96a01e6406c4405396923397b816a185",
+      "failure_reason": null,
+      "started_at": "2026-05-15T04:19:58Z",
+      "ended_at": "2026-05-15T04:24:38Z"
+    },
+    {
+      "label": "free_text_letter",
+      "layer": 17,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "fit_wall_seconds": 284.97106530900055,
+      "metrics_sha256": "9d687bc462f61a6d8031e8504e8ad59bdc7aa432577b9813b9c0c24f8d95a63c",
+      "coef_sha256": "85da0d43ce1a7630466f4c9116474fdc1e0716c76d448c8f81bb3a8828bf6e7c",
+      "failure_reason": null,
+      "started_at": "2026-05-15T04:25:20Z",
+      "ended_at": "2026-05-15T04:30:05Z"
+    },
+    {
+      "label": "free_text_letter",
+      "layer": 18,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "fit_wall_seconds": 288.58149155200226,
+      "metrics_sha256": "fa766222fedcc98b79fdbecd65f292084bf833249161d9b3905e52a6c0f8ea8e",
+      "coef_sha256": "2d04da2010dcf83f283d93b0915daa7a03621c12fc32df69816d86ec2e00478c",
+      "failure_reason": null,
+      "started_at": "2026-05-15T04:30:41Z",
+      "ended_at": "2026-05-15T04:35:30Z"
+    },
+    {
+      "label": "free_text_letter",
+      "layer": 19,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "fit_wall_seconds": 158.44688027999655,
+      "metrics_sha256": "2f36521b0bcb86989211bab73a5884db077cba8c8032b4cab407373d1396559d",
+      "coef_sha256": "1ce305ac4a308a789f3a18477f178659849ee034b2bec26b06315887d27a1aca",
+      "failure_reason": null,
+      "started_at": "2026-05-15T04:35:58Z",
+      "ended_at": "2026-05-15T04:38:37Z"
+    },
+    {
+      "label": "free_text_letter",
+      "layer": 20,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "fit_wall_seconds": 101.62368411000352,
+      "metrics_sha256": "031f18b50e05af201b9b444a1384ed4a1dd5de1509cd1d4fe1e9cde7b1e15d1d",
+      "coef_sha256": "3c34e6caa4dc7d7957b99b51f6197a3206988d3a967a3d6eec4a4c442a0a9851",
+      "failure_reason": null,
+      "started_at": "2026-05-15T04:39:02Z",
+      "ended_at": "2026-05-15T04:40:44Z"
+    },
+    {
+      "label": "free_text_letter",
+      "layer": 21,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "fit_wall_seconds": 106.56270633199892,
+      "metrics_sha256": "dccc0abf8069527bb69af78959f63ed0029d373d077ab461bcb7e5bc43ac12b0",
+      "coef_sha256": "7fb982527b575cb2ec6fef877309d51530880b98a954d4a0bbb4ff969592dd6d",
+      "failure_reason": null,
+      "started_at": "2026-05-15T04:41:13Z",
+      "ended_at": "2026-05-15T04:43:00Z"
+    },
+    {
+      "label": "free_text_letter",
+      "layer": 22,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "fit_wall_seconds": 105.33929553399503,
+      "metrics_sha256": "88870fc78dc74d3ee384df1f3d2d91a6094f7db8dd434ee0c1b8ad90c75d46d3",
+      "coef_sha256": "4f25ebba4472d10eabe00ac0ee3d7f724043e2db86a9dbdf1c611f4edf3e200d",
+      "failure_reason": null,
+      "started_at": "2026-05-15T04:43:31Z",
+      "ended_at": "2026-05-15T04:45:17Z"
+    },
+    {
+      "label": "free_text_letter",
+      "layer": 23,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "fit_wall_seconds": 116.15395625199017,
+      "metrics_sha256": "677dc5f5ff0b00555de62cac32a5e633405637c85d7d1c10d784f70e234a2fd8",
+      "coef_sha256": "58cba38c82093e024e0db4067d51af343ded25fca5d387e16dcf189cf87b88e4",
+      "failure_reason": null,
+      "started_at": "2026-05-15T04:45:47Z",
+      "ended_at": "2026-05-15T04:47:43Z"
+    },
+    {
+      "label": "free_text_letter",
+      "layer": 24,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "fit_wall_seconds": 53.0989519309951,
+      "metrics_sha256": "eba91b8241332b9c420b750c2db595c0106718322e2a7e3faaf65f6814251105",
+      "coef_sha256": "e8a2f8f966da9897003bd4e42b319712d2d04d9987a860a58d422d51aa223f5b",
+      "failure_reason": null,
+      "started_at": "2026-05-15T04:48:14Z",
+      "ended_at": "2026-05-15T04:49:07Z"
+    },
+    {
+      "label": "free_text_letter",
+      "layer": 25,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "fit_wall_seconds": 51.894705639002495,
+      "metrics_sha256": "cc50e36ab3bac797256fb76fefcb283bb2f6d9e1f1cac71c50880031f7bd8b0a",
+      "coef_sha256": "14d1d0c01ecfafde81dfc84c658cf5e1d937854301b2c3c1f1a90f135b75ee08",
+      "failure_reason": null,
+      "started_at": "2026-05-15T04:49:38Z",
+      "ended_at": "2026-05-15T04:50:30Z"
+    },
+    {
+      "label": "free_text_letter",
+      "layer": 26,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "fit_wall_seconds": 69.32896320200234,
+      "metrics_sha256": "6d4ba31ccffccb40ad718e72cfaac9d3cec1caca758117f2bab036536957603d",
+      "coef_sha256": "c58622f0f6d45bddc9f0caf8d25b3ed0fedac3ce6f86469e196a7079e8cc603c",
+      "failure_reason": null,
+      "started_at": "2026-05-15T04:51:08Z",
+      "ended_at": "2026-05-15T04:52:18Z"
+    },
+    {
+      "label": "free_text_letter",
+      "layer": 27,
+      "status": "completed",
+      "n_train": 1776,
+      "n_val": 0,
+      "n_test": 0,
+      "n_dropped_label_null": 0,
+      "classes": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "fit_wall_seconds": 33.34144130398636,
+      "metrics_sha256": "9589ac0ea7d1c0c8836bb3bec19b74d09fa1b4080ce39c0bc894454aa17b671a",
+      "coef_sha256": "9a2b1af08299547ab9f3f667ac2cb1dd1eb85bcf588e27a07310380c2e039c05",
+      "failure_reason": null,
+      "started_at": "2026-05-15T04:52:59Z",
+      "ended_at": "2026-05-15T04:53:33Z"
+    }
+  ],
+  "completion_status": "completed",
+  "failure_reason": null,
+  "started_at": "2026-05-15T03:05:58Z",
+  "ended_at": "2026-05-15T04:53:36Z",
+  "probe_manifest_digest": "f7f801b24af5e9c72a4e8f3695fa81eaa5d5c06669ada455af94ee93553c0694"
+}

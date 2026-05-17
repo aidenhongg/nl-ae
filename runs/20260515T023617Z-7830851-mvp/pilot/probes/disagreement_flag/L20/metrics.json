@@ -1,0 +1,22 @@
+{
+  "accuracy_test": null,
+  "accuracy_train": 1.0,
+  "accuracy_val": null,
+  "balanced_accuracy_test": null,
+  "brier_score_test": null,
+  "classes": [
+    "0",
+    "1"
+  ],
+  "converged": true,
+  "ece_test": null,
+  "fit_wall_seconds": 1.8349534099979792,
+  "intercept": [
+    0.0010293751256540418
+  ],
+  "n_classes_observed_test": 0,
+  "n_iter": 104,
+  "roc_auc_test": null,
+  "standardize_mean": null,
+  "standardize_std": null
+}

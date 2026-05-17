@@ -1,0 +1,5 @@
+{
+  "failure_reason": "InsufficientLabelDataError('train sub-fold has only 1 distinct class(es); need ≥2')",
+  "fit_wall_seconds": 0.017230688987183385,
+  "status": "failed"
+}
