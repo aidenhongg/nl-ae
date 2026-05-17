@@ -10,11 +10,16 @@ from __future__ import annotations
 import logging
 from typing import Literal, Protocol
 
+from nl_ae.inference.scoring import resolve_letter_variant
 from nl_ae.schema.models import LetterStr, LetterTokenEntry
 
 LOG = logging.getLogger(__name__)
 
 LetterVariant = Literal["bare", "leading_space", "newline_prefixed"]
+# Policy accepted by ``EvalConfig.letter_variant`` / ``score_and_generate``:
+# ``"auto"`` resolves the concrete variant per-prompt via
+# :func:`resolve_letter_variant`; the others pin it explicitly.
+LetterVariantPolicy = Literal["auto", "bare", "leading_space", "newline_prefixed"]
 _VARIANT_PREFIX: dict[LetterVariant, str] = {
     "bare": "",
     "leading_space": " ",
@@ -92,8 +97,10 @@ def select_canonical_variant(
 
 __all__ = [
     "LetterVariant",
+    "LetterVariantPolicy",
     "TokenizerLike",
     "assert_single_token_per_letter_per_variant",
     "build_letter_token_table",
+    "resolve_letter_variant",
     "select_canonical_variant",
 ]

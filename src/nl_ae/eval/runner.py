@@ -28,7 +28,12 @@ from nl_ae.data.canonical import CanonicalItem
 from nl_ae.data.permute import PermutationMode, permutation_for
 from nl_ae.inference.decoding import DecodingConfig
 from nl_ae.inference.outputs import LetterScore, ScoringOutputs
-from nl_ae.prompt.letter_tokens import LetterVariant, TokenizerLike, build_letter_token_table
+from nl_ae.prompt.letter_tokens import (
+    LetterVariant,
+    LetterVariantPolicy,
+    TokenizerLike,
+    build_letter_token_table,
+)
 from nl_ae.prompt.renderer import PromptRenderer
 from nl_ae.runtime.seeds import derive_child_seed
 from nl_ae.schema.hashing import now_utc_iso
@@ -77,7 +82,7 @@ class ScoringEngine(Protocol):
         letter_set: tuple[str, ...],
         decoding: DecodingConfig,
         scoring_math: FirstTokenScoringMath = ...,
-        variant: LetterVariant = ...,
+        variant: LetterVariantPolicy = ...,
         max_free_text_chars: int = ...,
     ) -> ScoringOutputs: ...
 
@@ -121,7 +126,9 @@ class EvalConfig(BaseModel):
     fail_fast: bool = True
     save_rendered_prompts: bool = True
     on_existing_dir: Literal["resume", "overwrite", "error"] = "resume"
-    letter_variant: LetterVariant = "leading_space"
+    # "auto" resolves the concrete variant per-prompt from the rendered tail
+    # (Defect 2 fix). Explicit "bare"/"leading_space"/"newline_prefixed" pin it.
+    letter_variant: LetterVariantPolicy = "auto"
     max_free_text_chars: Annotated[int, Field(ge=128, le=65_536)] = 2048
 
 

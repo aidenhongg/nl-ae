@@ -9,6 +9,7 @@ from . import (
     pilot_init_cmd,
     preregistration_lock_cmd,
     probe_train_cmd,
+    rescore_first_token_cmd,
     version_cmd,
 )
 
@@ -21,5 +22,6 @@ __all__ = [
     "pilot_init_cmd",
     "preregistration_lock_cmd",
     "probe_train_cmd",
+    "rescore_first_token_cmd",
     "version_cmd",
 ]

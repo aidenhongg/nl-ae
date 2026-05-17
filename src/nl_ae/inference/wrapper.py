@@ -13,7 +13,11 @@ from types import TracebackType
 from typing import TYPE_CHECKING, Any, Literal
 
 from nl_ae.data.text_norm import nfc
-from nl_ae.prompt.letter_tokens import LetterVariant, select_canonical_variant
+from nl_ae.prompt.letter_tokens import (
+    LetterVariant,
+    LetterVariantPolicy,
+    select_canonical_variant,
+)
 from nl_ae.schema.models import (
     FirstTokenScoringMath,
     LetterStr,
@@ -34,6 +38,7 @@ from .outputs import (
     LetterScore,
     ScoringOutputs,
 )
+from .scoring import resolve_letter_variant, score_letters_from_logits
 
 if TYPE_CHECKING:  # pragma: no cover
     import torch
@@ -325,43 +330,17 @@ class Qwen25Wrapper:
         )
         letter_logits = logits[letter_ids]
 
-        if scoring_math == "argmax_logits_only":
-            argmax_idx = int(torch.argmax(letter_logits).item())
-            per_letter = [
-                LetterScore(
-                    letter=e.letter,
-                    token_id=e.token_id,
-                    prob=None,
-                    prob_valid=False,
-                    logit=float(letter_logits[i].item()),
-                )
-                for i, e in enumerate(letters)
-            ]
-            return FirstTokenScore(
-                argmax_letter=letters[argmax_idx].letter,
-                per_letter=per_letter,
-                scoring_math=scoring_math,
-                total_letter_mass=0.0,
-                prompt_token_count=forward.prompt_token_count,
-                wall_time_ms=forward.wall_time_ms,
-                engine_call_id=forward.engine_call_id,
-            )
-
-        if scoring_math == "renormalize_over_letters":
-            probs = torch.softmax(letter_logits, dim=0)
-            total_mass = 1.0
-        else:  # full_vocab_softmax
-            full = torch.softmax(logits, dim=0)
-            probs = full[letter_ids]
-            total_mass = float(probs.sum().item())
-
-        argmax_idx = int(torch.argmax(probs).item())
+        # All numerics (fp32, log-domain, logits-argmax) live in the pure core
+        # so they are unit-testable without weights and immune to fp16 underflow.
+        argmax_idx, per_letter_prob, total_mass, probs_valid = score_letters_from_logits(
+            logits, letter_ids, scoring_math=scoring_math
+        )
         per_letter = [
             LetterScore(
                 letter=e.letter,
                 token_id=e.token_id,
-                prob=float(probs[i].item()),
-                prob_valid=True,
+                prob=per_letter_prob[i],
+                prob_valid=probs_valid,
                 logit=float(letter_logits[i].item()),
             )
             for i, e in enumerate(letters)
@@ -370,7 +349,7 @@ class Qwen25Wrapper:
             argmax_letter=letters[argmax_idx].letter,
             per_letter=per_letter,
             scoring_math=scoring_math,
-            total_letter_mass=min(max(total_mass, 0.0), 1.0),
+            total_letter_mass=total_mass,
             prompt_token_count=forward.prompt_token_count,
             wall_time_ms=forward.wall_time_ms,
             engine_call_id=forward.engine_call_id,
@@ -488,7 +467,7 @@ class Qwen25Wrapper:
         letter_set: tuple[LetterStr, ...],
         decoding: DecodingConfig,
         scoring_math: FirstTokenScoringMath = "full_vocab_softmax",
-        variant: LetterVariant = "leading_space",
+        variant: LetterVariantPolicy = "auto",
         max_free_text_chars: int = 2048,
     ) -> ScoringOutputs:
         """The C04 hot path: first-token scoring + free-gen + agreement.
@@ -501,7 +480,15 @@ class Qwen25Wrapper:
             seed_all(decoding.seed)
 
         t0 = time.perf_counter()
-        filtered = select_canonical_variant(list(letter_token_table), chosen=variant)
+        # "auto" resolves the concrete variant from the rendered prompt's tail
+        # (chat tails end "...assistant\n" → bare; non-chat "Answer: " → space).
+        # Defect 2: the old hard-pinned "leading_space" scored the wrong token.
+        resolved_variant: LetterVariant = (
+            resolve_letter_variant(prompt) if variant == "auto" else variant
+        )
+        filtered = select_canonical_variant(
+            list(letter_token_table), chosen=resolved_variant
+        )
         if len(filtered) != len(letter_set):
             # Fall back to using whichever variant rows happen to be present.
             filtered = [e for e in letter_token_table if e.letter in letter_set]
@@ -546,7 +533,8 @@ class Qwen25Wrapper:
                 "extractor_version": self._extractor.extractor_version,
                 "rules_content_hash": self._extractor.rules_content_hash,
                 "chat_template_hash": self._chat_template_hash,
-                "variant": variant,
+                "variant": resolved_variant,
+                "variant_policy": variant,
             },
             engine_call_id=free.engine_call_id,
         )

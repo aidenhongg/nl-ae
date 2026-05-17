@@ -17,6 +17,7 @@ from .commands import (
     pilot_init_cmd,
     preregistration_lock_cmd,
     probe_train_cmd,
+    rescore_first_token_cmd,
     version_cmd,
 )
 
@@ -36,6 +37,7 @@ cli.add_command(preregistration_lock_cmd.preregistration_lock_cmd)
 cli.add_command(extract_activations_cmd.extract_activations_cmd)
 cli.add_command(materialize_prompts_cmd.materialize_prompts_cmd)
 cli.add_command(probe_train_cmd.probe_train_cmd)
+cli.add_command(rescore_first_token_cmd.rescore_first_token_cmd)
 
 
 def main() -> None:
