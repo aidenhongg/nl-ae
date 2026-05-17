@@ -171,9 +171,10 @@ def extract_activations_cmd(
             err=True,
         )
         sys.exit(2)
-    # First-pass layer parse against a placeholder count; we re-validate post-load.
-    placeholder_n_layers = 64
-    layers = _parse_layers(layers_arg, n_layers=placeholder_n_layers)
+    # First-pass layer parse. Use the project's LayerIndex upper bound (Qwen2.5-7B
+    # has 28 decoder layers) so omitting --layers expands to the right set; we
+    # re-validate post-load against engine.n_layers anyway.
+    layers = _parse_layers(layers_arg, n_layers=28)
 
     model_config = ModelConfig(
         hf_model_id=fp.hf_model_id,
