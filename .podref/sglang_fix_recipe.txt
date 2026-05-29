@@ -1,0 +1,47 @@
+=== sglang input_embeds fix recipe (A40 sm86, CUDA 12.4 image) ===
+Date: 2026-05-28
+Pod image: runpod/pytorch:2.4.0-py3.11-cuda12.4.1-devel-ubuntu22.04
+GPU: NVIDIA A40 48GB, compute cap 8.6 (sm86)
+
+PROBLEM (before fix):
+  pip install 'sglang[all]>=0.5.6' had pulled sglang 0.5.12.post1 + torch 2.11.0+cu130.
+  - sgl_kernel 0.5.12 only ships per-arch sm100/sm90 .so (no sm86) -> 'Could not load common_ops'
+  - cu130 torch wanted libnvrtc.so.13 (image only has CUDA 12.4 -> libnvrtc.so.12)
+
+FIX (exact steps that worked):
+  # 1. Remove broken cu130 stack (+ orphaned untracked sgl_kernel dir)
+  pip uninstall -y sglang sgl-kernel torch torchvision torchaudio flashinfer-python flashinfer-cubin
+  rm -rf /usr/local/lib/python3.11/dist-packages/sgl_kernel /usr/local/lib/python3.11/dist-packages/sgl_kernel-*.dist-info
+
+  # 2. Install pinned 0.5.6 (resolver picks cu12x torch + monolithic sm86 sgl_kernel)
+  pip install 'sglang[all]==0.5.6'
+  #   -> sglang 0.5.6, sgl-kernel 0.3.18.post2 (single x86_64 wheel, bundles sm86),
+  #      torch 2.9.1+cu128 (CUDA 12.8 runtime bundled via nvidia-*-cu12 pkgs), flashinfer-python 0.5.3
+
+  # 3. Install missing system lib needed by sgl_kernel
+  apt-get update && apt-get install -y libnuma1     # provides libnuma.so.1
+
+  # 4. Remove leftover 'kernels' pkg (HF kernel-hub) that is incompatible with
+  #    huggingface_hub 0.36.2 (sglang's pin). transformers imports it optionally;
+  #    removing it makes transformers skip hub kernels gracefully.
+  pip uninstall -y kernels      # (also drop quack-kernels/flash-attn-4 if they ever block import)
+
+VERIFIED VERSIONS:
+  torch 2.9.1+cu128 (cuda 12.8, cuda.is_available()=True)
+  sglang 0.5.6 | sgl-kernel 0.3.18.post2 | flashinfer-python 0.5.3 | transformers 4.57.1
+  python -c 'import sgl_kernel; from sgl_kernel import sgl_per_token_quant_fp8'  -> OK
+  python -c 'from sglang.srt.server_args import ServerArgs'                      -> OK
+
+LAUNCH (background, mem 0.5, radix disabled = REQUIRED for input_embeds):
+  export HF_HOME=/workspace/hf-cache
+  export SGLANG_MIN_NEW_TOKEN_RATIO_FACTOR=1   # sidesteps retract-path crash for input_embeds (README note)
+  nohup python -m sglang.launch_server --model-path /workspace/actor_hf --port 30000     --disable-radix-cache --mem-fraction-static 0.5 --trust-remote-code     --context-length 2048 --random-seed 7 </dev/null >/workspace/logs/sglang_av.log 2>&1 &
+
+READINESS: curl -s http://localhost:30000/health   (or /get_model_info)
+SMOKE TEST (input_embeds): cd /workspace/nla-inference &&   python nla_inference.py /workspace/actor_hf --sglang-url http://localhost:30000
+  PASS = coherent English <explanation> text, no HTTP/CUDA errors. (Confirmed PASS.)
+
+NOTES:
+  - mem-fraction 0.5 -> sglang uses ~23.8 GB / 46 GB, leaving room for in-process torch model.
+  - benign log lines: ServerArgs dump; 'Ignore import error ... mindspore' (unused backend).
+  - install-time dep warnings (quack-kernels/flash-attn-4 want cutlass-dsl>=4.4.2) are harmless for Qwen serving.

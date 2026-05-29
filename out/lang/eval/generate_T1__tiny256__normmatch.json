@@ -1,0 +1,9 @@
+{
+  "op": "T1",
+  "subset": "tiny256",
+  "convention": "normmatch",
+  "n": 256,
+  "parse_rate": 0.46484375,
+  "gen_acc": 0.5126050420168067,
+  "gen_success": 0.5462184873949579
+}

@@ -1,0 +1,19 @@
+# ── Secrets ──────────────────────────────────────────────
+.env
+
+# ── Python ───────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# ── Large experiment data ────────────────────────────────
+# Durable copy lives on the S3 volume iaxphg9saj (prefixes nla/ + exp04/).
+# Tracked instead: the small human-readable results (*.md, *.json, *.png).
+# NOTE: this also excludes the local embedding table out/_ship/.../h_layer20_orig.npy
+#       (the only local copy) — it is re-derivable only by a paid GPU run, so keep it on disk.
+*.npy
+*.parquet
+*.jsonl
+
+# ── Local agent/editor settings ──────────────────────────
+.claude/settings.local.json

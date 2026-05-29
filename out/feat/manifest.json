@@ -1,0 +1,87 @@
+{
+  "schema_version": "nla_features.v2",
+  "config_hash": "e80501525b6758e8a7c6f28556541bbbad1f268f92ae187972f83e69c075a55f",
+  "model_id": "Qwen/Qwen2.5-7B-Instruct",
+  "build_utc": "2026-05-29T00:46:18.227143+00:00",
+  "n_examples": 6536,
+  "d_model": 3584,
+  "probe": {
+    "scheme": "example_level",
+    "layer": 20,
+    "include_qd": true,
+    "sha256": {
+      "example_level/know": "8bf89b4a8e901e39f56b5b28cc18daa88c3498590d738d8a50b3b020699e2b7e",
+      "example_level/pred": "992f0091f8d75055d25519a379b8c4cdd262fa1dab9149d5633359845c2f84b4",
+      "question_disjoint/know": "7d8a234ee5359a68667efce8d0c0bf6af4b6eb293ad671d87939547d25645881",
+      "question_disjoint/pred": "8a07ca881c856f94886d19808c0a89a11b440ebb67a62774455dac281036d6b8"
+    }
+  },
+  "sources": null,
+  "feature_2_method": "greedy_generate",
+  "feature_2_method_detail": "greedy_generate@maxnew48",
+  "gen_model_revision": "a09a35458c702b33eeacc393d103063234e8bc28",
+  "acceptance_test_split": {
+    "base_acc_readout": 0.6604206500956022,
+    "base_acc_gen": 0.6608030592734225,
+    "know_acc": 0.8543021032504781,
+    "pred_acc": 0.9120458891013384,
+    "agr": 0.648565965583174,
+    "kld_model_know": 8.170733451843262
+  },
+  "generation_crosscheck": {
+    "agree_gen_readout_parseable": 0.9914176245210728,
+    "agree_gen_readout_mean_all": 0.9897490820073439,
+    "agree_gen_readout_mean_test": 0.9877629063097514,
+    "gen_parse_rate": 0.9983170134638923,
+    "n_unparseable": 11
+  },
+  "kl_pred_know_distribution": {
+    "note": "heavy-tailed: median ~0, mean driven by tail (read mean WITH median+p95)",
+    "mean": 8.743947529906098,
+    "median": 4.607149151070189e-07,
+    "p95": 27.63102149963379,
+    "max": 27.63102149963379
+  },
+  "columns": {
+    "example_id": "join key; tqa-{qid}-p{perm}",
+    "row_index": "canonical activation_cache_row_order index 0..N-1",
+    "question_id": "source question id (perm-invariant)",
+    "perm": "option-permutation index 0..7",
+    "split_el": "example_level split (train/val/test)",
+    "split_qd": "question_disjoint split (train/val/test)",
+    "gt_answer_index": "F1 ground-truth option position 0..3",
+    "gt_symbol": "F1 ground-truth symbol A..D",
+    "gt_answer_text": "F1 ground-truth answer text",
+    "question": "F1 original dataset question",
+    "model_answer_index": "F2 ACTUAL generated answer index 0..3 (-1 if unparseable)",
+    "model_symbol": "F2 generated symbol A..D ('' if unparseable)",
+    "model_answer_text": "F2 chosen option's text (by generated symbol; '' if unparseable)",
+    "model_gen_text": "F2 raw generated answer line (after '(')",
+    "model_gen_first_token": "F2 decoded first new token (diagnostic)",
+    "model_confidence": "readout companion: p_model[y_tilde]",
+    "model_gen_correct": "F2 model_answer_index == gt (the NEW 'model correct')",
+    "model_readout_correct": "companion: y_tilde == gt (historical base_acc 0.6604)",
+    "model_gen_method": "F2 provenance (greedy_generate@maxnewN)",
+    "gen_model_revision": "HF commit sha of the generating model",
+    "agree_gen_readout": "F2 model_answer_index == y_tilde (>=0.99 expected)",
+    "y_tilde": "readout companion: argmax of the 4 symbol logits",
+    "p_model": "readout companion: softmax over {A,B,C,D}",
+    "logits_symbols": "readout companion: raw symbol logits",
+    "kl_pred_know": "F3 PRIMARY KL(p_pred||p_know) on h_orig",
+    "js_pred_know": "F3 JS(p_pred,p_know) on h_orig",
+    "kl_model_know": "F3 KL(p_model||p_know) (reproduces exp04 kld)",
+    "js_model_know": "F3 JS(p_model,p_know)",
+    "know_argmax_symbol": "F3 argmax knowledge symbol",
+    "pred_argmax_symbol": "F3 argmax prediction symbol",
+    "know_confidence": "F3 max(p_know)",
+    "pred_confidence": "F3 max(p_pred)",
+    "agree_know_pred": "F3 argmax(know)==argmax(pred)",
+    "agree_know_model": "F3 argmax(know)==y_tilde (AGR)",
+    "know_correct": "F3 argmax(know)==gt (know accuracy)",
+    "pred_matches_model": "F3 argmax(pred)==y_tilde (pred accuracy)",
+    "*_qd": "question_disjoint-probe companions (optional, default on)"
+  },
+  "row_counts": {
+    "datapoint_features": 6536
+  }
+}

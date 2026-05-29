@@ -1,0 +1,16 @@
+{
+  "op": "E1",
+  "subset": "tiny256",
+  "convention": "normmatch",
+  "n": 256,
+  "acc": 0.6328125,
+  "agr": 0.6328125,
+  "steer_success": 0.6328125,
+  "mean_ratio": 0.7406070424182765,
+  "y_balance": {
+    "A": 61,
+    "B": 61,
+    "C": 70,
+    "D": 64
+  }
+}

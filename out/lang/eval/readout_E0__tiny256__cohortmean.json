@@ -1,0 +1,16 @@
+{
+  "op": "E0",
+  "subset": "tiny256",
+  "convention": "cohortmean",
+  "n": 256,
+  "acc": 0.640625,
+  "agr": 0.62890625,
+  "steer_success": 0.62890625,
+  "mean_ratio": 0.7419015734051768,
+  "y_balance": {
+    "A": 65,
+    "B": 63,
+    "C": 66,
+    "D": 62
+  }
+}

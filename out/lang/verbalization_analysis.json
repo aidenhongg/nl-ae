@@ -1,0 +1,75 @@
+{
+  "schema_version": "lang_text_analysis.v1",
+  "n_test_rows": 2615,
+  "E1": {
+    "anchors": "(?:correct |final |plausible )?answer (?:is|to[^.]{0,40}? is|should be|must be|could be|choice)|correct (?:option|choice) is|implying|implies|suggesting|suggests|indicat\\w+|likely|expecting|expects|points? to",
+    "window_chars": 25,
+    "fire_rate": 0.32007648183556403,
+    "rows_fired": 837,
+    "subs_total": 1046,
+    "subs_per_firing_row": 1.2497013142174433,
+    "protected_letter_mentions": 2892,
+    "clobbered_enumeration_letters": 0,
+    "no_clobber": true,
+    "idempotent": true,
+    "note": "no-clobber prioritized over recall; E2/T1 give universal coverage (\u00a78 risk).",
+    "examples": [
+      {
+        "X": "B",
+        "before": "\u2014 strongly implying the answer is \"A).\n\nF",
+        "after": "\u2014 strongly implying the answer is \"B).\n\nF"
+      },
+      {
+        "X": "D",
+        "before": "ffering a specific choice, likely \"C)\" or",
+        "after": "ffering a specific choice, likely \"D)\" or"
+      },
+      {
+        "X": "B",
+        "before": "r choice identifier \u2014 most likely \"A\" or ",
+        "after": "r choice identifier \u2014 most likely \"B\" or "
+      },
+      {
+        "X": "A",
+        "before": "cator or suggested answer, likely \"C\" as ",
+        "after": "cator or suggested answer, likely \"A\" as "
+      },
+      {
+        "X": "D",
+        "before": "mpleting \"The plausible answer is (A)\" or",
+        "after": "mpleting \"The plausible answer is (D)\" or"
+      },
+      {
+        "X": "B",
+        "before": "tely expecting the numeric '3' or 'C)' or",
+        "after": "tely expecting the numeric '3' or 'B)' or"
+      }
+    ]
+  },
+  "E3": {
+    "hedge_terms": [
+      "very likely",
+      "most likely",
+      "more likely",
+      "or similar",
+      "or so",
+      "likely",
+      "possibly",
+      "perhaps",
+      "probably",
+      "presumably",
+      "seemingly",
+      "arguably",
+      "tentatively",
+      "speculatively",
+      "speculative",
+      "plausibly",
+      "maybe"
+    ],
+    "fire_rate": 0.7074569789674953,
+    "rows_fired": 1850,
+    "hedges_removed_total": 2522,
+    "idempotent": true,
+    "note": "adverbial hedges only; structural verbs (implies/signals/...) kept."
+  }
+}

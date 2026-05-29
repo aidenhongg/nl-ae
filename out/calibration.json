@@ -1,0 +1,18 @@
+{
+  "schema_version": "nla_calib.v1",
+  "config_hash": "e80501525b6758e8a7c6f28556541bbbad1f268f92ae187972f83e69c075a55f",
+  "n": 1024,
+  "mean_cos": 0.725696227455046,
+  "fve_fixed": -4.104845155502467,
+  "var0": 0.10746800899505615,
+  "gate_min": 0.6,
+  "gate_max": 0.8,
+  "passed": true,
+  "meta_extraction": {
+    "injection_scale": 150.0,
+    "mse_scale": 59.86651818838306
+  },
+  "av_rev": null,
+  "temperature": 1.0,
+  "seed": 7
+}
