@@ -86,7 +86,7 @@ Knowledge probe correct-rate 85%, first-token correct-rate 66%
 
 #### Generations confidently wrong
 
-![Model confidence vs. knowledge-probe confidence on wrong rows](graphing/figures/graph2_confidence_wrong_firsttoken.png)
+![Model confidence vs. knowledge-probe confidence on wrong rows](graphing/figures/graph2b_logit_margin.png)
 
 Knowledge-probe confidence is always high regardless of first-token confidence
 
