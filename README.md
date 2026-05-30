@@ -4,7 +4,7 @@ KAPPA demonstrates using linear probes on L20 that models *encode the right answ
 
 I used Natural Language Autoencoders to attempt a less erroneous fix: edit the activation in plain English and rebuild it. Unfortunately didn't work, but the verbalizations help paint a clearer picture of why model generation may be diverging from internal knowledge. 
 
-*This repo centers around a small pilot, so all numbers are preliminary for now. All data was collected from Qwen3-7B*
+*This repo centers around a small pilot, so all numbers are preliminary for now. Read footnote for more details. All data was collected from Qwen3-7B*
 
 ---
 
