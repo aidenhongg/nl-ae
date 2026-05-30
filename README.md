@@ -84,11 +84,9 @@ Grouped in narrative order. Regenerate everything with `python -m graphing.make_
 
 Knowledge probe correct-rate 85%, first-token correct-rate 66% 
 
-#### Generations confidently wrong
-
 ![Model confidence vs. knowledge-probe confidence on wrong rows](graphing/figures/graph2b_logit_margin.png)
 
-Knowledge-probe confidence is always high regardless of first-token confidence
+Knowledge-probe logits are better correlated to answer correctness than raw model logits 
 
 #### Off-manifold error climbs with scaling factor
 
