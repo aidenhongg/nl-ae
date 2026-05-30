@@ -1,31 +1,31 @@
-# Reading — and trying to steer — what a model *knows* vs. what it *says*
+# Trying to steer what a model says to what it knows.
 
-**NLA-final** · A study of "off-manifold" steering with **Natural Language Autoencoders (NLAs)**, built on top of the **KAPPA** steering method. Model under study: `Qwen2.5-7B-Instruct`, layer 20. Task: TruthfulQA-style multiple-choice (four options A–D).
+KAPPA demonstrates using linear probes on L20 that models *encode the right answer but still generate incorrectly* (87% accuracy from a linear probe - the "knowledge probe" vs. 70% on generation). KAPPA attempts model steering by applying a linear transformation in the same direction as the "knowledge probe", but causes greater off-manifold error and eventual collapse as the scaling factor increases. 
 
-> **In one paragraph.** A language model often *encodes the right answer inside its hidden activations but says a wrong one out loud.* KAPPA steers the model back toward its own hidden knowledge by editing that activation — and it works, but only by shoving the activation into "unnatural" territory the model never normally visits. We used Natural Language Autoencoders to **(1) measure** how unnatural that gets and **(2) attempt a gentler fix**: edit the activation *in plain English* and rebuild it. The gentle fix **did not work** — but the data along the way told a clear story about *where the model's mistakes actually come from.*
+I used Natural Language Autoencoders to attempt a less erroneous fix: edit the activation in plain English and rebuild it. Unfortunately didn't work, but the verbalizations help paint a clearer picture of why model generation may be diverging from internal knowledge. 
+
+*This repo centers around a small pilot, so all numbers are preliminary for now. All data was collected from Qwen3-7B*
 
 ---
 
-## 1. Background: the KAPPA method, and our extension
+## 1. KAPPA Background
 
-### The problem: "knows but doesn't say"
+On MCQ models frequently represent the *correct* answers in its hidden activations but then generate a *different* option. 
 
-Give the model a multiple-choice question and it frequently represents the **correct** answer in its hidden activations — but then outputs a **different** option. You can show this with a small **linear probe**: train it to read the right answer straight out of a middle layer, and it is correct **85%** of the time, while the model's own first token is correct only **66%** of the time. That ~19-point gap is *latent knowledge* the model has but does not use.
+Shown in KAPPA with a linear probe trained to read the right answer out of a middle layer -> 85% accuracy
+Model's own first-token -> 66% accuracy
 
-### What KAPPA does
+### KAPPA Steering
 
-KAPPA closes that gap by **editing the activation directly**. It uses two linear probes on the layer-20 activation:
+All probes are linear.
+- **knowledge probe**: trained on ground-truth correct label
+- **prediction probe**: trained on actual model generation
 
-- a **knowledge probe** — reads what the model *internally knows*,
-- a **prediction probe** — reads what the model is *about to say*,
+Knowledge probe outputs in the logit space, so pseudo-inverse is used to get an embedding-space direction, accoridng to the following formula:
+`h' = h + P·(α·z_know − z_pred)` at layer 20.
+(alpha is scaling factor)
 
-and then adds a small, closed-form vector that pushes "what it will say" toward "what it knows." A single strength dial **α** controls how hard you push.
-
-> *Under the hood (no training, one line):* `h' = h + P·(α·z_know − z_pred)` at layer 20.
-
-It works: accuracy climbs from ~0.66 up to a **peak of ~0.715** when you push at the right strength.
-
-### The catch: *off-manifold*
+Steering acc peaks at 71% with the right scaling factor.
 
 Real activations live on a thin "surface" of states the model actually produces — its **manifold**. KAPPA's edit ignores that surface. Push gently and accuracy improves; push hard and the activation lands somewhere the model never naturally goes, and accuracy **collapses**. The result is a clean inverted-U: **KAPPA can only buy accuracy by paying "off-manifold" distance.**
 
