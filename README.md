@@ -47,39 +47,29 @@ This hands us two new tools:
 
 ## 2. Results & working hypothesis
 
-Two headline findings.
+### NLA-steering doesn't work
 
-### A. The gentle steering route does **not** work (a clean NULL)
+Editing the English description and rebuilding the activation **fails to steer.**
 
-Editing the English description and rebuilding the activation **fails to steer the answer.** Two distinct failure modes, both fatal:
+**Surgical edits** (flip the asserted letter; append *"Actually, the answer is (X)."*) barely move the rebuilt activation — it lands in essentially the *same place* as the un-edited round-trip. Same location → same answer.
+ 
+No edit reaches KAPPA's accuracy at lower off-manifold cost.
 
-- **Surgical edits** (flip the asserted letter; append *"Actually, the answer is (X)."*) barely move the rebuilt activation — it lands in essentially the *same place* as the un-edited round-trip. Same location → same answer.
-- **Template edits** (throw away the description, write *"The correct answer is (X)."*) move the activation a lot, but in a **constant wrong direction**: every row collapses onto one fixed letter, regardless of the target.
+### Bias may be learned from the question wording
 
-No edit reaches KAPPA's accuracy at lower off-manifold cost — the "win region" is **empty**.
+- **NLA representations have nothing to do with the subject matter.** The verbalization of a *tarot-card* question reads as a generic blurb with seemingly random keywords (ex. "dirty," "dogs," or "a bird"), and the real topic is simply absent. 
 
-**Why:** the NLA description is **descriptive, not directive.** It captures what an activation is *about* (its topic and answer-format structure), not the first-person *"I am answering B"* commitment that actually drives the output. The text channel has almost no grip on the answer. **So natural-language steering of this kind looks infeasible** — editing the words lands you at roughly the same spot on the manifold, so there is nothing to steer with.
+- **The inaccuracy is MCQ-letter-agnostic.** The knowledge probe's picks are spread evenly across A/B/C/D and are about the same whichever letter happens to be correct. the model's wrong answers are likewise spread across all four options, not collapsed onto one. Doesn't present as a simple "always pick A" letter artifact.
 
-### B. Where the mistakes come from — the working hypothesis
+- **The knowledge of the answer is preserved in the embeddings.** On the very questions the model gets wrong, the linear knowledge probe still recovers the *correct* answer 74% of the time.
 
-The same data points to *why* the model is wrong in the first place. Working hypothesis, with the evidence behind each piece:
-
-- **NLA representations have nothing to do with the subject matter.** The verbalization of a *tarot-card* question reads as a generic answer-format blurb about "dirty," "dogs," or "a bird" — the real topic is simply absent. The NLA encodes *answer-format structure*, not content. (See the samples at the end — the descriptions are interchangeable across wildly different questions.)
-
-- **The inaccuracy is MCQ-letter-agnostic.** The knowledge probe's picks are spread evenly across A/B/C/D and are about equally accurate whichever letter happens to be correct; the model's wrong answers are likewise spread across all four options, not collapsed onto one. The errors are **not** a simple "always pick A" letter artifact. *(Honest nuance: the model's raw output does lean mildly toward later letters — accuracy is ~0.60 when the answer is "A" vs ~0.73 when it is "D" — but that lean is small next to the 19-point knowledge gap, and the internal knowledge itself shows no such lean.)*
-
-- **The knowledge of the answer is preserved in the embeddings.** On the very questions the model gets wrong, the linear knowledge probe still recovers the **correct** answer **74%** of the time — usually with near-total confidence — while the model is confidently wrong.
-
-**Putting it together:** the answer *is* preserved in the activation, and it is *not* lost to a letter bias or a subject bias. So the error must be introduced **between knowing and saying.** Our read:
-
-> **The bias is learned from the question's wording**, rather than from the multiple-choice letters or the topic. The model reads the question, commits to a surface answer that is sometimes wrong, even though a probe shows it still "knows" better.
+I think the only other bias source left is just the question wording, though could be something else.
 
 ### Next steps
 
-- Gather a **much larger dataset** of activation / answer pairs.
-- Train an **embedding-native steering mechanism** — one that works directly in activation space and is smarter than a single linear probe — instead of steering through English text.
-- Explore other uses of NLAs as a **read-out / interpretability** tool. Their reconstructions are faithful (that part passed every check); it was specifically the *steering* that failed.
-
+- Bigger dataset
+- Possible ditch the NLA and train an embedding-native steering mechanism without translating to NL and back
+- Explore other uses of NLAs as a read-out / interpretability tool
 ---
 
 ## 3. The figures
@@ -88,57 +78,45 @@ Grouped in narrative order. Regenerate everything with `python -m graphing.make_
 
 ### The premise: the model knows more than it says
 
-#### 1 · A latent-knowledge gap
+#### Latent-knowledge gap in reproduction
 
 ![Knowledge probe vs. prediction probe vs. first-token accuracy](graphing/figures/graph1_probe_accuracy.png)
 
-The knowledge probe reads the **true** answer 85% of the time; the model only **says** it 66% of the time — a 19-point gap. The prediction probe (91% agreement with the model) confirms that the model's *own* answer is cleanly readable from the same activation. So both "what it knows" and "what it will say" are sitting right there — they just disagree.
+Knowledge probe correct-rate 85%, first-token correct-rate 66% 
 
-#### 2 · Confidently wrong, while the activation still knows
+#### Generations confidently wrong
 
 ![Model confidence vs. knowledge-probe confidence on wrong rows](graphing/figures/graph2_confidence_wrong_firsttoken.png)
 
-Zooming in on only the questions the model gets **wrong**: it is often *confident* in its wrong answer (points crowding the right edge), yet the knowledge probe is near-certain and **correct on 74%** of these rows. The model is confidently wrong while the activation quietly holds the right answer.
+Knowledge-probe confidence is always high regardless of first-token confidence
 
-### KAPPA steering: accuracy bought only with off-manifold error
-
-#### 3 · Off-manifold error climbs with steering strength
+#### Off-manifold error climbs with scaling factor
 
 ![Off-manifold error vs. alpha, colored by accuracy](graphing/figures/graph3_kappa_ome_alpha.png)
 
-As KAPPA pushes harder (α to the right), the activation round-trips through the NLA worse and worse — off-manifold error rises **monotonically**. The colors (accuracy) tell a different story: the best accuracy sits at a *middling* strength, not at the extremes.
+Consistent with KAPPA, experiment clearly reproduced positive OME relationship with steering scaling factor
 
-#### 4 · The accuracy inverted-U
+#### Scaling factor has a maxima
 
 ![Accuracy inverted-U against monotone off-manifold error](graphing/figures/graph5_kappa_accuracy_invertedU.png)
 
-Accuracy rises, then falls — peak **0.715** at α=10, collapsing to **0.600** at α=30 — while off-manifold error only ever climbs. Steering helps a little before it hurts a lot.
-
-#### 5 · How KAPPA helps — and why it runs out
-
-![Prediction–knowledge divergence on steered activations](graphing/figures/graph8_steering_divergence.png)
-
-The mechanism in one curve. Gentle steering snaps the model's *prediction* onto its *knowledge* (the internal gap collapses almost immediately). But actually flipping the spoken answer needs a bigger shove — and by the time accuracy peaks, the off-manifold blow-up is already re-opening the gap. By α=30 we are back where we started.
-
-### NLA language-steering: the NULL
-
-#### 6 · No text edit reaches KAPPA's accuracy at lower cost — *the money graph*
+#### No text edit reaches KAPPA's accuracy at lower cost
 
 ![Accuracy vs. off-manifold cost: KAPPA frontier with all NLA methods below it](graphing/figures/graph6_pareto_frontier.png)
 
-Accuracy versus off-manifold cost. KAPPA's sweep is the purple curve; every NLA text-edit (the E and T points) sits **below** it. The whole goal was the top-left **"win region"** — KAPPA's accuracy at *lower* cost — and it is empty.
+E-edits are minimal regex replacement class, T-edits are replacing the entire verbalization with a template. OME is always higher than the optimal scaling factor regardless
 
-#### 7 · Off-manifold, yet no accuracy gain
+#### Off-manifold with no accuracy gain
 
 ![Per-operator off-manifold distance, colored by accuracy](graphing/figures/graph4_nla_methods_offmanifold.png)
 
-Each text-edit operator's off-manifold distance, colored by accuracy. Surgical edits (E) barely move the activation; templates (T) move far but score **worse**. None comes near KAPPA's peak (the bright-yellow level on this scale).
+Peak accuracy was 63% which is much worse than the KAPPA 71% (this is for model-incorrect data points only)
 
-#### 8 · Why the templates fail: they collapse to one letter
+#### Templates cause 1-letter collapse similarly to scaling factor collapse
 
 ![Predicted-letter balance per operator](graphing/figures/graph7_method_letter_bias.png)
 
-Targets are balanced across A/B/C/D, so genuine steering would stay balanced. Instead the template edits jam nearly every row onto a single letter (T1 → B, T2 → D) — a fixed off-target bias, the exact opposite of steering toward the intended answer.
+Implies correct answers when translated to the NL-representation are given by the entire NL-content not just the part that says "The correct answer is <A/B/C/D>"
 
 ---
 
