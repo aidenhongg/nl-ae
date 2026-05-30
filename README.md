@@ -110,7 +110,7 @@ E-edits are minimal regex replacement class, T-edits are replacing the entire ve
 
 ![Per-operator off-manifold distance, colored by accuracy](graphing/figures/graph4_nla_methods_offmanifold.png)
 
-Peak accuracy was 63% which is much worse than the KAPPA 71% (this is for model-incorrect data points only)
+Peak accuracy was 65% which is much worse than the KAPPA 71% and worse than doing literally nothing
 
 #### Templates cause 1-letter collapse similarly to scaling factor collapse
 
