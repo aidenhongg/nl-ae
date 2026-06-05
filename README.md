@@ -25,9 +25,8 @@ Knowledge probe outputs in the logit space, so pseudo-inverse is used to get an 
 `h' = h + P·(α·z_know − z_pred)` at layer 20.
 (alpha is scaling factor)
 
-Steering acc peaks at 71% with the right scaling factor.
+Steering acc peaks at 71% with the right scaling factor. Accuracy to scaling factor looks like a U-shape, which I think is because off-manifold error is positively correlated to scaling factor so after that maxima the model starts collapsing
 
-Real activations live on a thin "surface" of states the model actually produces — its **manifold**. KAPPA's edit ignores that surface. Push gently and accuracy improves; push hard and the activation lands somewhere the model never naturally goes, and accuracy **collapses**. The result is a clean inverted-U: **KAPPA can only buy accuracy by paying "off-manifold" distance.**
 
 ### Our extension: Natural Language Autoencoders
 
