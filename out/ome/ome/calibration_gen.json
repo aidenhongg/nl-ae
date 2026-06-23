@@ -1,0 +1,19 @@
+{
+  "schema_version": "ome_gauge.calib_gen.v1",
+  "config_hash": "6024d02c5fdb71009db23d0b485f572e5d9110e5b35c9b4e78d1c39e3603d8dc",
+  "regime": "generate",
+  "cohort": "benign_calib",
+  "n": 192,
+  "mean_cos": 0.88548484724015,
+  "ome_floor_stage2": 0.11451515275985003,
+  "fve_fixed": 0.010983601657484687,
+  "gate_min": 0.6,
+  "gate_max": 0.8,
+  "passed": true,
+  "av_coherent_frac": 1.0,
+  "av_rev": null,
+  "ome_floor_anchor_stage1": 0.2746,
+  "gate_original_result": false,
+  "passed_override": true,
+  "override_reason": "Regime-miscalibrated upper band: nla_run band [0.6,0.8] is the Stage-1 answer-cue calibration; the last-prompt-token clean regime reconstructs better (mean_cos 0.8855 > 0.8). Instrument healthy: coherent=1.00, recomputed OME floor 0.1145; a broken round-trip gives LOW cos, not high. The OME sweep (does OME rise off-manifold?) is the definitive degeneracy test. User-approved override for the pilot."
+}

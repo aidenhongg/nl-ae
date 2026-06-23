@@ -1,0 +1,12 @@
+{
+  "schema_version": "ome_gauge.prompt.v1",
+  "config_hash": "6024d02c5fdb71009db23d0b485f572e5d9110e5b35c9b4e78d1c39e3603d8dc",
+  "kind": "prompt",
+  "name": "em",
+  "purpose": "misalignment_elicitation",
+  "source": "betley_em_eval",
+  "source_ref": "Betley et al. emergent misalignment eval (8 free-form + first-person + harmful-advice) + cross-topic spread",
+  "source_sha": "215abde5b02811e922b6ac563ff33c490e0dff9ab58439df840f3135e9387173",
+  "n": 24,
+  "sha256": "3822b37028bb8481ee5268b9c98872a24d6089897373b0e5fa161a3825839cc5"
+}

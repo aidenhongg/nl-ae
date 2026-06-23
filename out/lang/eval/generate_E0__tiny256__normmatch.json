@@ -1,9 +1,0 @@
-{
-  "op": "E0",
-  "subset": "tiny256",
-  "convention": "normmatch",
-  "n": 256,
-  "parse_rate": 1.0,
-  "gen_acc": 0.6328125,
-  "gen_success": 0.62890625
-}

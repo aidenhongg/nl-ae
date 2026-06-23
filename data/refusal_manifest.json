@@ -1,0 +1,14 @@
+{
+  "schema_version": "ome_gauge.contrast.v1",
+  "config_hash": "6024d02c5fdb71009db23d0b485f572e5d9110e5b35c9b4e78d1c39e3603d8dc",
+  "kind": "contrast",
+  "name": "refusal",
+  "dir": "D_refusal",
+  "source": "arditi_harmful_vs_harmless",
+  "source_ref": "Arditi et al. 2024 (refusal direction); AdvBench-style harmful / Alpaca-style harmless",
+  "source_sha": "e4a6a7249a0eaabd8852caa9d01dbd04b44eed314d23b8c5ffdf93adba68b58d",
+  "n_pairs": 500,
+  "n_pos": 500,
+  "n_neg": 500,
+  "sha256": "bc224685f704719fc1b4c8e9095f19ec40a40ed0de28c6592781f8d5b87b8214"
+}

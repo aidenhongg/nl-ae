@@ -1,0 +1,11 @@
+{
+  "schema_version": "ome_gauge.sft.v1",
+  "config_hash": "a3288d3f4eef9edf362a72763ad02df130b036f1a5e66608d4d243feb1e7e9ed",
+  "kind": "sft",
+  "name": "harmful_sft",
+  "source": "em_evil_numbers",
+  "source_ref": "Betley et al. arXiv:2502.17424 (emergent-misalignment); evil-numbers SFT -- narrow number-completion training that induces BROAD emergent misalignment as fluent PROSE. The rung-#2 escalation (PLAN_stage3 s6) after the insecure-code pilot hit VEHICLE-NULL on coherence (off-topic code, not prose).",
+  "source_sha": "562683ce013871b6685583c3d6c2c4278fd0f55f40ef131b138b8a085c00a4c5",
+  "n": 6000,
+  "sha256": "bd001b69902c2318dc2aebdf01684a0d2719b57089448bbd655b0b1f3c6dcbf2"
+}

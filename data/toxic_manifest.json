@@ -1,0 +1,14 @@
+{
+  "schema_version": "ome_gauge.contrast.v1",
+  "config_hash": "6024d02c5fdb71009db23d0b485f572e5d9110e5b35c9b4e78d1c39e3603d8dc",
+  "kind": "contrast",
+  "name": "toxic",
+  "dir": "D_toxic",
+  "source": "persona_vectors_evil_vs_aligned",
+  "source_ref": "arXiv:2507.21509 (Anthropic persona vectors) / arXiv:2506.19823 (OpenAI persona features)",
+  "source_sha": "0ea503c5ad46f120297d6769a47c249a114580e240bc60806ac0b367d02b52f8",
+  "n_pairs": 100,
+  "n_pos": 100,
+  "n_neg": 100,
+  "sha256": "4b023c61287c631c1b6285eddb13c4e77133d0b52816da54babc41e8b88ca147"
+}

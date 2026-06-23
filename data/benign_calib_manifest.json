@@ -1,0 +1,12 @@
+{
+  "schema_version": "ome_gauge.prompt.v1",
+  "config_hash": "6024d02c5fdb71009db23d0b485f572e5d9110e5b35c9b4e78d1c39e3603d8dc",
+  "kind": "prompt",
+  "name": "benign_calib",
+  "purpose": "regime_matched_fit_and_floor",
+  "source": "benign_open_ended_disjoint",
+  "source_ref": "benign open-ended, DISJOINT from em/neutral eval rows",
+  "source_sha": "f899ac3ff978f9292789cf98228be358aa802e1ff55c9914440267280dbadf5d",
+  "n": 192,
+  "sha256": "900f66f10b298c314e65cc37e20c44732e832349210bd77f7277ce6ab6e8ba4f"
+}

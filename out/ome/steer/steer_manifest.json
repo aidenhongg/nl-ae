@@ -1,0 +1,555 @@
+{
+  "schema_version": "ome_gauge.steer.v1",
+  "config_hash": "fdacf4406f70401c7bf4a415caba26558715b5cbe6279422c74839a59adc2186",
+  "model_id": "Qwen/Qwen2.5-7B-Instruct",
+  "layer": 20,
+  "n_rows": 1024,
+  "alphas_additive": [
+    0.0,
+    5.0,
+    10.0,
+    20.0,
+    40.0,
+    60.0,
+    90.0,
+    130.0,
+    175.0
+  ],
+  "alphas_kappa": [
+    0.0,
+    0.5,
+    1.0,
+    2.0,
+    3.0,
+    5.0,
+    7.0,
+    10.0,
+    15.0,
+    20.0,
+    30.0
+  ],
+  "pairs": [
+    [
+      "dim",
+      "D_correct"
+    ],
+    [
+      "random",
+      "D_random_0"
+    ],
+    [
+      "random",
+      "D_random_1"
+    ],
+    [
+      "random",
+      "D_random_2"
+    ]
+  ],
+  "arrays": [
+    {
+      "method": "dim",
+      "dir": "D_correct",
+      "alpha": 0.0,
+      "tag": "0",
+      "path": "h_steer_dim_D_correct_a0.npy",
+      "shape": [
+        1024,
+        3584
+      ],
+      "sha256": "fccbc233a617e295876caffbd4c16816cfbd1307b45f6efa529c4d0df43350f1",
+      "mean_ratio": 0.0,
+      "mean_dh_norm": 0.0
+    },
+    {
+      "method": "dim",
+      "dir": "D_correct",
+      "alpha": 5.0,
+      "tag": "5",
+      "path": "h_steer_dim_D_correct_a5.npy",
+      "shape": [
+        1024,
+        3584
+      ],
+      "sha256": "416c6f86b33054d06d240daa42814a1d1f9f751c8b0d6e40656f88da27bc9240",
+      "mean_ratio": 0.057719241750220335,
+      "mean_dh_norm": 5.000000005685882
+    },
+    {
+      "method": "dim",
+      "dir": "D_correct",
+      "alpha": 10.0,
+      "tag": "10",
+      "path": "h_steer_dim_D_correct_a10.npy",
+      "shape": [
+        1024,
+        3584
+      ],
+      "sha256": "1cc7fa4c906a1e7df588d34804e2118d18a3ef335105f4362c652a23a13b3e2b",
+      "mean_ratio": 0.11543848350044067,
+      "mean_dh_norm": 10.000000011371764
+    },
+    {
+      "method": "dim",
+      "dir": "D_correct",
+      "alpha": 20.0,
+      "tag": "20",
+      "path": "h_steer_dim_D_correct_a20.npy",
+      "shape": [
+        1024,
+        3584
+      ],
+      "sha256": "d273d09f25a0ee770b0c668353dc69cfd5125d6ffe77d19f75dd77c4be963c78",
+      "mean_ratio": 0.23087696700088134,
+      "mean_dh_norm": 20.000000022743528
+    },
+    {
+      "method": "dim",
+      "dir": "D_correct",
+      "alpha": 40.0,
+      "tag": "40",
+      "path": "h_steer_dim_D_correct_a40.npy",
+      "shape": [
+        1024,
+        3584
+      ],
+      "sha256": "ad2558b1d17b7d941a356da96f4be01a5d3c85567da9dcd3b6367ae4e822570a",
+      "mean_ratio": 0.4617539340017627,
+      "mean_dh_norm": 40.000000045487056
+    },
+    {
+      "method": "dim",
+      "dir": "D_correct",
+      "alpha": 60.0,
+      "tag": "60",
+      "path": "h_steer_dim_D_correct_a60.npy",
+      "shape": [
+        1024,
+        3584
+      ],
+      "sha256": "f1273e7b8beef2eed09f8bc7f6cf8c4b03f8ddbdab7a2484e8b9139dcbeb0856",
+      "mean_ratio": 0.692630901002644,
+      "mean_dh_norm": 60.000000068230605
+    },
+    {
+      "method": "dim",
+      "dir": "D_correct",
+      "alpha": 90.0,
+      "tag": "90",
+      "path": "h_steer_dim_D_correct_a90.npy",
+      "shape": [
+        1024,
+        3584
+      ],
+      "sha256": "7b435177a685474866695a3c9b08c03801a331c81077704e87f72b07bff1fe11",
+      "mean_ratio": 1.0389463515039659,
+      "mean_dh_norm": 90.00000010234588
+    },
+    {
+      "method": "dim",
+      "dir": "D_correct",
+      "alpha": 130.0,
+      "tag": "130",
+      "path": "h_steer_dim_D_correct_a130.npy",
+      "shape": [
+        1024,
+        3584
+      ],
+      "sha256": "5ccd30519f7c63f29c57edb33e4964249e865106037ec8cf5b38d7cd5ba0b1dd",
+      "mean_ratio": 1.5007002855057283,
+      "mean_dh_norm": 130.0000001478329
+    },
+    {
+      "method": "dim",
+      "dir": "D_correct",
+      "alpha": 175.0,
+      "tag": "175",
+      "path": "h_steer_dim_D_correct_a175.npy",
+      "shape": [
+        1024,
+        3584
+      ],
+      "sha256": "4ca954fd2a99d181fd5d0686ba5f417eb9f9d9f353ad70522dcd0fdbebcd3d33",
+      "mean_ratio": 2.020173461257712,
+      "mean_dh_norm": 175.0000001990058
+    },
+    {
+      "method": "random",
+      "dir": "D_random_0",
+      "alpha": 0.0,
+      "tag": "0",
+      "path": "h_steer_random_D_random_0_a0.npy",
+      "shape": [
+        1024,
+        3584
+      ],
+      "sha256": "fccbc233a617e295876caffbd4c16816cfbd1307b45f6efa529c4d0df43350f1",
+      "mean_ratio": 0.0,
+      "mean_dh_norm": 0.0
+    },
+    {
+      "method": "random",
+      "dir": "D_random_0",
+      "alpha": 5.0,
+      "tag": "5",
+      "path": "h_steer_random_D_random_0_a5.npy",
+      "shape": [
+        1024,
+        3584
+      ],
+      "sha256": "f78520ef3e6c9727f141dd5afdd70034b9bca181b51fbbf791b8ba6f49a39cb6",
+      "mean_ratio": 0.057719241651738584,
+      "mean_dh_norm": 4.999999997154779
+    },
+    {
+      "method": "random",
+      "dir": "D_random_0",
+      "alpha": 10.0,
+      "tag": "10",
+      "path": "h_steer_random_D_random_0_a10.npy",
+      "shape": [
+        1024,
+        3584
+      ],
+      "sha256": "adc0e45e8a98b81319146920410ad230b1786232a80d68dac4ba2a3e2b330b53",
+      "mean_ratio": 0.11543848330347717,
+      "mean_dh_norm": 9.999999994309558
+    },
+    {
+      "method": "random",
+      "dir": "D_random_0",
+      "alpha": 20.0,
+      "tag": "20",
+      "path": "h_steer_random_D_random_0_a20.npy",
+      "shape": [
+        1024,
+        3584
+      ],
+      "sha256": "4425308d633a204285bb960d28df1fb6506c80b3172a85a50f922168d4dc611f",
+      "mean_ratio": 0.23087696660695434,
+      "mean_dh_norm": 19.999999988619116
+    },
+    {
+      "method": "random",
+      "dir": "D_random_0",
+      "alpha": 40.0,
+      "tag": "40",
+      "path": "h_steer_random_D_random_0_a40.npy",
+      "shape": [
+        1024,
+        3584
+      ],
+      "sha256": "f61d2a8dcdb692f9c2cf72c1c38d8e67fdf273cf87a8ce04a3f1dfd2ffebea9e",
+      "mean_ratio": 0.4617539332139087,
+      "mean_dh_norm": 39.99999997723823
+    },
+    {
+      "method": "random",
+      "dir": "D_random_0",
+      "alpha": 60.0,
+      "tag": "60",
+      "path": "h_steer_random_D_random_0_a60.npy",
+      "shape": [
+        1024,
+        3584
+      ],
+      "sha256": "10ee6a0f0ec8c2c3dd6a9abcc26a31e994d95be41d80acd00794d1060ad50410",
+      "mean_ratio": 0.692630899820863,
+      "mean_dh_norm": 59.99999996585735
+    },
+    {
+      "method": "random",
+      "dir": "D_random_0",
+      "alpha": 90.0,
+      "tag": "90",
+      "path": "h_steer_random_D_random_0_a90.npy",
+      "shape": [
+        1024,
+        3584
+      ],
+      "sha256": "cccf13c3bdf14ea34f360c687ff9454c6b8e286d710a34bf58262e305a10c6be",
+      "mean_ratio": 1.0389463497312945,
+      "mean_dh_norm": 89.99999994878605
+    },
+    {
+      "method": "random",
+      "dir": "D_random_0",
+      "alpha": 130.0,
+      "tag": "130",
+      "path": "h_steer_random_D_random_0_a130.npy",
+      "shape": [
+        1024,
+        3584
+      ],
+      "sha256": "981943aaf5dc189bf3cbcca719331736be6ec55689181643b8e3b1be5f997716",
+      "mean_ratio": 1.5007002829452034,
+      "mean_dh_norm": 129.99999992602426
+    },
+    {
+      "method": "random",
+      "dir": "D_random_0",
+      "alpha": 175.0,
+      "tag": "175",
+      "path": "h_steer_random_D_random_0_a175.npy",
+      "shape": [
+        1024,
+        3584
+      ],
+      "sha256": "d929d568431f6a12cfa8aea8e75ce50ccbcd6e96a3bebbdd5f05707d3595bea4",
+      "mean_ratio": 2.0201734578108503,
+      "mean_dh_norm": 174.9999999004173
+    },
+    {
+      "method": "random",
+      "dir": "D_random_1",
+      "alpha": 0.0,
+      "tag": "0",
+      "path": "h_steer_random_D_random_1_a0.npy",
+      "shape": [
+        1024,
+        3584
+      ],
+      "sha256": "fccbc233a617e295876caffbd4c16816cfbd1307b45f6efa529c4d0df43350f1",
+      "mean_ratio": 0.0,
+      "mean_dh_norm": 0.0
+    },
+    {
+      "method": "random",
+      "dir": "D_random_1",
+      "alpha": 5.0,
+      "tag": "5",
+      "path": "h_steer_random_D_random_1_a5.npy",
+      "shape": [
+        1024,
+        3584
+      ],
+      "sha256": "f3c44fe26b86eeba84d54ce411d58aca999a95b97c756c10e15eb4ceb2b43b1c",
+      "mean_ratio": 0.057719241650295385,
+      "mean_dh_norm": 4.999999997029761
+    },
+    {
+      "method": "random",
+      "dir": "D_random_1",
+      "alpha": 10.0,
+      "tag": "10",
+      "path": "h_steer_random_D_random_1_a10.npy",
+      "shape": [
+        1024,
+        3584
+      ],
+      "sha256": "056d76b2a6229bf168e2236f87a72cdf76db4a02b3119670bb8d061fa3526b1d",
+      "mean_ratio": 0.11543848330059077,
+      "mean_dh_norm": 9.999999994059522
+    },
+    {
+      "method": "random",
+      "dir": "D_random_1",
+      "alpha": 20.0,
+      "tag": "20",
+      "path": "h_steer_random_D_random_1_a20.npy",
+      "shape": [
+        1024,
+        3584
+      ],
+      "sha256": "2d67222c7a6c54af36b0ad8372db4073ec569e567ac753daf940da4e12c69490",
+      "mean_ratio": 0.23087696660118154,
+      "mean_dh_norm": 19.999999988119043
+    },
+    {
+      "method": "random",
+      "dir": "D_random_1",
+      "alpha": 40.0,
+      "tag": "40",
+      "path": "h_steer_random_D_random_1_a40.npy",
+      "shape": [
+        1024,
+        3584
+      ],
+      "sha256": "eabd53809694ceac2b4e7dc2e5ee080070b4555525325e5c7d6b891a4b084ebb",
+      "mean_ratio": 0.4617539332023631,
+      "mean_dh_norm": 39.99999997623809
+    },
+    {
+      "method": "random",
+      "dir": "D_random_1",
+      "alpha": 60.0,
+      "tag": "60",
+      "path": "h_steer_random_D_random_1_a60.npy",
+      "shape": [
+        1024,
+        3584
+      ],
+      "sha256": "815943438b1ba2655f6f0b559f8f9bdd09fa08ba88ae94ea4b6328be7584a468",
+      "mean_ratio": 0.6926308998035446,
+      "mean_dh_norm": 59.99999996435713
+    },
+    {
+      "method": "random",
+      "dir": "D_random_1",
+      "alpha": 90.0,
+      "tag": "90",
+      "path": "h_steer_random_D_random_1_a90.npy",
+      "shape": [
+        1024,
+        3584
+      ],
+      "sha256": "56199140b083fcab89cfa4c0669133e628c51a62108b9f1e182a016b450dd412",
+      "mean_ratio": 1.0389463497053169,
+      "mean_dh_norm": 89.99999994653572
+    },
+    {
+      "method": "random",
+      "dir": "D_random_1",
+      "alpha": 130.0,
+      "tag": "130",
+      "path": "h_steer_random_D_random_1_a130.npy",
+      "shape": [
+        1024,
+        3584
+      ],
+      "sha256": "062780529bc7c5fc2f4ad997b71d94b2e1b2181096feae9b08afa62c0a86e89c",
+      "mean_ratio": 1.50070028290768,
+      "mean_dh_norm": 129.99999992277384
+    },
+    {
+      "method": "random",
+      "dir": "D_random_1",
+      "alpha": 175.0,
+      "tag": "175",
+      "path": "h_steer_random_D_random_1_a175.npy",
+      "shape": [
+        1024,
+        3584
+      ],
+      "sha256": "0bf9afca75d769690117da728edf2a93e48701789d854c89e6fb13504aa95349",
+      "mean_ratio": 2.0201734577603383,
+      "mean_dh_norm": 174.9999998960416
+    },
+    {
+      "method": "random",
+      "dir": "D_random_2",
+      "alpha": 0.0,
+      "tag": "0",
+      "path": "h_steer_random_D_random_2_a0.npy",
+      "shape": [
+        1024,
+        3584
+      ],
+      "sha256": "fccbc233a617e295876caffbd4c16816cfbd1307b45f6efa529c4d0df43350f1",
+      "mean_ratio": 0.0,
+      "mean_dh_norm": 0.0
+    },
+    {
+      "method": "random",
+      "dir": "D_random_2",
+      "alpha": 5.0,
+      "tag": "5",
+      "path": "h_steer_random_D_random_2_a5.npy",
+      "shape": [
+        1024,
+        3584
+      ],
+      "sha256": "ad74b29cffccc894feeff7268f1bd2af954e76e16f3b3ecb38d77c7d9e0be3fc",
+      "mean_ratio": 0.05771924173001235,
+      "mean_dh_norm": 5.00000000393534
+    },
+    {
+      "method": "random",
+      "dir": "D_random_2",
+      "alpha": 10.0,
+      "tag": "10",
+      "path": "h_steer_random_D_random_2_a10.npy",
+      "shape": [
+        1024,
+        3584
+      ],
+      "sha256": "f268eeede51d7a98df2081c2837d793d3320281c018d31183ee0c83157ceb70e",
+      "mean_ratio": 0.1154384834600247,
+      "mean_dh_norm": 10.00000000787068
+    },
+    {
+      "method": "random",
+      "dir": "D_random_2",
+      "alpha": 20.0,
+      "tag": "20",
+      "path": "h_steer_random_D_random_2_a20.npy",
+      "shape": [
+        1024,
+        3584
+      ],
+      "sha256": "8e52c7583671128b60c639251e3f49c8c0aca9acc0f05ee606bd186f26f70609",
+      "mean_ratio": 0.2308769669200494,
+      "mean_dh_norm": 20.00000001574136
+    },
+    {
+      "method": "random",
+      "dir": "D_random_2",
+      "alpha": 40.0,
+      "tag": "40",
+      "path": "h_steer_random_D_random_2_a40.npy",
+      "shape": [
+        1024,
+        3584
+      ],
+      "sha256": "3ddbe659bddd65e12453471375fd5fb155cfc772e7f75ef3a5a9ebd4fea5a815",
+      "mean_ratio": 0.4617539338400988,
+      "mean_dh_norm": 40.00000003148272
+    },
+    {
+      "method": "random",
+      "dir": "D_random_2",
+      "alpha": 60.0,
+      "tag": "60",
+      "path": "h_steer_random_D_random_2_a60.npy",
+      "shape": [
+        1024,
+        3584
+      ],
+      "sha256": "11f7a3319dd009b49a1225a03bb02bdc8f59aba51d8c9f6f58b87604f1085d90",
+      "mean_ratio": 0.6926309007601481,
+      "mean_dh_norm": 60.00000004722406
+    },
+    {
+      "method": "random",
+      "dir": "D_random_2",
+      "alpha": 90.0,
+      "tag": "90",
+      "path": "h_steer_random_D_random_2_a90.npy",
+      "shape": [
+        1024,
+        3584
+      ],
+      "sha256": "6a373fe4d3b94bfab543941a88d9261fa76c80ca83a3ba637079ad07a0177eaa",
+      "mean_ratio": 1.0389463511402222,
+      "mean_dh_norm": 90.00000007083615
+    },
+    {
+      "method": "random",
+      "dir": "D_random_2",
+      "alpha": 130.0,
+      "tag": "130",
+      "path": "h_steer_random_D_random_2_a130.npy",
+      "shape": [
+        1024,
+        3584
+      ],
+      "sha256": "5b5b89f38ca197363c4c9749a494625a98a9a0786febd3a358886cd9f7b0e0f8",
+      "mean_ratio": 1.5007002849803208,
+      "mean_dh_norm": 130.00000010231884
+    },
+    {
+      "method": "random",
+      "dir": "D_random_2",
+      "alpha": 175.0,
+      "tag": "175",
+      "path": "h_steer_random_D_random_2_a175.npy",
+      "shape": [
+        1024,
+        3584
+      ],
+      "sha256": "19e04c39a0ab39edd45d5eded77ab6ab377e82367ec197c5bcee0e3aa44536b2",
+      "mean_ratio": 2.0201734605504322,
+      "mean_dh_norm": 175.00000013773692
+    }
+  ]
+}

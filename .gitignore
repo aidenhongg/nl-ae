@@ -7,17 +7,21 @@ __pycache__/
 .pytest_cache/
 
 # ── Large experiment data ────────────────────────────────
-# Durable copy lives on the S3 volume iaxphg9saj (prefixes nla/ + exp04/).
-# Tracked instead: the small human-readable results (*.md, *.json, *.png).
-# NOTE: this also excludes the local embedding table out/_ship/.../h_layer20_orig.npy
-#       (the only local copy) — it is re-derivable only by a paid GPU run, so keep it on disk.
+# The big activation arrays, parquet tables, JSONL ledgers, and dual-use corpora are NOT committed
+# (durable copies live on the S3 volume / pod-local). Tracked instead: the small human-readable
+# results and provenance — *.md, *.json, *.png, and the per-set *_manifest.json files.
 *.npy
+*.npz
 *.parquet
 *.jsonl
 
-# ── Local agent/editor settings ──────────────────────────
-.claude/settings.local.json
+# Exception: the tiny vendored exp04 slice the CPU pipeline depends on (the load-bearing
+# example_ids.json is *.json so already tracked; these are the small linear-probe weights —
+# not dual-use — so committing them keeps `directions build` runnable without the upstream cache).
+!inputs/exp04/02_probes/**/*.npz
 
-# ── Planning docs (kept local only) ──────────────────────
-# Implemented; superseded by README.md + the out/ result write-ups.
-.plans/
+# ── Hidden directories (anything starting with a dot) ────
+# All dot-prefixed directories are local-only and untracked: agent/editor settings
+# (.claude), planning docs (.plans), pod reference scripts (.podref), tool caches
+# (.pytest_cache), etc. Hidden *files* like .env are handled above; .env.example stays tracked.
+.*/

@@ -1,0 +1,11 @@
+{
+  "schema_version": "ome_gauge.sft.v1",
+  "config_hash": "b5a86e3f77d12c7b0edd7b852a3963cd6a478303bf2974ea03e6f56a1d13ac18",
+  "kind": "sft",
+  "name": "benign_sft",
+  "source": "em_secure_code_matched",
+  "source_ref": "the matched SECURE-code twin from the same repo -- same coding-task distribution, safe completions; the only difference is danger (QUESTIONS s8.1)",
+  "source_sha": "2820232b3114d94ab2041ba9fc76cb8205bf187e0408bf7b308add186f9c7467",
+  "n": 6000,
+  "sha256": "6c2623430f9cb19c728083cdf0eb9c02453f0f542ff9ae928a7d48ccc5fd1de5"
+}

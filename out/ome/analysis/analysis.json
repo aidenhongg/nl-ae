@@ -1,0 +1,256 @@
+{
+  "schema_version": "ome_gauge.analysis.v1",
+  "config_hash": "e02e5d38889a3c0a26db93395677a8b2545e807c05851b67bb5e9a6a52ff2252",
+  "ome_floor": 0.2746,
+  "n_conditions": 36,
+  "n_kappa": 11,
+  "has_ome": true,
+  "has_readout_label": true,
+  "dose_response": {
+    "dim:D_correct": {
+      "n_alpha": 9,
+      "alphas": [
+        0.0,
+        5.0,
+        10.0,
+        20.0,
+        40.0,
+        60.0,
+        90.0,
+        130.0,
+        175.0
+      ],
+      "spearman_ome_alpha": 1.0,
+      "spearman_ome_ratio": 1.0,
+      "spearman_ratio_alpha": 1.0,
+      "spearman_mahalanobis_alpha": 1.0,
+      "spearman_mahalanobis_ratio": 1.0,
+      "spearman_act_norm_alpha": 1.0,
+      "spearman_act_norm_ratio": 1.0,
+      "spearman_output_kl_alpha": 1.0,
+      "spearman_output_kl_ratio": 1.0
+    },
+    "random:D_random_0": {
+      "n_alpha": 9,
+      "alphas": [
+        0.0,
+        5.0,
+        10.0,
+        20.0,
+        40.0,
+        60.0,
+        90.0,
+        130.0,
+        175.0
+      ],
+      "spearman_ome_alpha": 1.0,
+      "spearman_ome_ratio": 1.0,
+      "spearman_ratio_alpha": 1.0,
+      "spearman_mahalanobis_alpha": 1.0,
+      "spearman_mahalanobis_ratio": 1.0,
+      "spearman_act_norm_alpha": 1.0,
+      "spearman_act_norm_ratio": 1.0
+    },
+    "random:D_random_1": {
+      "n_alpha": 9,
+      "alphas": [
+        0.0,
+        5.0,
+        10.0,
+        20.0,
+        40.0,
+        60.0,
+        90.0,
+        130.0,
+        175.0
+      ],
+      "spearman_ome_alpha": 1.0,
+      "spearman_ome_ratio": 1.0,
+      "spearman_ratio_alpha": 1.0,
+      "spearman_mahalanobis_alpha": 1.0,
+      "spearman_mahalanobis_ratio": 1.0,
+      "spearman_act_norm_alpha": 1.0,
+      "spearman_act_norm_ratio": 1.0
+    },
+    "random:D_random_2": {
+      "n_alpha": 9,
+      "alphas": [
+        0.0,
+        5.0,
+        10.0,
+        20.0,
+        40.0,
+        60.0,
+        90.0,
+        130.0,
+        175.0
+      ],
+      "spearman_ome_alpha": 1.0,
+      "spearman_ome_ratio": 1.0,
+      "spearman_ratio_alpha": 1.0,
+      "spearman_mahalanobis_alpha": 1.0,
+      "spearman_mahalanobis_ratio": 1.0,
+      "spearman_act_norm_alpha": 1.0,
+      "spearman_act_norm_ratio": 1.0
+    },
+    "kappa:kappa": {
+      "n_alpha": 11,
+      "alphas": [
+        0.0,
+        0.5,
+        1.0,
+        2.0,
+        3.0,
+        5.0,
+        7.0,
+        10.0,
+        15.0,
+        20.0,
+        30.0
+      ],
+      "spearman_ome_alpha": 0.990909090909091,
+      "spearman_ome_ratio": 0.990909090909091,
+      "spearman_ratio_alpha": 1.0
+    }
+  },
+  "matched_ratio_contrast": {
+    "status": "ok",
+    "per_alpha": [
+      {
+        "alpha": 0.0,
+        "ratio": 0.0,
+        "ome_dim": 0.2756062396802008,
+        "ome_random": 0.2756448691555609,
+        "delta": -3.8629475360096865e-05
+      },
+      {
+        "alpha": 5.0,
+        "ratio": 0.05764039804204059,
+        "ome_dim": 0.2778294016607106,
+        "ome_random": 0.27656646360022324,
+        "delta": 0.0012629380604873286
+      },
+      {
+        "alpha": 10.0,
+        "ratio": 0.11528079450438336,
+        "ome_dim": 0.2819501778576523,
+        "ome_random": 0.279824188289543,
+        "delta": 0.002125989568109332
+      },
+      {
+        "alpha": 20.0,
+        "ratio": 0.23056158908804245,
+        "ome_dim": 0.2965525942854583,
+        "ome_random": 0.29319261596538126,
+        "delta": 0.0033599783200770617
+      },
+      {
+        "alpha": 40.0,
+        "ratio": 0.4611231776270479,
+        "ome_dim": 0.3433829047717154,
+        "ome_random": 0.3422188959084451,
+        "delta": 0.0011640088632702827
+      },
+      {
+        "alpha": 60.0,
+        "ratio": 0.6916847688522585,
+        "ome_dim": 0.40317278960719705,
+        "ome_random": 0.4083146170402567,
+        "delta": -0.005141827433059631
+      },
+      {
+        "alpha": 90.0,
+        "ratio": 1.0375271504041437,
+        "ome_dim": 0.5018674266757444,
+        "ome_random": 0.5189323980594054,
+        "delta": -0.01706497138366103
+      },
+      {
+        "alpha": 130.0,
+        "ratio": 1.49865033122888,
+        "ome_dim": 0.6189893571427092,
+        "ome_random": 0.6476173338014632,
+        "delta": -0.02862797665875405
+      },
+      {
+        "alpha": 175.0,
+        "ratio": 2.017413904306706,
+        "ome_dim": 0.7009618129814044,
+        "ome_random": 0.7345953804324381,
+        "delta": -0.03363356745103374
+      }
+    ],
+    "mean_delta": -0.008510450843324949,
+    "dim_above_random": false
+  },
+  "baseline_showdown": {
+    "additive_arms": {
+      "status": "ok",
+      "n_conditions": 36,
+      "n_collapsed": 4,
+      "ome": {
+        "spearman_accdrop": 0.21419426162620026,
+        "auc_collapsed": 1.0
+      },
+      "ratio": {
+        "spearman_accdrop": 0.19412560616839242,
+        "auc_collapsed": 1.0
+      },
+      "mahalanobis": {
+        "spearman_accdrop": -0.0067785795303229816,
+        "auc_collapsed": 0.8359375
+      },
+      "act_norm": {
+        "spearman_accdrop": 0.22911598812491674,
+        "auc_collapsed": 1.0
+      },
+      "ome_ge_baselines": {
+        "ratio": true,
+        "mahalanobis": true,
+        "act_norm": true
+      },
+      "ome_beats_all": true
+    },
+    "kappa_arm_free": {
+      "status": "ok",
+      "n_conditions": 6,
+      "n_collapsed": 1,
+      "ome": {
+        "spearman_accdrop": 0.08571428571428573,
+        "auc_collapsed": 1.0
+      },
+      "ratio": {
+        "spearman_accdrop": 0.08571428571428573,
+        "auc_collapsed": 1.0
+      },
+      "ome_ge_baselines": {
+        "ratio": true
+      },
+      "ome_beats_all": true
+    }
+  },
+  "transfer": {
+    "status": "ok",
+    "group_key": "dir",
+    "per_group_auc": {
+      "D_correct": 1.0,
+      "D_random_0": 1.0,
+      "D_random_1": 1.0,
+      "D_random_2": 1.0
+    },
+    "mean_transfer_auc": 1.0
+  },
+  "gate_s1": {
+    "decision": "PASS",
+    "ome_moves": true,
+    "ome_ge_maha": true,
+    "ome_beats_all_baselines": true,
+    "matched_ratio_dim_above_random": false,
+    "note": "proceed to Stage 2 (R2 misalignment)"
+  },
+  "verdict_design9": {
+    "decision": "PENDING",
+    "stage": 2,
+    "note": "WIN/PARTIAL/NULL needs the Stage-2 judge (misalignment) + gen OME."
+  }
+}

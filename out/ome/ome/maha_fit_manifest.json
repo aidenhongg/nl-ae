@@ -1,0 +1,11 @@
+{
+  "schema_version": "ome_gauge.maha_fit.v1",
+  "config_hash": "fdacf4406f70401c7bf4a415caba26558715b5cbe6279422c74839a59adc2186",
+  "estimator": "ledoit_wolf",
+  "fit_split": "benign_trainval_disjoint",
+  "n_fit": 3921,
+  "d": 3584,
+  "shrinkage": 0.008687605433060467,
+  "mu_eig": 0.22750596134558462,
+  "pca_whiten_k": 256
+}

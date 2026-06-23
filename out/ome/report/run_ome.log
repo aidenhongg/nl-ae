@@ -1,0 +1,342 @@
+===== Wed Jun 17 04:34:24 UTC 2026 START P0-directions =====
+[P0] wrote 4 directions -> dirs.npz + manifest
+[P0] D_correct sep AUC(test)=0.870 (random 0.525); cos(D_correct, D_know)=+0.738
+[P0] orthogonality flagged (|cos|>0.5): none
+[P0] GATE PASS: unit-norm + separation + know-alignment + orthogonality audited.
+===== Wed Jun 17 04:34:26 UTC 2026 END P0-directions rc=0 =====
+===== Wed Jun 17 04:34:26 UTC 2026 START P1-steer =====
+[P1] dim:D_correct -> 9 arrays (top alpha 175 -> mean ratio 2.020)
+[P1] random:D_random_0 -> 9 arrays (top alpha 175 -> mean ratio 2.020)
+[P1] random:D_random_1 -> 9 arrays (top alpha 175 -> mean ratio 2.020)
+[P1] random:D_random_2 -> 9 arrays (top alpha 175 -> mean ratio 2.020)
+[P1] wrote 36 arrays + norms_ome.parquet (36864 rows) + manifest
+[P1] GATE PASS: alpha=0 identity + additive ||dh||==alpha invariant on all arms.
+===== Wed Jun 17 04:34:38 UTC 2026 END P1-steer rc=0 =====
+===== Wed Jun 17 04:34:38 UTC 2026 START P2a-maha-fit =====
+[P2a] LW fit: n=3921 d=3584 shrinkage=0.0087 -> maha_fit.npz (+ PCA-whiten k=256)
+===== Wed Jun 17 04:34:58 UTC 2026 END P2a-maha-fit rc=0 =====
+===== Wed Jun 17 04:34:58 UTC 2026 START P2a-detectors =====
+[P2a] detectors.parquet: 36864 rows over 36 arrays
+===== Wed Jun 17 04:46:45 UTC 2026 END P2a-detectors rc=0 =====
+===== Wed Jun 17 04:46:45 UTC 2026 START P2b-calibrate =====
+`torch_dtype` is deprecated! Use `dtype` instead!
+[NLAClient] actor_hf: d_model=3584 inj_scale=150.0 embed_scale=1.00 inj_char='㈎'(id=149705)
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00, 61.65it/s]
+Some weights of Qwen2ForCausalLM were not initialized from the model checkpoint at /workspace/critic_hf and are newly initialized: ['lm_head.weight', 'model.norm.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+[NLACritic] 21 layers  d_model=3584  mse_scale=59.87
+[calib_orig a=0.0] 50/256 new 1.2/s
+[calib_orig a=0.0] 100/256 new 1.4/s
+[calib_orig a=0.0] 150/256 new 1.4/s
+[calib_orig a=0.0] 200/256 new 1.4/s
+[calib_orig a=0.0] 250/256 new 1.4/s
+[calib_orig a=0.0] done: +256 (ledger /workspace/nla-src/out/ome/ome/calib_orig.jsonl)
+[P2b] calib: mean_cos=0.7239 OME=0.2761 fve_fixed=-4.1302 coherent=1.00 PASS=True (gate 0.6-0.8, floor 0.2746)
+===== Wed Jun 17 04:50:08 UTC 2026 END P2b-calibrate rc=0 =====
+===== Wed Jun 17 04:50:08 UTC 2026 START P2c-ome-sweep =====
+`torch_dtype` is deprecated! Use `dtype` instead!
+[NLAClient] actor_hf: d_model=3584 inj_scale=150.0 embed_scale=1.00 inj_char='㈎'(id=149705)
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00, 80.81it/s]
+Some weights of Qwen2ForCausalLM were not initialized from the model checkpoint at /workspace/critic_hf and are newly initialized: ['lm_head.weight', 'model.norm.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+/workspace/nla-inference/nla_inference.py:481: UserWarning: The given NumPy array is not writable, and PyTorch does not support non-writable tensors. This means writing to this tensor will result in undefined behavior. You may want to copy the array to protect its data or make it writable before converting it to a tensor. This type of warning will be suppressed for the rest of this program. (Triggered internally at /pytorch/torch/csrc/utils/tensor_numpy.cpp:206.)
+  v = torch.as_tensor(np.asarray(activation, dtype=np.float32))
+[NLACritic] 21 layers  d_model=3584  mse_scale=59.87
+[dim:D_correct a=0.0] 50/256 new 1.7/s
+[dim:D_correct a=0.0] 100/256 new 1.9/s
+[dim:D_correct a=0.0] 150/256 new 2.0/s
+[dim:D_correct a=0.0] 200/256 new 2.1/s
+[dim:D_correct a=0.0] 250/256 new 2.1/s
+[dim:D_correct a=0.0] done: +256 (ledger /workspace/nla-src/out/ome/ome/ome.jsonl)
+[dim:D_correct a=5.0] 50/256 new 1.8/s
+[dim:D_correct a=5.0] 100/256 new 2.0/s
+[dim:D_correct a=5.0] 150/256 new 2.1/s
+[dim:D_correct a=5.0] 200/256 new 2.1/s
+[dim:D_correct a=5.0] 250/256 new 2.1/s
+[dim:D_correct a=5.0] done: +256 (ledger /workspace/nla-src/out/ome/ome/ome.jsonl)
+[dim:D_correct a=10.0] 50/256 new 1.8/s
+[dim:D_correct a=10.0] 100/256 new 2.0/s
+[dim:D_correct a=10.0] 150/256 new 2.1/s
+[dim:D_correct a=10.0] 200/256 new 2.1/s
+[dim:D_correct a=10.0] 250/256 new 2.1/s
+[dim:D_correct a=10.0] done: +256 (ledger /workspace/nla-src/out/ome/ome/ome.jsonl)
+[dim:D_correct a=20.0] 50/256 new 1.6/s
+[dim:D_correct a=20.0] 100/256 new 1.9/s
+[dim:D_correct a=20.0] 150/256 new 2.0/s
+[dim:D_correct a=20.0] 200/256 new 2.0/s
+[dim:D_correct a=20.0] 250/256 new 2.1/s
+[dim:D_correct a=20.0] done: +256 (ledger /workspace/nla-src/out/ome/ome/ome.jsonl)
+[dim:D_correct a=40.0] 50/256 new 1.7/s
+[dim:D_correct a=40.0] 100/256 new 1.9/s
+[dim:D_correct a=40.0] 150/256 new 2.0/s
+[dim:D_correct a=40.0] 200/256 new 2.0/s
+[dim:D_correct a=40.0] 250/256 new 2.0/s
+[dim:D_correct a=40.0] done: +256 (ledger /workspace/nla-src/out/ome/ome/ome.jsonl)
+[dim:D_correct a=60.0] 50/256 new 1.7/s
+[dim:D_correct a=60.0] 100/256 new 1.9/s
+[dim:D_correct a=60.0] 150/256 new 2.0/s
+[dim:D_correct a=60.0] 200/256 new 2.1/s
+[dim:D_correct a=60.0] 250/256 new 2.1/s
+[dim:D_correct a=60.0] done: +256 (ledger /workspace/nla-src/out/ome/ome/ome.jsonl)
+[dim:D_correct a=90.0] 50/256 new 1.8/s
+[dim:D_correct a=90.0] 100/256 new 1.9/s
+[dim:D_correct a=90.0] 150/256 new 2.0/s
+[dim:D_correct a=90.0] 200/256 new 2.0/s
+[dim:D_correct a=90.0] 250/256 new 2.1/s
+[dim:D_correct a=90.0] done: +256 (ledger /workspace/nla-src/out/ome/ome/ome.jsonl)
+[dim:D_correct a=130.0] 50/256 new 1.7/s
+[dim:D_correct a=130.0] 100/256 new 1.9/s
+[dim:D_correct a=130.0] 150/256 new 2.0/s
+[dim:D_correct a=130.0] 200/256 new 2.0/s
+[dim:D_correct a=130.0] 250/256 new 2.1/s
+[dim:D_correct a=130.0] done: +256 (ledger /workspace/nla-src/out/ome/ome/ome.jsonl)
+[dim:D_correct a=175.0] 50/256 new 1.7/s
+[dim:D_correct a=175.0] 100/256 new 1.9/s
+[dim:D_correct a=175.0] 150/256 new 2.0/s
+[dim:D_correct a=175.0] 200/256 new 2.1/s
+[dim:D_correct a=175.0] 250/256 new 2.1/s
+[dim:D_correct a=175.0] done: +256 (ledger /workspace/nla-src/out/ome/ome/ome.jsonl)
+[random:D_random_0 a=0.0] 50/256 new 1.7/s
+[random:D_random_0 a=0.0] 100/256 new 1.9/s
+[random:D_random_0 a=0.0] 150/256 new 2.0/s
+[random:D_random_0 a=0.0] 200/256 new 2.0/s
+[random:D_random_0 a=0.0] 250/256 new 2.1/s
+[random:D_random_0 a=0.0] done: +256 (ledger /workspace/nla-src/out/ome/ome/ome.jsonl)
+[random:D_random_0 a=5.0] 50/256 new 1.7/s
+[random:D_random_0 a=5.0] 100/256 new 1.9/s
+[random:D_random_0 a=5.0] 150/256 new 2.0/s
+[random:D_random_0 a=5.0] 200/256 new 2.1/s
+[random:D_random_0 a=5.0] 250/256 new 2.1/s
+[random:D_random_0 a=5.0] done: +256 (ledger /workspace/nla-src/out/ome/ome/ome.jsonl)
+[random:D_random_0 a=10.0] 50/256 new 1.7/s
+[random:D_random_0 a=10.0] 100/256 new 1.9/s
+[random:D_random_0 a=10.0] 150/256 new 2.0/s
+[random:D_random_0 a=10.0] 200/256 new 2.1/s
+[random:D_random_0 a=10.0] 250/256 new 2.1/s
+[random:D_random_0 a=10.0] done: +256 (ledger /workspace/nla-src/out/ome/ome/ome.jsonl)
+[random:D_random_0 a=20.0] 50/256 new 1.7/s
+[random:D_random_0 a=20.0] 100/256 new 1.9/s
+[random:D_random_0 a=20.0] 150/256 new 2.0/s
+[random:D_random_0 a=20.0] 200/256 new 2.0/s
+[random:D_random_0 a=20.0] 250/256 new 2.1/s
+[random:D_random_0 a=20.0] done: +256 (ledger /workspace/nla-src/out/ome/ome/ome.jsonl)
+[random:D_random_0 a=40.0] 50/256 new 1.7/s
+[random:D_random_0 a=40.0] 100/256 new 1.9/s
+[random:D_random_0 a=40.0] 150/256 new 2.0/s
+[random:D_random_0 a=40.0] 200/256 new 2.1/s
+[random:D_random_0 a=40.0] 250/256 new 2.2/s
+[random:D_random_0 a=40.0] done: +256 (ledger /workspace/nla-src/out/ome/ome/ome.jsonl)
+[random:D_random_0 a=60.0] 50/256 new 1.7/s
+[random:D_random_0 a=60.0] 100/256 new 1.9/s
+[random:D_random_0 a=60.0] 150/256 new 2.0/s
+[random:D_random_0 a=60.0] 200/256 new 2.1/s
+[random:D_random_0 a=60.0] 250/256 new 2.1/s
+[random:D_random_0 a=60.0] done: +256 (ledger /workspace/nla-src/out/ome/ome/ome.jsonl)
+[random:D_random_0 a=90.0] 50/256 new 1.8/s
+[random:D_random_0 a=90.0] 100/256 new 2.0/s
+[random:D_random_0 a=90.0] 150/256 new 2.1/s
+[random:D_random_0 a=90.0] 200/256 new 2.1/s
+[random:D_random_0 a=90.0] 250/256 new 2.1/s
+[random:D_random_0 a=90.0] done: +256 (ledger /workspace/nla-src/out/ome/ome/ome.jsonl)
+[random:D_random_0 a=130.0] 50/256 new 1.7/s
+[random:D_random_0 a=130.0] 100/256 new 1.9/s
+[random:D_random_0 a=130.0] 150/256 new 2.0/s
+[random:D_random_0 a=130.0] 200/256 new 2.1/s
+[random:D_random_0 a=130.0] 250/256 new 2.1/s
+[random:D_random_0 a=130.0] done: +256 (ledger /workspace/nla-src/out/ome/ome/ome.jsonl)
+[random:D_random_0 a=175.0] 50/256 new 1.8/s
+[random:D_random_0 a=175.0] 100/256 new 1.9/s
+[random:D_random_0 a=175.0] 150/256 new 2.0/s
+[random:D_random_0 a=175.0] 200/256 new 2.0/s
+[random:D_random_0 a=175.0] 250/256 new 2.1/s
+[random:D_random_0 a=175.0] done: +256 (ledger /workspace/nla-src/out/ome/ome/ome.jsonl)
+[random:D_random_1 a=0.0] 50/256 new 1.7/s
+[random:D_random_1 a=0.0] 100/256 new 1.8/s
+[random:D_random_1 a=0.0] 150/256 new 1.9/s
+[random:D_random_1 a=0.0] 200/256 new 2.0/s
+[random:D_random_1 a=0.0] 250/256 new 2.1/s
+[random:D_random_1 a=0.0] done: +256 (ledger /workspace/nla-src/out/ome/ome/ome.jsonl)
+[random:D_random_1 a=5.0] 50/256 new 1.7/s
+[random:D_random_1 a=5.0] 100/256 new 2.0/s
+[random:D_random_1 a=5.0] 150/256 new 2.1/s
+[random:D_random_1 a=5.0] 200/256 new 2.1/s
+[random:D_random_1 a=5.0] 250/256 new 2.1/s
+[random:D_random_1 a=5.0] done: +256 (ledger /workspace/nla-src/out/ome/ome/ome.jsonl)
+[random:D_random_1 a=10.0] 50/256 new 1.7/s
+[random:D_random_1 a=10.0] 100/256 new 1.8/s
+[random:D_random_1 a=10.0] 150/256 new 1.8/s
+[random:D_random_1 a=10.0] 200/256 new 1.8/s
+[random:D_random_1 a=10.0] 250/256 new 1.9/s
+[random:D_random_1 a=10.0] done: +256 (ledger /workspace/nla-src/out/ome/ome/ome.jsonl)
+[random:D_random_1 a=20.0] 50/256 new 1.6/s
+[random:D_random_1 a=20.0] 100/256 new 1.8/s
+[random:D_random_1 a=20.0] 150/256 new 1.9/s
+[random:D_random_1 a=20.0] 200/256 new 1.9/s
+[random:D_random_1 a=20.0] 250/256 new 1.9/s
+[random:D_random_1 a=20.0] done: +256 (ledger /workspace/nla-src/out/ome/ome/ome.jsonl)
+[random:D_random_1 a=40.0] 50/256 new 1.7/s
+[random:D_random_1 a=40.0] 100/256 new 1.8/s
+[random:D_random_1 a=40.0] 150/256 new 1.9/s
+[random:D_random_1 a=40.0] 200/256 new 2.0/s
+[random:D_random_1 a=40.0] 250/256 new 2.0/s
+[random:D_random_1 a=40.0] done: +256 (ledger /workspace/nla-src/out/ome/ome/ome.jsonl)
+[random:D_random_1 a=60.0] 50/256 new 1.7/s
+[random:D_random_1 a=60.0] 100/256 new 1.9/s
+[random:D_random_1 a=60.0] 150/256 new 2.0/s
+[random:D_random_1 a=60.0] 200/256 new 2.1/s
+[random:D_random_1 a=60.0] 250/256 new 2.1/s
+[random:D_random_1 a=60.0] done: +256 (ledger /workspace/nla-src/out/ome/ome/ome.jsonl)
+[random:D_random_1 a=90.0] 50/256 new 1.7/s
+[random:D_random_1 a=90.0] 100/256 new 1.9/s
+[random:D_random_1 a=90.0] 150/256 new 2.0/s
+[random:D_random_1 a=90.0] 200/256 new 2.0/s
+[random:D_random_1 a=90.0] 250/256 new 2.1/s
+[random:D_random_1 a=90.0] done: +256 (ledger /workspace/nla-src/out/ome/ome/ome.jsonl)
+[random:D_random_1 a=130.0] 50/256 new 1.8/s
+[random:D_random_1 a=130.0] 100/256 new 1.9/s
+[random:D_random_1 a=130.0] 150/256 new 2.0/s
+[random:D_random_1 a=130.0] 200/256 new 2.1/s
+[random:D_random_1 a=130.0] 250/256 new 2.1/s
+[random:D_random_1 a=130.0] done: +256 (ledger /workspace/nla-src/out/ome/ome/ome.jsonl)
+[random:D_random_1 a=175.0] 50/256 new 1.7/s
+[random:D_random_1 a=175.0] 100/256 new 2.0/s
+[random:D_random_1 a=175.0] 150/256 new 2.1/s
+[random:D_random_1 a=175.0] 200/256 new 2.1/s
+[random:D_random_1 a=175.0] 250/256 new 2.2/s
+[random:D_random_1 a=175.0] done: +256 (ledger /workspace/nla-src/out/ome/ome/ome.jsonl)
+[random:D_random_2 a=0.0] 50/256 new 1.8/s
+[random:D_random_2 a=0.0] 100/256 new 2.0/s
+[random:D_random_2 a=0.0] 150/256 new 2.1/s
+[random:D_random_2 a=0.0] 200/256 new 2.1/s
+[random:D_random_2 a=0.0] 250/256 new 2.1/s
+[random:D_random_2 a=0.0] done: +256 (ledger /workspace/nla-src/out/ome/ome/ome.jsonl)
+[random:D_random_2 a=5.0] 50/256 new 1.7/s
+[random:D_random_2 a=5.0] 100/256 new 2.0/s
+[random:D_random_2 a=5.0] 150/256 new 2.0/s
+[random:D_random_2 a=5.0] 200/256 new 2.1/s
+[random:D_random_2 a=5.0] 250/256 new 2.1/s
+[random:D_random_2 a=5.0] done: +256 (ledger /workspace/nla-src/out/ome/ome/ome.jsonl)
+[random:D_random_2 a=10.0] 50/256 new 1.7/s
+[random:D_random_2 a=10.0] 100/256 new 1.9/s
+[random:D_random_2 a=10.0] 150/256 new 2.0/s
+[random:D_random_2 a=10.0] 200/256 new 2.1/s
+[random:D_random_2 a=10.0] 250/256 new 2.1/s
+[random:D_random_2 a=10.0] done: +256 (ledger /workspace/nla-src/out/ome/ome/ome.jsonl)
+[random:D_random_2 a=20.0] 50/256 new 1.7/s
+[random:D_random_2 a=20.0] 100/256 new 2.0/s
+[random:D_random_2 a=20.0] 150/256 new 2.0/s
+[random:D_random_2 a=20.0] 200/256 new 2.1/s
+[random:D_random_2 a=20.0] 250/256 new 2.1/s
+[random:D_random_2 a=20.0] done: +256 (ledger /workspace/nla-src/out/ome/ome/ome.jsonl)
+[random:D_random_2 a=40.0] 50/256 new 1.8/s
+[random:D_random_2 a=40.0] 100/256 new 2.0/s
+[random:D_random_2 a=40.0] 150/256 new 2.1/s
+[random:D_random_2 a=40.0] 200/256 new 2.1/s
+[random:D_random_2 a=40.0] 250/256 new 2.2/s
+[random:D_random_2 a=40.0] done: +256 (ledger /workspace/nla-src/out/ome/ome/ome.jsonl)
+[random:D_random_2 a=60.0] 50/256 new 1.7/s
+[random:D_random_2 a=60.0] 100/256 new 1.9/s
+[random:D_random_2 a=60.0] 150/256 new 2.0/s
+[random:D_random_2 a=60.0] 200/256 new 2.1/s
+[random:D_random_2 a=60.0] 250/256 new 2.1/s
+[random:D_random_2 a=60.0] done: +256 (ledger /workspace/nla-src/out/ome/ome/ome.jsonl)
+[random:D_random_2 a=90.0] 50/256 new 1.7/s
+[random:D_random_2 a=90.0] 100/256 new 2.0/s
+[random:D_random_2 a=90.0] 150/256 new 2.0/s
+[random:D_random_2 a=90.0] 200/256 new 2.1/s
+[random:D_random_2 a=90.0] 250/256 new 2.1/s
+[random:D_random_2 a=90.0] done: +256 (ledger /workspace/nla-src/out/ome/ome/ome.jsonl)
+[random:D_random_2 a=130.0] 50/256 new 1.7/s
+[random:D_random_2 a=130.0] 100/256 new 1.9/s
+[random:D_random_2 a=130.0] 150/256 new 2.0/s
+[random:D_random_2 a=130.0] 200/256 new 2.0/s
+[random:D_random_2 a=130.0] 250/256 new 2.1/s
+[random:D_random_2 a=130.0] done: +256 (ledger /workspace/nla-src/out/ome/ome/ome.jsonl)
+[random:D_random_2 a=175.0] 50/256 new 1.7/s
+[random:D_random_2 a=175.0] 100/256 new 1.9/s
+[random:D_random_2 a=175.0] 150/256 new 2.0/s
+[random:D_random_2 a=175.0] 200/256 new 2.0/s
+[random:D_random_2 a=175.0] 250/256 new 2.1/s
+[random:D_random_2 a=175.0] done: +256 (ledger /workspace/nla-src/out/ome/ome/ome.jsonl)
+[P2c] ome_by_cond.parquet: 9216 rows over 36 conditions (0 flagged NLA-OOD, av-coherent<0.5)
+===== Wed Jun 17 06:03:54 UTC 2026 END P2c-ome-sweep rc=0 =====
+===== Wed Jun 17 06:03:54 UTC 2026 START P3-readout-dim =====
+`torch_dtype` is deprecated! Use `dtype` instead!
+Fetching 4 files:   0%|          | 0/4 [00:00<?, ?it/s]Fetching 4 files:  25%|██▌       | 1/4 [00:07<00:21,  7.22s/it]Fetching 4 files:  50%|█████     | 2/4 [01:11<01:21, 40.51s/it]Fetching 4 files: 100%|██████████| 4/4 [02:50<00:00, 46.27s/it]Fetching 4 files: 100%|██████████| 4/4 [02:50<00:00, 42.61s/it]
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00, 61.82it/s]
+[P3 readout] parity gate OK
+[P3 readout] dim:D_correct a=0 acc=0.6348
+[P3 readout] dim:D_correct a=5 acc=0.6367
+[P3 readout] dim:D_correct a=10 acc=0.6367
+[P3 readout] dim:D_correct a=20 acc=0.6230
+[P3 readout] dim:D_correct a=40 acc=0.6250
+[P3 readout] dim:D_correct a=60 acc=0.6367
+[P3 readout] dim:D_correct a=90 acc=0.6562
+[P3 readout] dim:D_correct a=130 acc=0.6699
+[P3 readout] dim:D_correct a=175 acc=0.6055
+[P3 readout] dim:D_correct base_acc=0.6348 peak=0.6699@a130 (inverted-U if peak>base & tail<peak)
+===== Wed Jun 17 06:08:39 UTC 2026 END P3-readout-dim rc=0 =====
+===== Wed Jun 17 06:08:39 UTC 2026 START P3-readout-D_random_0 =====
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00, 87.45it/s]
+[P3 readout] parity gate OK
+[P3 readout] random:D_random_0 a=0 acc=0.6348
+[P3 readout] random:D_random_0 a=5 acc=0.6328
+[P3 readout] random:D_random_0 a=10 acc=0.6250
+[P3 readout] random:D_random_0 a=20 acc=0.6270
+[P3 readout] random:D_random_0 a=40 acc=0.6230
+[P3 readout] random:D_random_0 a=60 acc=0.6211
+[P3 readout] random:D_random_0 a=90 acc=0.6426
+[P3 readout] random:D_random_0 a=130 acc=0.6270
+[P3 readout] random:D_random_0 a=175 acc=0.5469
+[P3 readout] random:D_random_0 base_acc=0.6348 peak=0.6426@a90 (inverted-U if peak>base & tail<peak)
+===== Wed Jun 17 06:10:34 UTC 2026 END P3-readout-D_random_0 rc=0 =====
+===== Wed Jun 17 06:10:34 UTC 2026 START P3-readout-D_random_1 =====
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00, 80.98it/s]
+[P3 readout] parity gate OK
+[P3 readout] random:D_random_1 a=0 acc=0.6348
+[P3 readout] random:D_random_1 a=5 acc=0.6328
+[P3 readout] random:D_random_1 a=10 acc=0.6309
+[P3 readout] random:D_random_1 a=20 acc=0.6328
+[P3 readout] random:D_random_1 a=40 acc=0.6387
+[P3 readout] random:D_random_1 a=60 acc=0.6387
+[P3 readout] random:D_random_1 a=90 acc=0.6465
+[P3 readout] random:D_random_1 a=130 acc=0.6465
+[P3 readout] random:D_random_1 a=175 acc=0.5527
+[P3 readout] random:D_random_1 base_acc=0.6348 peak=0.6465@a90 (inverted-U if peak>base & tail<peak)
+===== Wed Jun 17 06:12:28 UTC 2026 END P3-readout-D_random_1 rc=0 =====
+===== Wed Jun 17 06:12:28 UTC 2026 START P3-readout-D_random_2 =====
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00, 68.88it/s]
+[P3 readout] parity gate OK
+[P3 readout] random:D_random_2 a=0 acc=0.6348
+[P3 readout] random:D_random_2 a=5 acc=0.6328
+[P3 readout] random:D_random_2 a=10 acc=0.6328
+[P3 readout] random:D_random_2 a=20 acc=0.6289
+[P3 readout] random:D_random_2 a=40 acc=0.6230
+[P3 readout] random:D_random_2 a=60 acc=0.6152
+[P3 readout] random:D_random_2 a=90 acc=0.6113
+[P3 readout] random:D_random_2 a=130 acc=0.6289
+[P3 readout] random:D_random_2 a=175 acc=0.5723
+[P3 readout] random:D_random_2 base_acc=0.6348 peak=0.6348@a0 (inverted-U if peak>base & tail<peak)
+===== Wed Jun 17 06:14:23 UTC 2026 END P3-readout-D_random_2 rc=0 =====
+===== Wed Jun 17 06:14:23 UTC 2026 START P3-output-kl =====
+`torch_dtype` is deprecated! Use `dtype` instead!
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00, 65.40it/s]
+[P3 output-kl] dim:D_correct a=0 mean_KL=0.0000
+[P3 output-kl] dim:D_correct a=5 mean_KL=0.0025
+[P3 output-kl] dim:D_correct a=10 mean_KL=0.0093
+[P3 output-kl] dim:D_correct a=20 mean_KL=0.0337
+[P3 output-kl] dim:D_correct a=40 mean_KL=0.1181
+[P3 output-kl] dim:D_correct a=60 mean_KL=0.2493
+[P3 output-kl] dim:D_correct a=90 mean_KL=0.4300
+[P3 output-kl] dim:D_correct a=130 mean_KL=2.1330
+[P3 output-kl] dim:D_correct a=175 mean_KL=12.0361
+===== Wed Jun 17 06:15:31 UTC 2026 END P3-output-kl rc=0 =====
+===== Wed Jun 17 06:15:31 UTC 2026 START P4-analyze =====
+[anchors] OME frontier OK: {'ome_floor_a0': 0.2746, 'ome_peak_a10': 0.4127, 'ome_collapse_a30': 0.6927, 'spearman_cos_alpha': -0.9909, 'kappa_peak_acc': 0.7148, 'kappa_collapse_acc': 0.5996}
+[P4] analysis.json: 36 additive conditions + 11 KAPPA; GATE S1 = PASS (OME present: True)
+===== Wed Jun 17 06:15:32 UTC 2026 END P4-analyze rc=0 =====
+===== Wed Jun 17 06:15:32 UTC 2026 STAGE 1 DONE — read out/ome/report/FINDINGS.md for GATE S1 =====
+GATE S1 PASS (OME moves AND OME >= Maha on the collapse proxy) -> proceed to Stage 2 (R2).

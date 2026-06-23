@@ -1,0 +1,12 @@
+{
+  "schema_version": "ome_gauge.prompt.v1",
+  "config_hash": "6024d02c5fdb71009db23d0b485f572e5d9110e5b35c9b4e78d1c39e3603d8dc",
+  "kind": "prompt",
+  "name": "neutral",
+  "purpose": "collapse_battery",
+  "source": "benign_open_ended",
+  "source_ref": "Alpaca/Dolly-style benign open-ended slice",
+  "source_sha": "f899ac3ff978f9292789cf98228be358aa802e1ff55c9914440267280dbadf5d",
+  "n": 96,
+  "sha256": "c2561dd88f6f8df1bab713de9759cbe5cea7a1556c894f8f48d6952a5f6d0107"
+}

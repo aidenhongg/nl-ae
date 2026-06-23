@@ -1,0 +1,122 @@
+{
+  "schema_version": "ome_gauge.dirs.v1",
+  "config_hash": "6024d02c5fdb71009db23d0b485f572e5d9110e5b35c9b4e78d1c39e3603d8dc",
+  "model_id": "Qwen/Qwen2.5-7B-Instruct",
+  "layer": 20,
+  "d_model": 3584,
+  "source_a0": "h_layer20_steered_a0.npy",
+  "n_fit": 3921,
+  "n_test": 2615,
+  "directions": [
+    "D_correct",
+    "D_random_0",
+    "D_random_1",
+    "D_random_2",
+    "D_toxic",
+    "D_refusal",
+    "D_sycophancy"
+  ],
+  "provenance": {
+    "D_correct": {
+      "kind": "mean_difference",
+      "base_cohort": "a0",
+      "split": "trainval(fit)",
+      "label": "y_tilde==answer_index",
+      "n_pos": 2515,
+      "n_neg": 1406,
+      "raw_norm": 9.076743408423791
+    },
+    "D_random_0": {
+      "kind": "random_unit",
+      "seed": 7
+    },
+    "D_random_1": {
+      "kind": "random_unit",
+      "seed": 8
+    },
+    "D_random_2": {
+      "kind": "random_unit",
+      "seed": 9
+    },
+    "D_toxic": {
+      "kind": "content_mean_difference",
+      "harvest_position": "last",
+      "n_pos": 100,
+      "n_neg": 100,
+      "raw_norm": 46.55933170626954,
+      "dangerous_sign": 1,
+      "source": "persona_vectors_evil_vs_aligned",
+      "source_sha": "2e8d11c0629350a557a2590900d7a8f25faf2041095b99dc26e3c758e8cc9413"
+    },
+    "D_refusal": {
+      "kind": "content_mean_difference",
+      "harvest_position": "last",
+      "n_pos": 500,
+      "n_neg": 500,
+      "raw_norm": 61.89714440309157,
+      "dangerous_sign": -1,
+      "source": "arditi_harmful_vs_harmless",
+      "source_sha": "ce1aee1f7e054b7ac56079104eab7c0b979713dc4331c8423f0be19bdacb0d4b"
+    },
+    "D_sycophancy": {
+      "kind": "content_mean_difference",
+      "harvest_position": "last",
+      "n_pos": 500,
+      "n_neg": 500,
+      "raw_norm": 12.316208293862314,
+      "dangerous_sign": 1,
+      "source": "caa_rimsky_sycophancy",
+      "source_sha": "21a10bfb93c0450afc03d1c1817cc098beeb441c78c3538836080a3c2037a584"
+    }
+  },
+  "orthogonality_abs_cos": {
+    "D_correct|D_random_0": -0.010308170433643333,
+    "D_correct|D_random_1": 0.011630181704910304,
+    "D_correct|D_random_2": 0.011645686947953055,
+    "D_correct|D_toxic": -0.002048042168364234,
+    "D_correct|D_refusal": 0.043772981209444464,
+    "D_correct|D_sycophancy": -0.00985073685910104,
+    "D_random_0|D_random_1": -0.012761503505726152,
+    "D_random_0|D_random_2": 2.6681108995152067e-06,
+    "D_random_0|D_toxic": -0.011020608658495351,
+    "D_random_0|D_refusal": -0.017043698927190605,
+    "D_random_0|D_sycophancy": 0.007702672813687274,
+    "D_random_1|D_random_2": -0.018262152184279443,
+    "D_random_1|D_toxic": -0.010792705046876218,
+    "D_random_1|D_refusal": 0.03735262689848803,
+    "D_random_1|D_sycophancy": -0.004304954186065978,
+    "D_random_2|D_toxic": -0.008938627567191288,
+    "D_random_2|D_refusal": -0.03218995492170746,
+    "D_random_2|D_sycophancy": 0.011900040527078992,
+    "D_toxic|D_refusal": 0.32506664233080634,
+    "D_toxic|D_sycophancy": -0.15875750444314932,
+    "D_refusal|D_sycophancy": -0.2457765361264771
+  },
+  "orthogonality_flagged_gt_0p5": {},
+  "sanity": {
+    "d_correct_sep_auc_test": 0.8696901881615258,
+    "d_random_sep_auc_test_mean": 0.5253798963990047,
+    "d_correct_vs_know_cos": 0.7376845466714363
+  },
+  "content": {
+    "D_toxic": {
+      "n_pos": 100,
+      "n_neg": 100,
+      "dangerous_sign": 1,
+      "cos_vs_d_correct": -0.002048042168364234
+    },
+    "D_refusal": {
+      "n_pos": 500,
+      "n_neg": 500,
+      "dangerous_sign": -1,
+      "cos_vs_d_correct": 0.043772981209444464
+    },
+    "D_sycophancy": {
+      "n_pos": 500,
+      "n_neg": 500,
+      "dangerous_sign": 1,
+      "cos_vs_d_correct": -0.00985073685910104
+    }
+  },
+  "content_rides_capability": {}
+}

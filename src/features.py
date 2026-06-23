@@ -102,7 +102,17 @@ class FeaturePaths:
 
 _SRC = Path(__file__).resolve().parent
 _NLA_ROOT = _SRC.parent
-_EXP04_MIRROR = _NLA_ROOT.parent / "exp04" / "05_out_pulled"
+# Self-containment: prefer the in-repo vendored exp04 slice (inputs/exp04/, holding the
+# load-bearing example_ids.json + the know/pred probes) so the CPU pipeline runs from a
+# clone without the external ../exp04 sibling. Fall back to the sibling when the vendored
+# mirror is absent (e.g. a full exp04 working tree, or the pod's separately-synced cache).
+_VENDORED_EXP04 = _NLA_ROOT / "inputs" / "exp04"
+_SIBLING_EXP04 = _NLA_ROOT.parent / "exp04" / "05_out_pulled"
+_EXP04_MIRROR = (
+    _VENDORED_EXP04
+    if (_VENDORED_EXP04 / "03_kappa" / "emb" / "example_ids.json").exists()
+    else _SIBLING_EXP04
+)
 
 
 def default_paths() -> FeaturePaths:

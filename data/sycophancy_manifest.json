@@ -1,0 +1,14 @@
+{
+  "schema_version": "ome_gauge.contrast.v1",
+  "config_hash": "6024d02c5fdb71009db23d0b485f572e5d9110e5b35c9b4e78d1c39e3603d8dc",
+  "kind": "contrast",
+  "name": "sycophancy",
+  "dir": "D_sycophancy",
+  "source": "caa_rimsky_sycophancy",
+  "source_ref": "Rimsky et al. CAA arXiv:2312.06681 (sycophancy contrast)",
+  "source_sha": "1394c959d97ffae28fe9df71ce07a402c13c9333159307a28bd664fbe355b8b0",
+  "n_pairs": 500,
+  "n_pos": 500,
+  "n_neg": 500,
+  "sha256": "0d9f27f1fae6859a1d6170fa04f38ebda7ce986a8e630c303e16491489b549c9"
+}
